@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="jRc-Qg-tNn" customClass="SS_BusinessCell">
+            <rect key="frame" x="0.0" y="0.0" width="466" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jRc-Qg-tNn" id="rN8-tG-79v">
+                <rect key="frame" x="0.0" y="0.0" width="466" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bank" translatesAutoresizingMaskIntoConstraints="NO" id="4CG-No-NLU">
+                        <rect key="frame" x="5" y="5" width="60" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="HIF-Za-Vj1"/>
+                            <constraint firstAttribute="height" constant="60" id="a2z-aV-ubL"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABCBCA-SHOP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz7-cS-4Ah">
+                        <rect key="frame" x="81" y="13" width="172" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Ebi-4w-B0f"/>
+                            <constraint firstAttribute="width" constant="172" id="aTE-iu-mAx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：XX路" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hH-8g-4Io">
+                        <rect key="frame" x="81" y="37" width="130" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="E0f-Kr-9Qh"/>
+                            <constraint firstAttribute="width" constant="130" id="LvH-f9-Pas"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Cz7-cS-4Ah" firstAttribute="top" secondItem="rN8-tG-79v" secondAttribute="top" constant="13" id="2RC-2L-65M"/>
+                    <constraint firstItem="3hH-8g-4Io" firstAttribute="top" secondItem="Cz7-cS-4Ah" secondAttribute="bottom" constant="3" id="6WF-hJ-FtD"/>
+                    <constraint firstItem="3hH-8g-4Io" firstAttribute="leading" secondItem="4CG-No-NLU" secondAttribute="trailing" constant="16" id="NSn-E0-GEp"/>
+                    <constraint firstItem="Cz7-cS-4Ah" firstAttribute="leading" secondItem="4CG-No-NLU" secondAttribute="trailing" constant="16" id="VBG-Kt-g1b"/>
+                    <constraint firstItem="4CG-No-NLU" firstAttribute="top" secondItem="rN8-tG-79v" secondAttribute="top" constant="5" id="nZk-VW-yys"/>
+                    <constraint firstItem="4CG-No-NLU" firstAttribute="leading" secondItem="rN8-tG-79v" secondAttribute="leading" constant="5" id="shB-kN-nb8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailLab" destination="3hH-8g-4Io" id="cbM-wR-Qy0"/>
+                <outlet property="logoView" destination="4CG-No-NLU" id="3YB-Or-zPH"/>
+                <outlet property="titleLab" destination="Cz7-cS-4Ah" id="frd-Gu-JzU"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_bank" width="30" height="30"/>
+    </resources>
+</document>
