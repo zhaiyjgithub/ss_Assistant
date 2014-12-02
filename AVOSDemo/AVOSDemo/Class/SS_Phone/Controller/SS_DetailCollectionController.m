@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 秋权mac. All rights reserved.
 //
 
-#import "SS_DetailPhoneController.h"
+#import "SS_DetailCollectionController.h"
 
 @interface SS_DetailPhoneController ()
 

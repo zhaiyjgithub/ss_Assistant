@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6493890C1A2E0C300089AC21 /* SS_NavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */; };
+		6493890E1A2E0CDB0089AC21 /* SS_NavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6493890D1A2E0CDB0089AC21 /* SS_NavigationCell.xib */; };
+		649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389101A2E176D0089AC21 /* SS_StoreViewController.m */; };
+		649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389151A2E18180089AC21 /* SS_StoreCell.m */; };
+		649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649389161A2E18180089AC21 /* SS_StoreCell.xib */; };
 		6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */; };
 		6B278F301A24345200AC5A6E /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F2F1A24345200AC5A6E /* SS_BusinessModel.m */; };
 		6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F711A2434B900AC5A6E /* MJArgument.m */; };
@@ -51,7 +56,7 @@
 		6BA03C581A238E7900B50019 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA03C4E1A238E7900B50019 /* AFURLResponseSerialization.m */; };
 		6BA03C591A238E7900B50019 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA03C501A238E7900B50019 /* AFURLSessionManager.m */; };
 		6BA5A36F1A249BE700A0BDF5 /* SS_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5A36E1A249BE700A0BDF5 /* SS_MainViewController.m */; };
-		6BA5A3721A249C3800A0BDF5 /* SS_DetailPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5A3711A249C3800A0BDF5 /* SS_DetailPhoneController.m */; };
+		6BA5A3721A249C3800A0BDF5 /* SS_DetailCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5A3711A249C3800A0BDF5 /* SS_DetailCollectionController.m */; };
 		6BA5A3751A249C7100A0BDF5 /* SS_MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5A3741A249C7100A0BDF5 /* SS_MineController.m */; };
 		6BA5A37A1A249D0B00A0BDF5 /* BaseTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5A3771A249D0B00A0BDF5 /* BaseTabbarController.m */; };
 		6BA5A37B1A249D0B00A0BDF5 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5A3791A249D0B00A0BDF5 /* UIViewExt.m */; };
@@ -68,6 +73,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_NavigationCell.h; sourceTree = "<group>"; };
+		6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_NavigationCell.m; sourceTree = "<group>"; };
+		6493890D1A2E0CDB0089AC21 /* SS_NavigationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_NavigationCell.xib; sourceTree = "<group>"; };
+		6493890F1A2E176D0089AC21 /* SS_StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_StoreViewController.h; sourceTree = "<group>"; };
+		649389101A2E176D0089AC21 /* SS_StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_StoreViewController.m; sourceTree = "<group>"; };
+		649389141A2E18180089AC21 /* SS_StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_StoreCell.h; sourceTree = "<group>"; };
+		649389151A2E18180089AC21 /* SS_StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_StoreCell.m; sourceTree = "<group>"; };
+		649389161A2E18180089AC21 /* SS_StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_StoreCell.xib; sourceTree = "<group>"; };
 		6B278F2A1A24317900AC5A6E /* SS_BusinessAPITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessAPITool.h; sourceTree = "<group>"; };
 		6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessAPITool.m; sourceTree = "<group>"; };
 		6B278F2E1A24345200AC5A6E /* SS_BusinessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessModel.h; sourceTree = "<group>"; };
@@ -148,8 +161,8 @@
 		6BA03C501A238E7900B50019 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		6BA5A36D1A249BE700A0BDF5 /* SS_MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_MainViewController.h; sourceTree = "<group>"; };
 		6BA5A36E1A249BE700A0BDF5 /* SS_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_MainViewController.m; sourceTree = "<group>"; };
-		6BA5A3701A249C3800A0BDF5 /* SS_DetailPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailPhoneController.h; sourceTree = "<group>"; };
-		6BA5A3711A249C3800A0BDF5 /* SS_DetailPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailPhoneController.m; sourceTree = "<group>"; };
+		6BA5A3701A249C3800A0BDF5 /* SS_DetailCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailCollectionController.h; sourceTree = "<group>"; };
+		6BA5A3711A249C3800A0BDF5 /* SS_DetailCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailCollectionController.m; sourceTree = "<group>"; };
 		6BA5A3731A249C7100A0BDF5 /* SS_MineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_MineController.h; sourceTree = "<group>"; };
 		6BA5A3741A249C7100A0BDF5 /* SS_MineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_MineController.m; sourceTree = "<group>"; };
 		6BA5A3761A249D0B00A0BDF5 /* BaseTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabbarController.h; sourceTree = "<group>"; };
@@ -409,7 +422,7 @@
 				6BA5A36A1A249BA500A0BDF5 /* SS_Main */,
 				6BA5A35E1A249B1C00A0BDF5 /* SS_Home */,
 				6BA5A3621A249B1C00A0BDF5 /* SS_Mine */,
-				6BA5A3661A249B1C00A0BDF5 /* SS_Phone */,
+				6BA5A3661A249B1C00A0BDF5 /* SS_Collection */,
 			);
 			name = Class;
 			path = AVOSDemo/Class;
@@ -430,6 +443,8 @@
 			children = (
 				6B278FAB1A2438E900AC5A6E /* SS_BuinessController.h */,
 				6B278FAC1A2438E900AC5A6E /* SS_BuinessController.m */,
+				6493890F1A2E176D0089AC21 /* SS_StoreViewController.h */,
+				649389101A2E176D0089AC21 /* SS_StoreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -447,6 +462,12 @@
 				6B278FA41A24385800AC5A6E /* SS_BusinessCell.h */,
 				6B278FA51A24385800AC5A6E /* SS_BusinessCell.m */,
 				6B278FAE1A24394400AC5A6E /* SS_BusinessCell.xib */,
+				6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */,
+				6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */,
+				6493890D1A2E0CDB0089AC21 /* SS_NavigationCell.xib */,
+				649389141A2E18180089AC21 /* SS_StoreCell.h */,
+				649389151A2E18180089AC21 /* SS_StoreCell.m */,
+				649389161A2E18180089AC21 /* SS_StoreCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,21 +505,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6BA5A3661A249B1C00A0BDF5 /* SS_Phone */ = {
+		6BA5A3661A249B1C00A0BDF5 /* SS_Collection */ = {
 			isa = PBXGroup;
 			children = (
 				6BA5A3671A249B1C00A0BDF5 /* Controller */,
 				6BA5A3681A249B1C00A0BDF5 /* Model */,
 				6BA5A3691A249B1C00A0BDF5 /* View */,
 			);
+			name = SS_Collection;
 			path = SS_Phone;
 			sourceTree = "<group>";
 		};
 		6BA5A3671A249B1C00A0BDF5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6BA5A3701A249C3800A0BDF5 /* SS_DetailPhoneController.h */,
-				6BA5A3711A249C3800A0BDF5 /* SS_DetailPhoneController.m */,
+				6BA5A3701A249C3800A0BDF5 /* SS_DetailCollectionController.h */,
+				6BA5A3711A249C3800A0BDF5 /* SS_DetailCollectionController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -621,6 +643,8 @@
 				6BA03C151A238B3900B50019 /* Images.xcassets in Resources */,
 				6B278FAF1A24394400AC5A6E /* SS_BusinessCell.xib in Resources */,
 				6BA03C071A238B3900B50019 /* InfoPlist.strings in Resources */,
+				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
+				6493890E1A2E0CDB0089AC21 /* SS_NavigationCell.xib in Resources */,
 				6BA03C101A238B3900B50019 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +664,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */,
 				6B278FB21A24405700AC5A6E /* UIImageView+AFNetworking.m in Sources */,
 				6BA03C591A238E7900B50019 /* AFURLSessionManager.m in Sources */,
 				6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */,
@@ -658,6 +683,7 @@
 				6BA03C571A238E7900B50019 /* AFURLRequestSerialization.m in Sources */,
 				6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */,
 				6B278F8F1A2434B900AC5A6E /* MJTypeEncoding.m in Sources */,
+				649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */,
 				6BA5A37A1A249D0B00A0BDF5 /* BaseTabbarController.m in Sources */,
 				6B278F911A2434B900AC5A6E /* NSObject+MJKeyValue.m in Sources */,
 				6B278FA31A24384000AC5A6E /* SS_BaseCell.m in Sources */,
@@ -670,11 +696,12 @@
 				6BA03C521A238E7900B50019 /* AFHTTPRequestOperationManager.m in Sources */,
 				6B278F901A2434B900AC5A6E /* NSObject+MJCoding.m in Sources */,
 				6BA03C551A238E7900B50019 /* AFSecurityPolicy.m in Sources */,
+				6493890C1A2E0C300089AC21 /* SS_NavigationCell.m in Sources */,
 				6BA5A36F1A249BE700A0BDF5 /* SS_MainViewController.m in Sources */,
 				6BA03C581A238E7900B50019 /* AFURLResponseSerialization.m in Sources */,
 				6B278FAA1A2438AF00AC5A6E /* SS_BaseViewController.m in Sources */,
 				6B278F9F1A2434F500AC5A6E /* SS_BaseModel.m in Sources */,
-				6BA5A3721A249C3800A0BDF5 /* SS_DetailPhoneController.m in Sources */,
+				6BA5A3721A249C3800A0BDF5 /* SS_DetailCollectionController.m in Sources */,
 				6BA03C511A238E7900B50019 /* AFHTTPRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

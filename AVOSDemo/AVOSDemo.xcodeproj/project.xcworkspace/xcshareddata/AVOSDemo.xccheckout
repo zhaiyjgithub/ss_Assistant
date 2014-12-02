@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C4CE83A1-66A8-4DCA-AE6F-64EBC5FBA367</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AVOSDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2454F2EA-46A3-4F96-9B48-62245591FF61</key>
+		<string>https://github.com/zhaiyjgithub/ss_Assistant.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AVOSDemo/AVOSDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2454F2EA-46A3-4F96-9B48-62245591FF61</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/zhaiyjgithub/ss_Assistant.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2454F2EA-46A3-4F96-9B48-62245591FF61</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2454F2EA-46A3-4F96-9B48-62245591FF61</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ss_Assistant</string>
+		</dict>
+	</array>
+</dict>
+</plist>

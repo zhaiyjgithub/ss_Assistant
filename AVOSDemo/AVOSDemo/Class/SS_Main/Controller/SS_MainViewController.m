@@ -8,7 +8,7 @@
 
 #import "SS_MainViewController.h"
 #import "SS_BuinessController.h"
-#import "SS_DetailPhoneController.h"
+#import "SS_DetailCollectionController.h"
 #import "SS_MineController.h"
 @interface SS_MainViewController ()
 
