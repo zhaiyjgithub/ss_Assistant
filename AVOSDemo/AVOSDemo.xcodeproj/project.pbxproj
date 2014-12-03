@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6421F64A1A2F654F009FC0BF /* SS_NaviPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F6491A2F654F009FC0BF /* SS_NaviPageCell.m */; };
+		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
 		6493890C1A2E0C300089AC21 /* SS_NavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */; };
 		6493890E1A2E0CDB0089AC21 /* SS_NavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6493890D1A2E0CDB0089AC21 /* SS_NavigationCell.xib */; };
 		649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389101A2E176D0089AC21 /* SS_StoreViewController.m */; };
@@ -73,6 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6421F6481A2F654F009FC0BF /* SS_NaviPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_NaviPageCell.h; sourceTree = "<group>"; };
+		6421F6491A2F654F009FC0BF /* SS_NaviPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_NaviPageCell.m; sourceTree = "<group>"; };
+		6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseButton.h; sourceTree = "<group>"; };
+		6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseButton.m; sourceTree = "<group>"; };
 		6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_NavigationCell.h; sourceTree = "<group>"; };
 		6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_NavigationCell.m; sourceTree = "<group>"; };
 		6493890D1A2E0CDB0089AC21 /* SS_NavigationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_NavigationCell.xib; sourceTree = "<group>"; };
@@ -212,6 +218,8 @@
 				6B278F9E1A2434F500AC5A6E /* SS_BaseModel.m */,
 				6B278F2E1A24345200AC5A6E /* SS_BusinessModel.h */,
 				6B278F2F1A24345200AC5A6E /* SS_BusinessModel.m */,
+				6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */,
+				6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */,
 			);
 			name = SS_Model;
 			path = AVOSDemo/SS_Model;
@@ -468,6 +476,8 @@
 				649389141A2E18180089AC21 /* SS_StoreCell.h */,
 				649389151A2E18180089AC21 /* SS_StoreCell.m */,
 				649389161A2E18180089AC21 /* SS_StoreCell.xib */,
+				6421F6481A2F654F009FC0BF /* SS_NaviPageCell.h */,
+				6421F6491A2F654F009FC0BF /* SS_NaviPageCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,6 +682,7 @@
 				6BA5A37B1A249D0B00A0BDF5 /* UIViewExt.m in Sources */,
 				6B278F8D1A2434B900AC5A6E /* MJMethod.m in Sources */,
 				6BA03C3C1A238B8200B50019 /* NSString+JJ.m in Sources */,
+				6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */,
 				6BA5A3751A249C7100A0BDF5 /* SS_MineController.m in Sources */,
 				6BA03C541A238E7900B50019 /* AFNetworkReachabilityManager.m in Sources */,
 				6B278FAD1A2438E900AC5A6E /* SS_BuinessController.m in Sources */,
@@ -692,6 +703,7 @@
 				6B278F8E1A2434B900AC5A6E /* MJType.m in Sources */,
 				6BA03C3B1A238B8200B50019 /* NSDate+JJ.m in Sources */,
 				6B278F921A2434B900AC5A6E /* NSObject+MJMember.m in Sources */,
+				6421F64A1A2F654F009FC0BF /* SS_NaviPageCell.m in Sources */,
 				6BA03C3A1A238B8100B50019 /* HttpTool.m in Sources */,
 				6BA03C521A238E7900B50019 /* AFHTTPRequestOperationManager.m in Sources */,
 				6B278F901A2434B900AC5A6E /* NSObject+MJCoding.m in Sources */,

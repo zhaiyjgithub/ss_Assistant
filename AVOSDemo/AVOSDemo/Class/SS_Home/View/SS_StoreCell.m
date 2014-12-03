@@ -24,7 +24,7 @@
 
 + (instancetype)instanceWithXib
 {
-    return [[[NSBundle mainBundle] loadNibNamed:@"SS_StoreCell_ID" owner:nil options:nil] lastObject];
+    return [[[NSBundle mainBundle] loadNibNamed:@"SS_StoreCell" owner:nil options:nil] lastObject];
 }
 
 @end

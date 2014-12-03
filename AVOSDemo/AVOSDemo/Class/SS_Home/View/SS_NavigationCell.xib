@@ -20,7 +20,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="btnDapaidang" destination="LeM-Eu-veA" eventType="touchUpInside" id="rWG-s5-xVH"/>
+                            <action selector="setDapaidang:" destination="LeM-Eu-veA" eventType="touchUpInside" id="7vR-Zy-Fjg"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34Z-1d-Jzs">
@@ -29,9 +29,6 @@
                         <state key="normal" title="KTV">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="btnKtv" destination="LeM-Eu-veA" eventType="touchUpInside" id="rhp-5d-HVC"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY8-2p-vyS">
                         <rect key="frame" x="238" y="32" width="46" height="30"/>
@@ -39,9 +36,6 @@
                         <state key="normal" title="包车">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="btnBaoche" destination="LeM-Eu-veA" eventType="touchUpInside" id="Bjx-b1-AcW"/>
-                        </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>

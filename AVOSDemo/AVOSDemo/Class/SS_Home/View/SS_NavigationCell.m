@@ -29,6 +29,16 @@
 */
 
 
+- (IBAction)setDapaidang:(UIButton *)sender {
+    if (self.iconBlock) {
+        self.iconBlock(sender);
+    }
+}
+
+- (void)addBlock:(setIconBlock)block{
+    self.iconBlock = block;
+}
+
 + (instancetype)instanceWithXib
 {
     return  [[[NSBundle mainBundle] loadNibNamed:@"SS_NavigationCell" owner:nil options:nil] lastObject];

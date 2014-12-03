@@ -2,6 +2,7 @@
 #import "SS_NavigationCell.h"
 #import "SS_BuinessController.h"
 #import "SS_BusinessAPITool.h"
+#import "SS_StoreViewController.h"
 
 @interface SS_BuinessController ()
 @property(nonatomic,strong)NSMutableArray * gd;
@@ -33,27 +34,25 @@
      
      */
 }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;//2个分组
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    static NSString * cellID= @"B_Cell";
-    
-    SS_BusinessCell * cell = (SS_BusinessCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell= [SS_BusinessCell instanceWithXib];
-    }
-    
-    SS_BusinessModel * b_model= self.dataSource[indexPath.row];
-    cell.businessModel=b_model;
-    return cell;
-    
-    */
+
     static NSString * cellID = @"SS_Navigation_id";
     
     SS_NavigationCell * cell = (SS_NavigationCell *) [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [SS_NavigationCell instanceWithXib];
     }
-    
+    [cell addBlock:^(id sender) {
+        UIButton *btn = sender;
+        SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
+        store.title = @"Mingji";
+        [self.navigationController pushViewController:store animated:YES];
+        
+    }];
     return cell;
     
 }
