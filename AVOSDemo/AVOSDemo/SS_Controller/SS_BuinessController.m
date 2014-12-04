@@ -3,6 +3,7 @@
 #import "SS_BuinessController.h"
 #import "SS_BusinessAPITool.h"
 #import "SS_StoreViewController.h"
+#import "SS_StoreCell.h"
 
 @interface SS_BuinessController ()
 @property(nonatomic,strong)NSMutableArray * gd;
@@ -34,31 +35,55 @@
      
      */
 }
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;//2个分组
+    if(section == 0) return  1;
+    
+    return self.dataSource.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    static NSString * cellID = @"SS_Navigation_id";
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SS_NavigationCell * cell = (SS_NavigationCell *) [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell = [SS_NavigationCell instanceWithXib];
-    }
-    [cell addBlock:^(id sender) {
-        UIButton *btn = sender;
-        SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
-        store.title = @"Mingji";
-        [self.navigationController pushViewController:store animated:YES];
+    if(indexPath.section == 0){
+        static NSString * cellID = @"SS_NavigationCell";
         
-    }];
-    return cell;
-    
+        SS_NavigationCell * cell = (SS_NavigationCell *) [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[SS_NavigationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        [cell addBlock:^(id sender) {
+            UIButton *btn = (UIButton *)sender;
+            NSLog(@"btn%@",btn);
+            SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
+            store.title = @"Mingji";
+            [self.navigationController pushViewController:store animated:YES];
+            
+        }];
+        return cell;
+    }else{
+        static NSString *cellID = @"SS_StoreCell_id";
+        
+        SS_StoreCell * cell = (SS_StoreCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [SS_StoreCell instanceWithXib];
+        }
+        return  cell;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    return indexPath.row == 0 ? 150 : 80;
+    //return indexPath.section == 0 ? 210 : 80;
+    if (indexPath.section == 0) return 210;
+    
+    return 80;
 }
 
 @end

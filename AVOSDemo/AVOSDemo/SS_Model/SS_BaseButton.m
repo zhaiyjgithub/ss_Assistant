@@ -23,10 +23,10 @@
     [super layoutSubviews];  //重写父类都需要先初始化父类的方法
     
     if (self.BaseButtonType == BaseButtonTypeCenter) {
-        //设置按钮的图片位置
+        //设置按钮的图片位置,如果图片没有就使用origin point
         CGPoint center = self.imageView.center;
         center.x = self.frame.size.width/2;
-        center.y = self.frame.size.height/2;
+        center.y = self.imageView.frame.size.height/2;
         self.imageView.center = center;
         //设置title的属性
         CGRect frame = [self titleLabel].frame;
