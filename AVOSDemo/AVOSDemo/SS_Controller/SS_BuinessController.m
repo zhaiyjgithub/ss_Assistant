@@ -59,7 +59,7 @@
         if (!cell) {
             cell = [[SS_NavigationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
-        [cell addBlock:^(id sender) {
+        [cell addBlock:^(id sender) {//为按钮添加block
             UIButton *btn = (UIButton *)sender;
             NSLog(@"btn%@",btn);
             SS_StoreViewController *store = [[SS_StoreViewController alloc] init];

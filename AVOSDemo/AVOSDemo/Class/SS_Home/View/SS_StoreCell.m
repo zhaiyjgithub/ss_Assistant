@@ -27,4 +27,6 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"SS_StoreCell" owner:nil options:nil] lastObject];
 }
 
+//indexPathForCell
+
 @end

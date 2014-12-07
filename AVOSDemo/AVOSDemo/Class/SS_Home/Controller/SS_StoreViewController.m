@@ -8,6 +8,7 @@
 
 #import "SS_StoreViewController.h"
 #import "SS_StoreCell.h"
+#import "SS_DetailOfStoreViewController.h"
 
 
 @interface SS_StoreViewController ()
@@ -53,7 +54,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 70;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexPath:%d",indexPath.row);
+    //点击该row的cell，先从数据源从获取当前的数据，然后跳转到下一个界面。
+    SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
+    
+    detailController.dataSource = self.dataSource[0];//获取某一间商店的数据
+    detailController.title = self.dataSource[1];
+    [self.navigationController pushViewController:detailController animated:YES];
+}
+
 
 @end

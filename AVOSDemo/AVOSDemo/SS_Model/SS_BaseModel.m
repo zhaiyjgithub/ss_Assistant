@@ -12,7 +12,7 @@
 -(instancetype)initWithDictionary:(NSDictionary*)dic{
 
     if (self=[super init]) {
-        [self setKeyValues:dic];
+        [self setKeyValues:dic];//使用了数据字典转模型数据的方法。方法封装好，方便使用
     }
     return self;
 }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
+		648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */; };
+		648F7D7B1A3498CF007412EF /* SS_DetailOfStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */; };
+		648F7D831A349F94007412EF /* SS_DetailOfStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D821A349F94007412EF /* SS_DetailOfStoreModel.m */; };
+		648F7D891A34A738007412EF /* SS_DetailOfStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D881A34A738007412EF /* SS_DetailOfStoreViewController.m */; };
 		6493890C1A2E0C300089AC21 /* SS_NavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */; };
 		649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389101A2E176D0089AC21 /* SS_StoreViewController.m */; };
 		649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389151A2E18180089AC21 /* SS_StoreCell.m */; };
@@ -75,6 +79,13 @@
 /* Begin PBXFileReference section */
 		6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseButton.h; sourceTree = "<group>"; };
 		6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseButton.m; sourceTree = "<group>"; };
+		648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_DetailOfStoreCell.xib; sourceTree = "<group>"; };
+		648F7D791A3498CF007412EF /* SS_DetailOfStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailOfStoreCell.h; sourceTree = "<group>"; };
+		648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailOfStoreCell.m; sourceTree = "<group>"; };
+		648F7D811A349F94007412EF /* SS_DetailOfStoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailOfStoreModel.h; sourceTree = "<group>"; };
+		648F7D821A349F94007412EF /* SS_DetailOfStoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailOfStoreModel.m; sourceTree = "<group>"; };
+		648F7D871A34A738007412EF /* SS_DetailOfStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailOfStoreViewController.h; sourceTree = "<group>"; };
+		648F7D881A34A738007412EF /* SS_DetailOfStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailOfStoreViewController.m; sourceTree = "<group>"; };
 		6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_NavigationCell.h; sourceTree = "<group>"; };
 		6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_NavigationCell.m; sourceTree = "<group>"; };
 		6493890F1A2E176D0089AC21 /* SS_StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_StoreViewController.h; sourceTree = "<group>"; };
@@ -196,6 +207,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		648F7D801A349F73007412EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				648F7D811A349F94007412EF /* SS_DetailOfStoreModel.h */,
+				648F7D821A349F94007412EF /* SS_DetailOfStoreModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		649DC0C81A309BD4002A97C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,8 +462,8 @@
 		6BA5A35E1A249B1C00A0BDF5 /* SS_Home */ = {
 			isa = PBXGroup;
 			children = (
+				648F7D801A349F73007412EF /* Model */,
 				6BA5A35F1A249B1C00A0BDF5 /* Controller */,
-				6BA5A3601A249B1C00A0BDF5 /* Model */,
 				6BA5A3611A249B1C00A0BDF5 /* View */,
 			);
 			path = SS_Home;
@@ -456,15 +476,10 @@
 				6B278FAC1A2438E900AC5A6E /* SS_BuinessController.m */,
 				6493890F1A2E176D0089AC21 /* SS_StoreViewController.h */,
 				649389101A2E176D0089AC21 /* SS_StoreViewController.m */,
+				648F7D871A34A738007412EF /* SS_DetailOfStoreViewController.h */,
+				648F7D881A34A738007412EF /* SS_DetailOfStoreViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6BA5A3601A249B1C00A0BDF5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6BA5A3611A249B1C00A0BDF5 /* View */ = {
@@ -478,6 +493,9 @@
 				649389141A2E18180089AC21 /* SS_StoreCell.h */,
 				649389151A2E18180089AC21 /* SS_StoreCell.m */,
 				649389161A2E18180089AC21 /* SS_StoreCell.xib */,
+				648F7D791A3498CF007412EF /* SS_DetailOfStoreCell.h */,
+				648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */,
+				648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,6 +671,7 @@
 				6BA03C151A238B3900B50019 /* Images.xcassets in Resources */,
 				6B278FAF1A24394400AC5A6E /* SS_BusinessCell.xib in Resources */,
 				6BA03C071A238B3900B50019 /* InfoPlist.strings in Resources */,
+				648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */,
 				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
 				6BA03C101A238B3900B50019 /* Main.storyboard in Resources */,
 			);
@@ -674,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */,
+				648F7D831A349F94007412EF /* SS_DetailOfStoreModel.m in Sources */,
 				6B278FB21A24405700AC5A6E /* UIImageView+AFNetworking.m in Sources */,
 				6BA03C591A238E7900B50019 /* AFURLSessionManager.m in Sources */,
 				6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */,
@@ -692,9 +712,11 @@
 				6B278F301A24345200AC5A6E /* SS_BusinessModel.m in Sources */,
 				6BA03C571A238E7900B50019 /* AFURLRequestSerialization.m in Sources */,
 				6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */,
+				648F7D7B1A3498CF007412EF /* SS_DetailOfStoreCell.m in Sources */,
 				6B278F8F1A2434B900AC5A6E /* MJTypeEncoding.m in Sources */,
 				649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */,
 				6BA5A37A1A249D0B00A0BDF5 /* BaseTabbarController.m in Sources */,
+				648F7D891A34A738007412EF /* SS_DetailOfStoreViewController.m in Sources */,
 				6B278F911A2434B900AC5A6E /* NSObject+MJKeyValue.m in Sources */,
 				6B278FA31A24384000AC5A6E /* SS_BaseCell.m in Sources */,
 				6BA03C091A238B3900B50019 /* main.m in Sources */,
