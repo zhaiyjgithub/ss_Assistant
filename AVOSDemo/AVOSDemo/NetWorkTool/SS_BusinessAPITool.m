@@ -10,13 +10,13 @@
 
     
 //    NSDictionary * params =@{@"uid":uid};
-    [HttpTool getWithPath:@"classes/t_Business" params:nil success:^(id result) {
-        
+    //[HttpTool getWithPath:@"classes/t_Business" params:nil success:^(id result) {
+    [HttpTool getWithPath:uid params:nil success:^(id result) {//底层修改为使用uid来发起请求
         if (!result) {
             success (nil);
             return;
         }
-        NSArray * busArray = result[@"results"];
+        NSArray * busArray = result[@"results"];//AVOS的返回确定的key== results;
         NSMutableArray * arrayM = [NSMutableArray array];
         for (NSDictionary * dic in busArray) {
             SS_BusinessModel * bM=[[SS_BusinessModel alloc]initWithDictionary:dic];

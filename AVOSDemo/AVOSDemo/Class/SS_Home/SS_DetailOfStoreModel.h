@@ -10,4 +10,12 @@
 
 @interface SS_DetailOfStoreModel : SS_BaseModel
 @property(nonatomic,copy)NSString * nameOfLogo;
+@property(nonatomic,copy)NSString * name;
+@property(nonatomic,copy)NSString * address;
+@property(nonatomic,copy)NSString * phone_host;
+@property(nonatomic,copy)NSString * phone_dgut;
+@property(nonatomic,copy)NSString * phone_gdmc;
+@property(nonatomic,copy)NSString * phone_dgpt;
+@property(nonatomic,copy)NSString * instruction;
+@property(nonatomic,copy)NSString * key;
 @end

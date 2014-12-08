@@ -16,8 +16,8 @@
 {
     _detailOfStoreModel = detailOfStoreModel;
     [self.nameOfLogo setTitle:_detailOfStoreModel.nameOfLogo forState:UIControlStateNormal];
+    
 }
-
 + (instancetype) instanceWithXib
 {
     return  [[[NSBundle mainBundle] loadNibNamed:@"SS_DetailOfStoreCell" owner:nil options:nil] lastObject];

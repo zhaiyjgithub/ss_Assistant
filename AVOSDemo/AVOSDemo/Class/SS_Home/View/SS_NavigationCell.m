@@ -58,6 +58,7 @@
     int j= index%4;
     CGFloat height = 70;
     CGFloat with = self.frame.size.width/4;//可以直接使用别人封装好的API使用，但是这样会更加熟悉底层
+    btn.tag = index;//用于标记按钮的分类
     btn.frame = CGRectMake(with*j, height*i+5, with, height);
     
     [self addSubview:btn];
