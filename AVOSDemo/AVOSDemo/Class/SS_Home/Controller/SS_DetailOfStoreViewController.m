@@ -22,7 +22,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -33,8 +33,14 @@
     if (!cell) {
         cell = [SS_DetailOfStoreCell instanceWithXib];
     }
-    //cell.detailOfStoreModel.nameOfLogo = self.dataSource[0];
+    SS_DetailOfStoreModel * b_model = self.dataSource[0];
+    cell.detailOfStoreModel = b_model;
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 230;
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64209E1C1A3882B100A38B38 /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */; };
 		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
 		648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */; };
 		648F7D7B1A3498CF007412EF /* SS_DetailOfStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */; };
@@ -17,7 +18,6 @@
 		649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389151A2E18180089AC21 /* SS_StoreCell.m */; };
 		649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649389161A2E18180089AC21 /* SS_StoreCell.xib */; };
 		6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */; };
-		6B278F301A24345200AC5A6E /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F2F1A24345200AC5A6E /* SS_BusinessModel.m */; };
 		6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F711A2434B900AC5A6E /* MJArgument.m */; };
 		6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F741A2434B900AC5A6E /* MJIvar.m */; };
 		6B278F8C1A2434B900AC5A6E /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F761A2434B900AC5A6E /* MJMember.m */; };
@@ -29,10 +29,8 @@
 		6B278F921A2434B900AC5A6E /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F821A2434B900AC5A6E /* NSObject+MJMember.m */; };
 		6B278F9F1A2434F500AC5A6E /* SS_BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F9E1A2434F500AC5A6E /* SS_BaseModel.m */; };
 		6B278FA31A24384000AC5A6E /* SS_BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278FA21A24384000AC5A6E /* SS_BaseCell.m */; };
-		6B278FA61A24385800AC5A6E /* SS_BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278FA51A24385800AC5A6E /* SS_BusinessCell.m */; };
 		6B278FAA1A2438AF00AC5A6E /* SS_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278FA91A2438AF00AC5A6E /* SS_BaseViewController.m */; };
 		6B278FAD1A2438E900AC5A6E /* SS_BuinessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278FAC1A2438E900AC5A6E /* SS_BuinessController.m */; };
-		6B278FAF1A24394400AC5A6E /* SS_BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B278FAE1A24394400AC5A6E /* SS_BusinessCell.xib */; };
 		6B278FB21A24405700AC5A6E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278FB11A24405700AC5A6E /* UIImageView+AFNetworking.m */; };
 		6BA03BFD1A238B3900B50019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA03BFC1A238B3900B50019 /* Foundation.framework */; };
 		6BA03BFF1A238B3900B50019 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA03BFE1A238B3900B50019 /* CoreGraphics.framework */; };
@@ -77,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64209E1A1A3882B100A38B38 /* SS_BusinessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessModel.h; sourceTree = "<group>"; };
+		64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessModel.m; sourceTree = "<group>"; };
 		6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseButton.h; sourceTree = "<group>"; };
 		6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseButton.m; sourceTree = "<group>"; };
 		648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_DetailOfStoreCell.xib; sourceTree = "<group>"; };
@@ -95,8 +95,6 @@
 		649389161A2E18180089AC21 /* SS_StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_StoreCell.xib; sourceTree = "<group>"; };
 		6B278F2A1A24317900AC5A6E /* SS_BusinessAPITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessAPITool.h; sourceTree = "<group>"; };
 		6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessAPITool.m; sourceTree = "<group>"; };
-		6B278F2E1A24345200AC5A6E /* SS_BusinessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessModel.h; sourceTree = "<group>"; };
-		6B278F2F1A24345200AC5A6E /* SS_BusinessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessModel.m; sourceTree = "<group>"; };
 		6B278F701A2434B900AC5A6E /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		6B278F711A2434B900AC5A6E /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		6B278F721A2434B900AC5A6E /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -120,13 +118,10 @@
 		6B278F9E1A2434F500AC5A6E /* SS_BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseModel.m; sourceTree = "<group>"; };
 		6B278FA11A24384000AC5A6E /* SS_BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseCell.h; sourceTree = "<group>"; };
 		6B278FA21A24384000AC5A6E /* SS_BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseCell.m; sourceTree = "<group>"; };
-		6B278FA41A24385800AC5A6E /* SS_BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SS_BusinessCell.h; path = ../../../SS_View/SS_BusinessCell.h; sourceTree = "<group>"; };
-		6B278FA51A24385800AC5A6E /* SS_BusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SS_BusinessCell.m; path = ../../../SS_View/SS_BusinessCell.m; sourceTree = "<group>"; };
 		6B278FA81A2438AF00AC5A6E /* SS_BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseViewController.h; sourceTree = "<group>"; };
 		6B278FA91A2438AF00AC5A6E /* SS_BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseViewController.m; sourceTree = "<group>"; };
 		6B278FAB1A2438E900AC5A6E /* SS_BuinessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SS_BuinessController.h; path = ../../../SS_Controller/SS_BuinessController.h; sourceTree = "<group>"; };
 		6B278FAC1A2438E900AC5A6E /* SS_BuinessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SS_BuinessController.m; path = ../../../SS_Controller/SS_BuinessController.m; sourceTree = "<group>"; };
-		6B278FAE1A24394400AC5A6E /* SS_BusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SS_BusinessCell.xib; path = ../../../SS_View/SS_BusinessCell.xib; sourceTree = "<group>"; };
 		6B278FB01A24405700AC5A6E /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		6B278FB11A24405700AC5A6E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		6BA03BF91A238B3900B50019 /* AVOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,10 +231,10 @@
 		6B278F2D1A24343400AC5A6E /* SS_Model */ = {
 			isa = PBXGroup;
 			children = (
+				64209E1A1A3882B100A38B38 /* SS_BusinessModel.h */,
+				64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */,
 				6B278F9D1A2434F500AC5A6E /* SS_BaseModel.h */,
 				6B278F9E1A2434F500AC5A6E /* SS_BaseModel.m */,
-				6B278F2E1A24345200AC5A6E /* SS_BusinessModel.h */,
-				6B278F2F1A24345200AC5A6E /* SS_BusinessModel.m */,
 				6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */,
 				6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */,
 			);
@@ -485,9 +480,6 @@
 		6BA5A3611A249B1C00A0BDF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6B278FA41A24385800AC5A6E /* SS_BusinessCell.h */,
-				6B278FA51A24385800AC5A6E /* SS_BusinessCell.m */,
-				6B278FAE1A24394400AC5A6E /* SS_BusinessCell.xib */,
 				6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */,
 				6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */,
 				649389141A2E18180089AC21 /* SS_StoreCell.h */,
@@ -669,7 +661,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA03C151A238B3900B50019 /* Images.xcassets in Resources */,
-				6B278FAF1A24394400AC5A6E /* SS_BusinessCell.xib in Resources */,
 				6BA03C071A238B3900B50019 /* InfoPlist.strings in Resources */,
 				648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */,
 				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
@@ -709,7 +700,6 @@
 				6BA03C561A238E7900B50019 /* AFURLConnectionOperation.m in Sources */,
 				6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */,
 				6BA03C531A238E7900B50019 /* AFHTTPSessionManager.m in Sources */,
-				6B278F301A24345200AC5A6E /* SS_BusinessModel.m in Sources */,
 				6BA03C571A238E7900B50019 /* AFURLRequestSerialization.m in Sources */,
 				6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */,
 				648F7D7B1A3498CF007412EF /* SS_DetailOfStoreCell.m in Sources */,
@@ -720,11 +710,11 @@
 				6B278F911A2434B900AC5A6E /* NSObject+MJKeyValue.m in Sources */,
 				6B278FA31A24384000AC5A6E /* SS_BaseCell.m in Sources */,
 				6BA03C091A238B3900B50019 /* main.m in Sources */,
-				6B278FA61A24385800AC5A6E /* SS_BusinessCell.m in Sources */,
 				6B278F8E1A2434B900AC5A6E /* MJType.m in Sources */,
 				6BA03C3B1A238B8200B50019 /* NSDate+JJ.m in Sources */,
 				6B278F921A2434B900AC5A6E /* NSObject+MJMember.m in Sources */,
 				6BA03C3A1A238B8100B50019 /* HttpTool.m in Sources */,
+				64209E1C1A3882B100A38B38 /* SS_BusinessModel.m in Sources */,
 				6BA03C521A238E7900B50019 /* AFHTTPRequestOperationManager.m in Sources */,
 				6B278F901A2434B900AC5A6E /* NSObject+MJCoding.m in Sources */,
 				6BA03C551A238E7900B50019 /* AFSecurityPolicy.m in Sources */,

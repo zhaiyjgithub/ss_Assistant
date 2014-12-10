@@ -2,6 +2,8 @@
 
 #import "SS_BusinessAPITool.h"
 #import "SS_BusinessModel.h"
+#import "SS_DetailOfStoreModel.h"
+
 #define SS_GET_ALL_BUSINESS_API @""   
 @implementation SS_BusinessAPITool
 +(void)getAllBusiness:(NSString *)uid
@@ -19,7 +21,8 @@
         NSArray * busArray = result[@"results"];//AVOS的返回确定的key== results;
         NSMutableArray * arrayM = [NSMutableArray array];
         for (NSDictionary * dic in busArray) {
-            SS_BusinessModel * bM=[[SS_BusinessModel alloc]initWithDictionary:dic];
+            //修改为当前新的数据模型，后面该函数需要重构一下
+            SS_DetailOfStoreModel * bM=[[SS_DetailOfStoreModel alloc]initWithDictionary:dic];
             [arrayM addObject:bM];
         }
         success(arrayM);

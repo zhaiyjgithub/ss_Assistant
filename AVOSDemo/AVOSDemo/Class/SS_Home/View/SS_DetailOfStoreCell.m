@@ -11,13 +11,17 @@
 
 @implementation SS_DetailOfStoreCell
 
-
 - (void)setDetailOfStoreModel:(SS_DetailOfStoreModel *)detailOfStoreModel
 {
     _detailOfStoreModel = detailOfStoreModel;
-    [self.nameOfLogo setTitle:_detailOfStoreModel.nameOfLogo forState:UIControlStateNormal];
-    
+    self.name.text = detailOfStoreModel.Name;
+    self.instruction.text = detailOfStoreModel.instruction;
+    self.phone_dgut.text = detailOfStoreModel.phone_dgut;
+    self.phone_dgpt.text = detailOfStoreModel.phone_dgpt;
+    self.phone_dgmc.text = detailOfStoreModel.phone_gdmc;
 }
+
+
 + (instancetype) instanceWithXib
 {
     return  [[[NSBundle mainBundle] loadNibNamed:@"SS_DetailOfStoreCell" owner:nil options:nil] lastObject];

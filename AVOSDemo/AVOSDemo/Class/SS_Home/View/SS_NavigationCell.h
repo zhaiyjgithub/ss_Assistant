@@ -16,7 +16,6 @@ typedef void(^setIconBlock) (id sender);
 - (UIButton *)addbtn:(NSString *)title icon:(NSString *)icon index:(int)index;
 - (void)setDapaidang:(UIButton *)sender;
 - (void)addAllButton;
-
 - (void)addBlock:(setIconBlock)block;
 + (instancetype)instanceWithXib;
 @end

@@ -7,7 +7,11 @@
 //
 
 #import "SS_BaseViewController.h"
+#import "SS_DetailOfStoreModel.h"
 
 @interface SS_DetailOfStoreViewController : SS_BaseViewController
+
+@property(nonatomic,strong)SS_DetailOfStoreModel *detailOfModel;
+
 
 @end

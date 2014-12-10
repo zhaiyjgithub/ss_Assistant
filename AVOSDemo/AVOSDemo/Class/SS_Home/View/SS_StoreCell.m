@@ -22,11 +22,18 @@
     // Configure the view for the selected state
 }
 
+- (void)setDetailOfStoreModel:(SS_DetailOfStoreModel *)detailOfStoreModel
+{
+    //_businessModel=businessModel;
+    _detailOfStoreModel = detailOfStoreModel;
+    self.nameLabel.text = detailOfStoreModel.Name;
+    self.phoneLabel.text = detailOfStoreModel.phone_host;
+}
+
+
 + (instancetype)instanceWithXib
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"SS_StoreCell" owner:nil options:nil] lastObject];
 }
-
-//indexPathForCell
 
 @end

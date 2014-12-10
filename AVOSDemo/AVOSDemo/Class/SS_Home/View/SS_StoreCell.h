@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SS_DetailOfStoreModel.h"
 
 @interface SS_StoreCell : UITableViewCell
 
+@property(nonatomic,strong)SS_DetailOfStoreModel * detailOfStoreModel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 
 + (instancetype)instanceWithXib;
 @end

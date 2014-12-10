@@ -10,9 +10,13 @@
 #import "SS_DetailOfStoreModel.h"
 
 @interface SS_DetailOfStoreCell : SS_BaseCell
-
-@property (weak, nonatomic) IBOutlet UIButton *nameOfLogo;
 @property(nonatomic,strong)SS_DetailOfStoreModel * detailOfStoreModel;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *instruction;
+@property (weak, nonatomic) IBOutlet UILabel *phone_dgut;
+@property (weak, nonatomic) IBOutlet UILabel *phone_dgpt;
+@property (weak, nonatomic) IBOutlet UILabel *phone_dgmc;
+
 
 + (instancetype)instanceWithXib;
 

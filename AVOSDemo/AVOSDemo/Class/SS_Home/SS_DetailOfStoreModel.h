@@ -9,9 +9,7 @@
 #import "SS_BaseModel.h"
 
 @interface SS_DetailOfStoreModel : SS_BaseModel
-@property(nonatomic,copy)NSString * nameOfLogo;
-@property(nonatomic,copy)NSString * name;
-@property(nonatomic,copy)NSString * address;
+@property(nonatomic,copy)NSString * Name;
 @property(nonatomic,copy)NSString * phone_host;
 @property(nonatomic,copy)NSString * phone_dgut;
 @property(nonatomic,copy)NSString * phone_gdmc;

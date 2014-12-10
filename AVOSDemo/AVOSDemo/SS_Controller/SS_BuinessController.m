@@ -1,9 +1,14 @@
-#import "SS_BusinessCell.h"
+//#import "SS_BusinessCell.h"
 #import "SS_NavigationCell.h"
 #import "SS_BuinessController.h"
 #import "SS_BusinessAPITool.h"
 #import "SS_StoreViewController.h"
 #import "SS_StoreCell.h"
+#import "SS_DetailOfStoreModel.h"
+#import "SS_DetailOfStoreViewController.h"
+
+#define HOT_STORE_PATH      @"classes/t_hotStore"
+
 
 @interface SS_BuinessController ()
 {
@@ -32,22 +37,15 @@
     [super viewDidLoad];
     
     //这里是首先请求热门商家信息
-    self.gd = @[@"广州",@"深圳",@"佛山"];
-    self.dataSource = self.gd;
-    /*
-    [SS_BusinessAPITool getAllBusiness:nil success:^(id result) {
+    [SS_BusinessAPITool getAllBusiness:HOT_STORE_PATH success:^(id result) {
         if (result) {
             NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
             self.dataSource = [NSMutableArray arrayWithArray:array];
-            NSLog(@"key:%@",[self.dataSource[5] b_address]);
             [self.tableView reloadData];
         }
-        
     } failure:^(NSError *error) {
-        NSLog(@"ee:%@",error);
+        NSLog(@"热门数据请求失败:%@",error);
     }];
-     
-     */
 }
 
 
@@ -88,6 +86,10 @@
         if (!cell) {
             cell = [SS_StoreCell instanceWithXib];
         }
+        //使用模型来更新数据
+         SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];
+         cell.detailOfStoreModel = b_model;
+        
         return  cell;
     }
 }
@@ -97,6 +99,18 @@
     if (indexPath.section == 0) return 210;
     
     return 80;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        //点击该row的cell，先从数据源从获取当前的数据，然后跳转到下一个商家详情界面。
+        SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
+        //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
+        detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
+        detailController.title = [self.dataSource[0] Name];//根据数据源的下标获取数据
+        [self.navigationController pushViewController:detailController animated:YES];
+    }
 }
 
 @end
