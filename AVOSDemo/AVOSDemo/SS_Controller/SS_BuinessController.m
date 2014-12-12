@@ -35,6 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //自定义返回按钮
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
+    backBtn.title = @"返回";
+    self.navigationItem.backBarButtonItem = backBtn;
     
     //这里是首先请求热门商家信息
     [SS_BusinessAPITool getAllBusiness:HOT_STORE_PATH success:^(id result) {
@@ -69,14 +73,16 @@
         
         SS_NavigationCell * cell = (SS_NavigationCell *) [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
-            cell = [[SS_NavigationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            cell = [[SS_NavigationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];//代码实现的cell
         }
         [cell addBlock:^(id sender) {//为按钮添加block
             UIButton *btn = (UIButton *)sender;
             NSLog(@"btn.tag%d",btn.tag);//根据btn.tag来判断数据哪个按钮，tag已经在创建这个btn时已经确定
             SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
             store.title =naviClassesByButtonTag[btn.tag];//根据title来判断属于哪个页面，从而向后台发起对应的请求
+            
             [self.navigationController pushViewController:store animated:YES];
+            
         }];
         return cell;
     }else{//显示热门商家信息的cell
@@ -84,7 +90,7 @@
         
         SS_StoreCell * cell = (SS_StoreCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
-            cell = [SS_StoreCell instanceWithXib];
+            cell = [SS_StoreCell instanceWithXib];//使用Xib建立的cell，使用方法都是不同的。
         }
         //使用模型来更新数据
          SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];

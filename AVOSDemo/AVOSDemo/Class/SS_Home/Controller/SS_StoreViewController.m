@@ -100,7 +100,7 @@
     SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
     //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
     detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
-    detailController.title = [self.dataSource[0] Name];//根据数据源的下标获取数据
+    detailController.title = [detailController.dataSource[0] Name];//根据数据源的下标获取数据
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

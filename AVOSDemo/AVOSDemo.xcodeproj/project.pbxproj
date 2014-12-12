@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		641B86ED1A3B4049004F19EF /* SS_CommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B86EC1A3B4049004F19EF /* SS_CommentController.m */; };
+		641B86F01A3B4404004F19EF /* SS_CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B86EF1A3B4404004F19EF /* SS_CommentCell.m */; };
 		64209E1C1A3882B100A38B38 /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */; };
 		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
 		648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */; };
 		648F7D7B1A3498CF007412EF /* SS_DetailOfStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */; };
 		648F7D831A349F94007412EF /* SS_DetailOfStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D821A349F94007412EF /* SS_DetailOfStoreModel.m */; };
 		648F7D891A34A738007412EF /* SS_DetailOfStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F7D881A34A738007412EF /* SS_DetailOfStoreViewController.m */; };
+		648FBE2E1A39CD14003D58A9 /* SS_CommentOfStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 648FBE2D1A39CD14003D58A9 /* SS_CommentOfStore.m */; };
+		648FBE301A39CD2C003D58A9 /* SS_CommentOfStore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648FBE2F1A39CD2C003D58A9 /* SS_CommentOfStore.xib */; };
 		6493890C1A2E0C300089AC21 /* SS_NavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */; };
 		649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389101A2E176D0089AC21 /* SS_StoreViewController.m */; };
 		649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389151A2E18180089AC21 /* SS_StoreCell.m */; };
@@ -75,6 +79,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		641B86EB1A3B4049004F19EF /* SS_CommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentController.h; sourceTree = "<group>"; };
+		641B86EC1A3B4049004F19EF /* SS_CommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentController.m; sourceTree = "<group>"; };
+		641B86EE1A3B4404004F19EF /* SS_CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentCell.h; sourceTree = "<group>"; };
+		641B86EF1A3B4404004F19EF /* SS_CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentCell.m; sourceTree = "<group>"; };
 		64209E1A1A3882B100A38B38 /* SS_BusinessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessModel.h; sourceTree = "<group>"; };
 		64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessModel.m; sourceTree = "<group>"; };
 		6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseButton.h; sourceTree = "<group>"; };
@@ -86,6 +94,9 @@
 		648F7D821A349F94007412EF /* SS_DetailOfStoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailOfStoreModel.m; sourceTree = "<group>"; };
 		648F7D871A34A738007412EF /* SS_DetailOfStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailOfStoreViewController.h; sourceTree = "<group>"; };
 		648F7D881A34A738007412EF /* SS_DetailOfStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailOfStoreViewController.m; sourceTree = "<group>"; };
+		648FBE2C1A39CD14003D58A9 /* SS_CommentOfStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentOfStore.h; sourceTree = "<group>"; };
+		648FBE2D1A39CD14003D58A9 /* SS_CommentOfStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentOfStore.m; sourceTree = "<group>"; };
+		648FBE2F1A39CD2C003D58A9 /* SS_CommentOfStore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_CommentOfStore.xib; sourceTree = "<group>"; };
 		6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_NavigationCell.h; sourceTree = "<group>"; };
 		6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_NavigationCell.m; sourceTree = "<group>"; };
 		6493890F1A2E176D0089AC21 /* SS_StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_StoreViewController.h; sourceTree = "<group>"; };
@@ -473,6 +484,8 @@
 				649389101A2E176D0089AC21 /* SS_StoreViewController.m */,
 				648F7D871A34A738007412EF /* SS_DetailOfStoreViewController.h */,
 				648F7D881A34A738007412EF /* SS_DetailOfStoreViewController.m */,
+				641B86EB1A3B4049004F19EF /* SS_CommentController.h */,
+				641B86EC1A3B4049004F19EF /* SS_CommentController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -488,6 +501,11 @@
 				648F7D791A3498CF007412EF /* SS_DetailOfStoreCell.h */,
 				648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */,
 				648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */,
+				648FBE2C1A39CD14003D58A9 /* SS_CommentOfStore.h */,
+				648FBE2D1A39CD14003D58A9 /* SS_CommentOfStore.m */,
+				648FBE2F1A39CD2C003D58A9 /* SS_CommentOfStore.xib */,
+				641B86EE1A3B4404004F19EF /* SS_CommentCell.h */,
+				641B86EF1A3B4404004F19EF /* SS_CommentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -664,6 +682,7 @@
 				6BA03C071A238B3900B50019 /* InfoPlist.strings in Resources */,
 				648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */,
 				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
+				648FBE301A39CD2C003D58A9 /* SS_CommentOfStore.xib in Resources */,
 				6BA03C101A238B3900B50019 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +716,7 @@
 				6BA03C541A238E7900B50019 /* AFNetworkReachabilityManager.m in Sources */,
 				6B278FAD1A2438E900AC5A6E /* SS_BuinessController.m in Sources */,
 				6BA03C0D1A238B3900B50019 /* AppDelegate.m in Sources */,
+				641B86F01A3B4404004F19EF /* SS_CommentCell.m in Sources */,
 				6BA03C561A238E7900B50019 /* AFURLConnectionOperation.m in Sources */,
 				6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */,
 				6BA03C531A238E7900B50019 /* AFHTTPSessionManager.m in Sources */,
@@ -722,7 +742,9 @@
 				6BA5A36F1A249BE700A0BDF5 /* SS_MainViewController.m in Sources */,
 				6BA03C581A238E7900B50019 /* AFURLResponseSerialization.m in Sources */,
 				6B278FAA1A2438AF00AC5A6E /* SS_BaseViewController.m in Sources */,
+				648FBE2E1A39CD14003D58A9 /* SS_CommentOfStore.m in Sources */,
 				6B278F9F1A2434F500AC5A6E /* SS_BaseModel.m in Sources */,
+				641B86ED1A3B4049004F19EF /* SS_CommentController.m in Sources */,
 				6BA5A3721A249C3800A0BDF5 /* SS_DetailCollectionController.m in Sources */,
 				6BA03C511A238E7900B50019 /* AFHTTPRequestOperation.m in Sources */,
 			);
