@@ -64,9 +64,4 @@
     return  cell.commentTextView.contentSize.height;
 }
 
-
-
-
-
-
 @end
