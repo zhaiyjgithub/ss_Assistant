@@ -16,4 +16,17 @@
     }
     return self;
 }
-@end
+
+//重载选择 使用的LKDBHelper
++(LKDBHelper *)getUsingLKDBHelper
+{
+    static LKDBHelper* db;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString* dbpath = [NSHomeDirectory() stringByAppendingPathComponent:@"DB/SS.sqlite"];
+        db = [[LKDBHelper alloc]initWithDBPath:dbpath];
+        //or
+        //        db = [[LKDBHelper alloc]init];
+    });
+    return db;
+}@end

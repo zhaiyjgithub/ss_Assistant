@@ -9,10 +9,6 @@
 +(void)getAllBusiness:(NSString *)uid
               success:(HttpSuccessBlock)success
               failure:(HttpFailureBlock)failure{
-
-    
-//    NSDictionary * params =@{@"uid":uid};
-    //[HttpTool getWithPath:@"classes/t_Business" params:nil success:^(id result) {
     [HttpTool getWithPath:uid params:nil success:^(id result) {//底层修改为使用uid来发起请求
         if (!result) {
             success (nil);
@@ -23,13 +19,13 @@
         for (NSDictionary * dic in busArray) {
             //修改为当前新的数据模型，后面该函数需要重构一下
             SS_DetailOfStoreModel * bM=[[SS_DetailOfStoreModel alloc]initWithDictionary:dic];
+            [SS_DetailOfStoreModel insertDetailModel:bM];
             [arrayM addObject:bM];
         }
         success(arrayM);
     } failure:^(NSError *error) {
         failure(error);
     }];
-    
 }
 
 +(void)postAllBUsindess:(NSString *)className

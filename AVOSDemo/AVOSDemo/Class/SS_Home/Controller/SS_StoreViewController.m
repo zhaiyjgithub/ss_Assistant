@@ -39,26 +39,39 @@
     // Do any additional setup after loading the view from its nib.
    
     /*
-        根据导航的按钮，向后台发起请求。
+     根据导航的按钮，向后台发起请求。
      */
+    [self loadLocalData];
+   
+}
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [self loadNetworkData];//先本地更新数据，再后面向后台获取并更新数据
+
+}
+#pragma mark -网络
+-(void)loadNetworkData{
+
     NSString *pathOfRequest = [uidOfRequest valueForKey:self.title];
     if (pathOfRequest !=nil) {
-         [SS_BusinessAPITool getAllBusiness:pathOfRequest success:^(id result) {
-           if (result) {
-             NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
-             self.dataSource = [NSMutableArray arrayWithArray:array];
-             //NSLog(@"name:%@",[self.dataSource[2] Name]);//数组保存的是模型对象
-             [self.tableView reloadData];
-          }
-         } failure:^(NSError *error) {
-             NSLog(@"ee:%@",error);
-         }];
+        [SS_BusinessAPITool getAllBusiness:pathOfRequest success:^(id result) {
+            [self loadLocalData];
+        } failure:^(NSError *error) {
+            NSLog(@"ee:%@",error);
+        }];
         
     }else{
         NSLog(@"失败!:%@",self.title);
     }
 }
+#pragma mark 本地
+-(void)loadLocalData{
 
+    self.dataSource =[SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:20];
+    [self.tableView reloadData];
+
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
