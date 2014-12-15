@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SS_BaseViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
 @property (nonatomic,strong)UITableView *   tableView;
 @property (nonatomic,strong)NSMutableArray     *   dataSource;
 @end

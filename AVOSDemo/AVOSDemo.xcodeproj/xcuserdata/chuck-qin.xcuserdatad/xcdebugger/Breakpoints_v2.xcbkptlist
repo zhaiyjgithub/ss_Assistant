@@ -25,7 +25,7 @@
                   symbolName = "-[SS_BuinessController gd]"
                   moduleName = "AVOSDemo"
                   urlString = "file:///work/projects/ss_Assistant/AVOSDemo/AVOSDemo/SS_Controller/SS_BuinessController.m"
-                  timestampString = "440234093.487812"
+                  timestampString = "440349690.097081"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
@@ -39,7 +39,7 @@
                   symbolName = "-[SS_BuinessController setGd:]"
                   moduleName = "AVOSDemo"
                   urlString = "file:///work/projects/ss_Assistant/AVOSDemo/AVOSDemo/SS_Controller/SS_BuinessController.m"
-                  timestampString = "440234093.487976"
+                  timestampString = "440349690.097244"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
@@ -47,6 +47,22 @@
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AVOSDemo/Class/SS_Home/Controller/SS_DetailOfStoreViewController.h"
+            timestampString = "440347725.696905"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "@interface SS_DetailOfStoreViewController"
+            landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

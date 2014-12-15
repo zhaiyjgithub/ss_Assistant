@@ -37,17 +37,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-   
-    /*
-     根据导航的按钮，向后台发起请求。
-     */
-    [self loadLocalData];
+    [self loadLocalData];//先加载本地数据
    
 }
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated{//然后加载网络数据
     
-    [self loadNetworkData];//先本地更新数据，再后面向后台获取并更新数据
-
+    [self loadNetworkData];
 }
 #pragma mark -网络
 -(void)loadNetworkData{

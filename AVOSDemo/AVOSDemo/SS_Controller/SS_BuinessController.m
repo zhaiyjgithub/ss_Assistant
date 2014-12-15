@@ -32,7 +32,7 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewDidLoad//修改为先加载本地数据，然后加载服务器数据
 {
     [super viewDidLoad];
     //自定义返回按钮

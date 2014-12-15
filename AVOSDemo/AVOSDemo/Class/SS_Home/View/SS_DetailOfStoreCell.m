@@ -16,9 +16,6 @@
     _detailOfStoreModel = detailOfStoreModel;
     self.name.text = detailOfStoreModel.Name;
     self.instruction.text = detailOfStoreModel.instruction;
-    self.phone_dgut.text = detailOfStoreModel.phone_dgut;
-    self.phone_dgpt.text = detailOfStoreModel.phone_dgpt;
-    self.phone_dgmc.text = detailOfStoreModel.phone_gdmc;
 }
 
 

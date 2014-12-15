@@ -33,6 +33,8 @@
 		649F88801A3D6336000B291C /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88741A3D6336000B291C /* NSObject+LKDBHelper.m */; };
 		649F88811A3D6336000B291C /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88761A3D6336000B291C /* NSObject+LKModel.m */; };
 		649F88831A3D6D6A000B291C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 649F88821A3D6D6A000B291C /* libsqlite3.dylib */; };
+		64B6C8111A3F1207008C1C81 /* phoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B6C8101A3F1207008C1C81 /* phoneCell.m */; };
+		64B6C8131A3F1237008C1C81 /* phoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B6C8121A3F1237008C1C81 /* phoneCell.xib */; };
 		6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */; };
 		6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F711A2434B900AC5A6E /* MJArgument.m */; };
 		6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F741A2434B900AC5A6E /* MJIvar.m */; };
@@ -139,6 +141,9 @@
 		649F88751A3D6336000B291C /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		649F88761A3D6336000B291C /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
 		649F88821A3D6D6A000B291C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		64B6C80F1A3F1207008C1C81 /* phoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneCell.h; sourceTree = "<group>"; };
+		64B6C8101A3F1207008C1C81 /* phoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phoneCell.m; sourceTree = "<group>"; };
+		64B6C8121A3F1237008C1C81 /* phoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = phoneCell.xib; sourceTree = "<group>"; };
 		6B278F2A1A24317900AC5A6E /* SS_BusinessAPITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessAPITool.h; sourceTree = "<group>"; };
 		6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessAPITool.m; sourceTree = "<group>"; };
 		6B278F701A2434B900AC5A6E /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
@@ -605,6 +610,9 @@
 				648FBE2F1A39CD2C003D58A9 /* SS_CommentOfStore.xib */,
 				641B86EE1A3B4404004F19EF /* SS_CommentCell.h */,
 				641B86EF1A3B4404004F19EF /* SS_CommentCell.m */,
+				64B6C80F1A3F1207008C1C81 /* phoneCell.h */,
+				64B6C8101A3F1207008C1C81 /* phoneCell.m */,
+				64B6C8121A3F1237008C1C81 /* phoneCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -783,6 +791,7 @@
 				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
 				648FBE301A39CD2C003D58A9 /* SS_CommentOfStore.xib in Resources */,
 				6BA03C101A238B3900B50019 /* Main.storyboard in Resources */,
+				64B6C8131A3F1237008C1C81 /* phoneCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +827,7 @@
 				6B278FAD1A2438E900AC5A6E /* SS_BuinessController.m in Sources */,
 				6BA03C0D1A238B3900B50019 /* AppDelegate.m in Sources */,
 				641B86F01A3B4404004F19EF /* SS_CommentCell.m in Sources */,
+				64B6C8111A3F1207008C1C81 /* phoneCell.m in Sources */,
 				6BA03C561A238E7900B50019 /* AFURLConnectionOperation.m in Sources */,
 				6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */,
 				6BA03C531A238E7900B50019 /* AFHTTPSessionManager.m in Sources */,
