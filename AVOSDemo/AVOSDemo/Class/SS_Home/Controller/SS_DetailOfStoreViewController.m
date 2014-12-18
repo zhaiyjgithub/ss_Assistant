@@ -9,6 +9,7 @@
 #import "SS_DetailOfStoreViewController.h"
 #import "SS_DetailOfStoreCell.h"
 #import "phoneCell.h"
+#import "SS_CommentViewController.h"
 
 @interface SS_DetailOfStoreViewController ()
 {
@@ -64,6 +65,10 @@
        cell.detailOfStoreModel = b_model;
         //cell.userInteractionEnabled = NO;//该方法会把这个cell以及cell内的所有控件的事件都会被关闭
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];//使用该事件就不会了。
+        [cell addBlock:^(id sender) {
+            SS_CommentViewController *commentController = [[SS_CommentViewController alloc] init];
+            [self.navigationController pushViewController:commentController animated:YES];
+        }];
        return cell;
     }else /*if (indexPath.section == 1)*/{
         static NSString *cellID = @"phoneCell_id";

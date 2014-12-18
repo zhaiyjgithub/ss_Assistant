@@ -85,7 +85,7 @@
             
         }];
         return cell;
-    }else{//显示热门商家信息的cell
+    }else{//显示门商家信息的cell
         static NSString *cellID = @"SS_StoreCell_id";
         
         SS_StoreCell * cell = (SS_StoreCell *)[tableView dequeueReusableCellWithIdentifier:cellID];

@@ -7,7 +7,5 @@
 //
 
 #import "SS_BaseCell.h"
-
 @interface SS_CommentOfStore : SS_BaseCell
-
 @end

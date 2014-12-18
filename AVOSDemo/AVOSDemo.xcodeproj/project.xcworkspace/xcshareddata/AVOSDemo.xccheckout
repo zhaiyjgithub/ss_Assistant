@@ -10,29 +10,29 @@
 	<string>AVOSDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2454F2EA-46A3-4F96-9B48-62245591FF61</key>
+		<key>AC0B3EFD73148A29EF9D20FA80E37D68380C9811</key>
 		<string>https://github.com/zhaiyjgithub/ss_Assistant.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AVOSDemo/AVOSDemo.xcodeproj/project.xcworkspace</string>
+	<string>AVOSDemo/AVOSDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2454F2EA-46A3-4F96-9B48-62245591FF61</key>
+		<key>AC0B3EFD73148A29EF9D20FA80E37D68380C9811</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/zhaiyjgithub/ss_Assistant.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2454F2EA-46A3-4F96-9B48-62245591FF61</string>
+	<string>AC0B3EFD73148A29EF9D20FA80E37D68380C9811</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2454F2EA-46A3-4F96-9B48-62245591FF61</string>
+			<string>AC0B3EFD73148A29EF9D20FA80E37D68380C9811</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ss_Assistant</string>
 		</dict>

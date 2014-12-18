@@ -9,12 +9,16 @@
 #import "SS_BaseCell.h"
 #import "SS_DetailOfStoreModel.h"
 
+typedef void(^setCommentIconBlock) (id sender);
+
 @interface SS_DetailOfStoreCell : SS_BaseCell
+@property(nonatomic,strong)setCommentIconBlock commentBlock;
 @property(nonatomic,strong)SS_DetailOfStoreModel * detailOfStoreModel;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *instruction;
+@property (weak, nonatomic) IBOutlet UIButton *comment;
 
-
+- (void)addBlock:(setCommentIconBlock)block;
 + (instancetype)instanceWithXib;
 
 @end

@@ -17,36 +17,6 @@
             endingLineNumber = "13"
             landmarkName = "@interface SS_BuinessController()"
             landmarkType = "2">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SS_BuinessController gd]"
-                  moduleName = "AVOSDemo"
-                  urlString = "file:///work/projects/ss_Assistant/AVOSDemo/AVOSDemo/SS_Controller/SS_BuinessController.m"
-                  timestampString = "440349690.097081"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SS_BuinessController setGd:]"
-                  moduleName = "AVOSDemo"
-                  urlString = "file:///work/projects/ss_Assistant/AVOSDemo/AVOSDemo/SS_Controller/SS_BuinessController.m"
-                  timestampString = "440349690.097244"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
