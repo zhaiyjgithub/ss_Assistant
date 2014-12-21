@@ -19,6 +19,7 @@
 		649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389101A2E176D0089AC21 /* SS_StoreViewController.m */; };
 		649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649389151A2E18180089AC21 /* SS_StoreCell.m */; };
 		649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649389161A2E18180089AC21 /* SS_StoreCell.xib */; };
+		649A6C8E1A46BDE9004B78F8 /* SS_CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649A6C8D1A46BDE9004B78F8 /* SS_CommentCell.m */; };
 		649F88771A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88601A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.m */; };
 		649F88781A3D6336000B291C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88631A3D6336000B291C /* FMDatabase.m */; };
 		649F88791A3D6336000B291C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88651A3D6336000B291C /* FMDatabaseAdditions.m */; };
@@ -33,6 +34,11 @@
 		649F88831A3D6D6A000B291C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 649F88821A3D6D6A000B291C /* libsqlite3.dylib */; };
 		64B6C8111A3F1207008C1C81 /* phoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B6C8101A3F1207008C1C81 /* phoneCell.m */; };
 		64B6C8131A3F1237008C1C81 /* phoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B6C8121A3F1237008C1C81 /* phoneCell.xib */; };
+		64F0248E1A46A8D000AABA0E /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64F024841A46A8D000AABA0E /* MJRefresh.bundle */; };
+		64F0248F1A46A8D000AABA0E /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F024871A46A8D000AABA0E /* MJRefreshBaseView.m */; };
+		64F024901A46A8D000AABA0E /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F024891A46A8D000AABA0E /* MJRefreshConst.m */; };
+		64F024911A46A8D000AABA0E /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F0248B1A46A8D000AABA0E /* MJRefreshFooterView.m */; };
+		64F024921A46A8D000AABA0E /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F0248D1A46A8D000AABA0E /* MJRefreshHeaderView.m */; };
 		6B278F2C1A24317900AC5A6E /* SS_BusinessAPITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */; };
 		6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F711A2434B900AC5A6E /* MJArgument.m */; };
 		6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B278F741A2434B900AC5A6E /* MJIvar.m */; };
@@ -113,6 +119,8 @@
 		649389141A2E18180089AC21 /* SS_StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_StoreCell.h; sourceTree = "<group>"; };
 		649389151A2E18180089AC21 /* SS_StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_StoreCell.m; sourceTree = "<group>"; };
 		649389161A2E18180089AC21 /* SS_StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_StoreCell.xib; sourceTree = "<group>"; };
+		649A6C8C1A46BDE9004B78F8 /* SS_CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentCell.h; sourceTree = "<group>"; };
+		649A6C8D1A46BDE9004B78F8 /* SS_CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentCell.m; sourceTree = "<group>"; };
 		649F885F1A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
 		649F88601A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
 		649F88621A3D6336000B291C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -139,6 +147,16 @@
 		64B6C80F1A3F1207008C1C81 /* phoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneCell.h; sourceTree = "<group>"; };
 		64B6C8101A3F1207008C1C81 /* phoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phoneCell.m; sourceTree = "<group>"; };
 		64B6C8121A3F1237008C1C81 /* phoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = phoneCell.xib; sourceTree = "<group>"; };
+		64F024841A46A8D000AABA0E /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		64F024851A46A8D000AABA0E /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		64F024861A46A8D000AABA0E /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		64F024871A46A8D000AABA0E /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		64F024881A46A8D000AABA0E /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		64F024891A46A8D000AABA0E /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		64F0248A1A46A8D000AABA0E /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		64F0248B1A46A8D000AABA0E /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		64F0248C1A46A8D000AABA0E /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		64F0248D1A46A8D000AABA0E /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		6B278F2A1A24317900AC5A6E /* SS_BusinessAPITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessAPITool.h; sourceTree = "<group>"; };
 		6B278F2B1A24317900AC5A6E /* SS_BusinessAPITool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessAPITool.m; sourceTree = "<group>"; };
 		6B278F701A2434B900AC5A6E /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
@@ -326,6 +344,23 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		64F024831A46A8D000AABA0E /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				64F024841A46A8D000AABA0E /* MJRefresh.bundle */,
+				64F024851A46A8D000AABA0E /* MJRefresh.h */,
+				64F024861A46A8D000AABA0E /* MJRefreshBaseView.h */,
+				64F024871A46A8D000AABA0E /* MJRefreshBaseView.m */,
+				64F024881A46A8D000AABA0E /* MJRefreshConst.h */,
+				64F024891A46A8D000AABA0E /* MJRefreshConst.m */,
+				64F0248A1A46A8D000AABA0E /* MJRefreshFooterView.h */,
+				64F0248B1A46A8D000AABA0E /* MJRefreshFooterView.m */,
+				64F0248C1A46A8D000AABA0E /* MJRefreshHeaderView.h */,
+				64F0248D1A46A8D000AABA0E /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
 		6B278F291A24312500AC5A6E /* NetWorkTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +388,7 @@
 		6B278F311A24349F00AC5A6E /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				64F024831A46A8D000AABA0E /* MJRefresh */,
 				649F885C1A3D632C000B291C /* DB_LIB */,
 				6BA03C371A238B8100B50019 /* NSStringCategorys */,
 				6BA03C341A238B8100B50019 /* NSDateCategroy */,
@@ -605,6 +641,8 @@
 				64B6C8121A3F1237008C1C81 /* phoneCell.xib */,
 				645921891A43157100CD77E9 /* SS_SendComment.h */,
 				6459218A1A43157100CD77E9 /* SS_SendComment.m */,
+				649A6C8C1A46BDE9004B78F8 /* SS_CommentCell.h */,
+				649A6C8D1A46BDE9004B78F8 /* SS_CommentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -779,6 +817,7 @@
 			files = (
 				6BA03C151A238B3900B50019 /* Images.xcassets in Resources */,
 				6BA03C071A238B3900B50019 /* InfoPlist.strings in Resources */,
+				64F0248E1A46A8D000AABA0E /* MJRefresh.bundle in Resources */,
 				648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */,
 				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
 				6BA03C101A238B3900B50019 /* Main.storyboard in Resources */,
@@ -807,6 +846,8 @@
 				6BA03C591A238E7900B50019 /* AFURLSessionManager.m in Sources */,
 				6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */,
 				6B278F8C1A2434B900AC5A6E /* MJMember.m in Sources */,
+				64F024921A46A8D000AABA0E /* MJRefreshHeaderView.m in Sources */,
+				64F0248F1A46A8D000AABA0E /* MJRefreshBaseView.m in Sources */,
 				6BA5A37B1A249D0B00A0BDF5 /* UIViewExt.m in Sources */,
 				649F887E1A3D6336000B291C /* LKDBHelper.m in Sources */,
 				6B278F8D1A2434B900AC5A6E /* MJMethod.m in Sources */,
@@ -818,8 +859,10 @@
 				6B278FAD1A2438E900AC5A6E /* SS_BuinessController.m in Sources */,
 				6BA03C0D1A238B3900B50019 /* AppDelegate.m in Sources */,
 				64B6C8111A3F1207008C1C81 /* phoneCell.m in Sources */,
+				64F024911A46A8D000AABA0E /* MJRefreshFooterView.m in Sources */,
 				6BA03C561A238E7900B50019 /* AFURLConnectionOperation.m in Sources */,
 				6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */,
+				64F024901A46A8D000AABA0E /* MJRefreshConst.m in Sources */,
 				6BA03C531A238E7900B50019 /* AFHTTPSessionManager.m in Sources */,
 				649F887F1A3D6336000B291C /* LKDBUtils.m in Sources */,
 				6BA03C571A238E7900B50019 /* AFURLRequestSerialization.m in Sources */,
@@ -856,6 +899,7 @@
 				6459218B1A43157100CD77E9 /* SS_SendComment.m in Sources */,
 				6B278F9F1A2434F500AC5A6E /* SS_BaseModel.m in Sources */,
 				6BA5A3721A249C3800A0BDF5 /* SS_DetailCollectionController.m in Sources */,
+				649A6C8E1A46BDE9004B78F8 /* SS_CommentCell.m in Sources */,
 				6BA03C511A238E7900B50019 /* AFHTTPRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -61,7 +61,7 @@
     btn.tag = index;//用于标记按钮的分类
     btn.frame = CGRectMake(with*j, height*i+5, with, height);
     
-    [self addSubview:btn];
+    [self.contentView addSubview:btn];
     [btn addTarget:self action:@selector(setDapaidang:) forControlEvents:UIControlEventTouchUpInside];
     
     return  btn;

@@ -77,7 +77,7 @@
         }
         [cell addBlock:^(id sender) {//为按钮添加block
             UIButton *btn = (UIButton *)sender;
-            NSLog(@"btn.tag%d",btn.tag);//根据btn.tag来判断数据哪个按钮，tag已经在创建这个btn时已经确定
+           // NSLog(@"btn.tag%d",btn.tag);//根据btn.tag来判断数据哪个按钮，tag已经在创建这个btn时已经确定
             SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
             store.title =naviClassesByButtonTag[btn.tag];//根据title来判断属于哪个页面，从而向后台发起对应的请求
             

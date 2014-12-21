@@ -10,13 +10,16 @@
 #import "SS_StoreCell.h"
 #import "SS_DetailOfStoreViewController.h"
 #import "SS_BusinessAPITool.h"
+#import "MJRefresh.h"
 
 
-@interface SS_StoreViewController ()
+@interface SS_StoreViewController ()<MJRefreshBaseViewDelegate>
 {
     NSDictionary *uidOfRequest ;
-       
 }
+@property(nonatomic,weak)MJRefreshFooterView *footer;
+@property(nonatomic,weak)MJRefreshHeaderView *header;
+
 @end
 
 @implementation SS_StoreViewController
@@ -26,9 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        uidOfRequest = @{
-        @"大排档":@"classes/t_hotStore"
-                         };
+      
     }
     return self;
 }
@@ -36,8 +37,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    uidOfRequest = @{
+                     @"大排档":@"classes/t_hotStore"
+                     };
     // Do any additional setup after loading the view from its nib.
     [self loadLocalData];//先加载本地数据
+    [self setupRefreshView];
+    
    
 }
 -(void)viewDidAppear:(BOOL)animated{//然后加载网络数据
@@ -61,16 +68,60 @@
 }
 #pragma mark 本地
 -(void)loadLocalData{
-
+#pragma TODO-- for count == 20
     self.dataSource =[SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:20];
     [self.tableView reloadData];
 
 
 }
-- (void)didReceiveMemoryWarning
+
+#pragma  设置上拉以及下拉刷新控件
+- (void)setupRefreshView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //定义上拉刷新
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    header.scrollView = self.tableView;
+    header.delegate = self;
+    self.header = header;
+    
+    //定义下拉刷新
+    MJRefreshFooterView *footer = [MJRefreshFooterView footer];
+    footer.scrollView = self.tableView;
+    footer.delegate = self;
+    self.footer = footer;
+    
+}
+#pragma 必须调用析构来释放
+- (void) dealloc
+{
+    [self.header free];
+    [self.footer free];
+}
+
+/*
+ *重写协议的方法，开始刷新数据时调用
+ */
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if ([refreshView isKindOfClass:[MJRefreshFooterView class]]) {
+        [self loadMoreData];
+    }else{
+        [self loadNewData];
+    }
+}
+
+#pragma  加载数据
+- (void)loadMoreData
+{
+    NSLog(@"load more data");
+    [self.footer endRefreshing];
+}
+#pragma 记载数据
+- (void)loadNewData
+{
+    NSLog(@"load new data");
+    [self.header endRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
