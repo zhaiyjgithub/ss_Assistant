@@ -121,6 +121,8 @@
 		649389161A2E18180089AC21 /* SS_StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_StoreCell.xib; sourceTree = "<group>"; };
 		649A6C8C1A46BDE9004B78F8 /* SS_CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentCell.h; sourceTree = "<group>"; };
 		649A6C8D1A46BDE9004B78F8 /* SS_CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentCell.m; sourceTree = "<group>"; };
+		649A6C8F1A46FDB5004B78F8 /* cellCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cellCommon.h; sourceTree = "<group>"; };
+		649A6C911A470C8B004B78F8 /* controllerCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = controllerCommon.h; sourceTree = "<group>"; };
 		649F885F1A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
 		649F88601A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
 		649F88621A3D6336000B291C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 		6BA5A35F1A249B1C00A0BDF5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				649A6C911A470C8B004B78F8 /* controllerCommon.h */,
 				6B278FAB1A2438E900AC5A6E /* SS_BuinessController.h */,
 				6B278FAC1A2438E900AC5A6E /* SS_BuinessController.m */,
 				6493890F1A2E176D0089AC21 /* SS_StoreViewController.h */,
@@ -628,6 +631,7 @@
 		6BA5A3611A249B1C00A0BDF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				649A6C8F1A46FDB5004B78F8 /* cellCommon.h */,
 				6493890A1A2E0C300089AC21 /* SS_NavigationCell.h */,
 				6493890B1A2E0C300089AC21 /* SS_NavigationCell.m */,
 				649389141A2E18180089AC21 /* SS_StoreCell.h */,

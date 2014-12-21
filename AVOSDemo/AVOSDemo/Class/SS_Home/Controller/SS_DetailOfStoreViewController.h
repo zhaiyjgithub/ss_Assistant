@@ -12,6 +12,6 @@
 @interface SS_DetailOfStoreViewController : SS_BaseViewController<UIGestureRecognizerDelegate>
 
 @property(nonatomic,strong)SS_DetailOfStoreModel *detailOfModel;
-
+@property(nonatomic,strong)UITableView *commentTableView;//添加评论的taview。
 
 @end
