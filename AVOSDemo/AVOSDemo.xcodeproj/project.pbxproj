@@ -32,6 +32,7 @@
 		649F88801A3D6336000B291C /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88741A3D6336000B291C /* NSObject+LKDBHelper.m */; };
 		649F88811A3D6336000B291C /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88761A3D6336000B291C /* NSObject+LKModel.m */; };
 		649F88831A3D6D6A000B291C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 649F88821A3D6D6A000B291C /* libsqlite3.dylib */; };
+		64A6A4481A485DC800E7DCE0 /* titleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A6A4471A485DC800E7DCE0 /* titleCell.m */; };
 		64B6C8111A3F1207008C1C81 /* phoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B6C8101A3F1207008C1C81 /* phoneCell.m */; };
 		64B6C8131A3F1237008C1C81 /* phoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B6C8121A3F1237008C1C81 /* phoneCell.xib */; };
 		64F0248E1A46A8D000AABA0E /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64F024841A46A8D000AABA0E /* MJRefresh.bundle */; };
@@ -146,6 +147,8 @@
 		649F88751A3D6336000B291C /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		649F88761A3D6336000B291C /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
 		649F88821A3D6D6A000B291C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		64A6A4461A485DC800E7DCE0 /* titleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = titleCell.h; sourceTree = "<group>"; };
+		64A6A4471A485DC800E7DCE0 /* titleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = titleCell.m; sourceTree = "<group>"; };
 		64B6C80F1A3F1207008C1C81 /* phoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneCell.h; sourceTree = "<group>"; };
 		64B6C8101A3F1207008C1C81 /* phoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phoneCell.m; sourceTree = "<group>"; };
 		64B6C8121A3F1237008C1C81 /* phoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = phoneCell.xib; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 				6459218A1A43157100CD77E9 /* SS_SendComment.m */,
 				649A6C8C1A46BDE9004B78F8 /* SS_CommentCell.h */,
 				649A6C8D1A46BDE9004B78F8 /* SS_CommentCell.m */,
+				64A6A4461A485DC800E7DCE0 /* titleCell.h */,
+				64A6A4471A485DC800E7DCE0 /* titleCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -874,6 +879,7 @@
 				648F7D7B1A3498CF007412EF /* SS_DetailOfStoreCell.m in Sources */,
 				6B278F8F1A2434B900AC5A6E /* MJTypeEncoding.m in Sources */,
 				649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */,
+				64A6A4481A485DC800E7DCE0 /* titleCell.m in Sources */,
 				649F88791A3D6336000B291C /* FMDatabaseAdditions.m in Sources */,
 				649F88771A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				6BA5A37A1A249D0B00A0BDF5 /* BaseTabbarController.m in Sources */,

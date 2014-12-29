@@ -24,7 +24,6 @@
 
 - (void)setDetailOfStoreModel:(SS_DetailOfStoreModel *)detailOfStoreModel
 {
-    //_businessModel=businessModel;
     _detailOfStoreModel = detailOfStoreModel;
     self.nameLabel.text = detailOfStoreModel.Name;
     self.phoneLabel.text = detailOfStoreModel.phone_host;

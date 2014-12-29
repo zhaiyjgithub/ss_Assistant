@@ -11,13 +11,15 @@
 @property(nonatomic,copy)NSString * key;
 
 
+- (void)setModelwithModel:(SS_DetailOfStoreModel *)model;
+
 //1,insert
 +(void)insertDetailModel:(SS_DetailOfStoreModel*)detailModel;
 
 //2.query
 
 //where,1-id=9(id=9) 2-order(time desc/asc) 3.count=10
-+(NSMutableArray*)queryDetailModelWithWhere:(NSString*)where
++(NSMutableArray*)queryDetailModelWithWhere:(id)where
                                     orderBy:(NSString*)order
                                       count:(NSInteger)count;
 
@@ -31,12 +33,19 @@
  C.key=Name
  D.where(objectID=102321)
  */
-+(void)updateDetailModel:(id)newProperty
-                     key:(id)key
-                   where:(NSString*)where;
++(void)updateDetailModel:(id)key
+             oldProperty:(id)oldProperty
+             newProperty:(id)newProperty;
 
 +(void)updateDetailModel:(SS_DetailOfStoreModel*)detailModel
                                     where:(NSString*)where;
 
-//4.del
+//4.dellete
++ (void)deleteDetailModel:(id)key property:(id)property;
+
+//5
++ (void)deleteDetailModel:(SS_DetailOfStoreModel *)model;
+
+//6
++ (void)deleteTableData: (Class)modelClass;
 @end

@@ -11,18 +11,9 @@
 
 @implementation SS_DetailOfStoreCell
 
-
-#pragma 位置改变，最好放置再layout
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-}
-
 #pragma 使用xib文件加载
 - (void)awakeFromNib {
     // Initialization code
-    
     [self.comment addTarget:self action:@selector(clickComment:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -45,11 +36,8 @@
 {
     _detailOfStoreModel = detailOfStoreModel;
     self.name.text = detailOfStoreModel.Name;
+#pragma TODO--修改UILabel的文字顶部对齐方式
     self.instruction.text = detailOfStoreModel.instruction;
-    //不再使用旧方法来获取文字再label中的高度
-    //添加评论内容的高度
-    //CGSize retweetContentLabelSize = [status.retweeted_status.text sizeWithFont:IWRetweetStatusContentFont constrainedToSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
-   // CGSize sizeOfComment = [self.instruction.text ]
 }
 
 

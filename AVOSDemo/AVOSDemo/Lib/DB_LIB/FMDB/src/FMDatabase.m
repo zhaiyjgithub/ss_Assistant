@@ -923,7 +923,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     if (_traceExecution && sql) {
         NSLog(@"%@ executeUpdate: %@", self, sql);
     }
-    
+
     if (_shouldCacheStatements) {
         cachedStmt = [self cachedStatementForQuery:sql];
         pStmt = cachedStmt ? [cachedStmt statement] : 0x00;

@@ -24,6 +24,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSString* dbpath = [NSHomeDirectory() stringByAppendingPathComponent:@"DB/SS.sqlite"];
+        NSLog(@"路径:%@",dbpath);
         db = [[LKDBHelper alloc]initWithDBPath:dbpath];
         //or
         //        db = [[LKDBHelper alloc]init];

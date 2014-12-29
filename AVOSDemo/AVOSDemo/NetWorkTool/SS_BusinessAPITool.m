@@ -19,7 +19,7 @@
         for (NSDictionary * dic in busArray) {
             //修改为当前新的数据模型，后面该函数需要重构一下
             SS_DetailOfStoreModel * bM=[[SS_DetailOfStoreModel alloc]initWithDictionary:dic];
-            [SS_DetailOfStoreModel insertDetailModel:bM];
+            //[SS_DetailOfStoreModel insertDetailModel:bM];//不能当前使用，必须通过引用的方式修改
             [arrayM addObject:bM];
         }
         success(arrayM);

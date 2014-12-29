@@ -7,7 +7,7 @@
 //
 
 #import "SS_BaseViewController.h"
+#import "SS_DetailOfStoreModel.h"
 
 @interface SS_BuinessController : SS_BaseViewController
-
 @end

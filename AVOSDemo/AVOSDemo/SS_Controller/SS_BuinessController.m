@@ -9,13 +9,13 @@
 
 #define HOT_STORE_PATH      @"classes/t_hotStore"
 
+static BOOL needToUpdate = YES;
+
 
 @interface SS_BuinessController ()
 {
     NSArray *naviClassesByButtonTag;
 }
-@property(nonatomic,strong)NSMutableArray * gd;
-@property(nonatomic,strong)NSMutableArray * hn;
 @end
 
 @implementation SS_BuinessController
@@ -32,31 +32,82 @@
     return self;
 }
 
-- (void)viewDidLoad//修改为先加载本地数据，然后加载服务器数据
+- (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self loadLocalData];//修改为先加载本地数据，然后加载服务器数据
+
     //自定义返回按钮
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
     backBtn.title = @"返回";
     self.navigationItem.backBarButtonItem = backBtn;
-    
-    //这里是首先请求热门商家信息
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    //后台加载网络数据以及更新数据库数据
+    if (needToUpdate == YES) {
+        NSLog(@"need to update");
+        needToUpdate = NO;
+        [self loadNetData];
+    }
+}
+#pragma mark - 根据后面需求，按照查询约束来插入以及查询数据
+- (void)loadLocalData
+{
+    //加载数据库数据，
+    self.dataSource = [SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:10];
+    [self.tableView reloadData];
+
+}
+/*
+ 2014/14/28 12:15出现get请求一次请求成功，一次失败重复性现象，暂时还没有找到问题所在
+ 为了避免影响到其他，就是用失败一次后重复请求。
+ */
+- (void)loadNetData
+{
+    //请求服务器的最新数据，注意请求的数据的个数要与数据库里面的个数保持一致
     [SS_BusinessAPITool getAllBusiness:HOT_STORE_PATH success:^(id result) {
         if (result) {
             NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
             self.dataSource = [NSMutableArray arrayWithArray:array];
+            [self updateLocalData:self.dataSource];
             [self.tableView reloadData];
+            
         }
     } failure:^(NSError *error) {
-        NSLog(@"热门数据请求失败:%@",error);
-    }];
-}
+        [SS_BusinessAPITool getAllBusiness:HOT_STORE_PATH success:^(id result) {
+            if (result) {
+                NSLog(@"重新获取数据成功");
+                NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
+                self.dataSource = [NSMutableArray arrayWithArray:array];
+                [self updateLocalData:self.dataSource];
+                [self.tableView reloadData];
+            }
+        } failure:^(NSError *error) {
+        }];
 
+    }];
+
+}
+#pragma mark - 网络数据更新数据库中热门商家的数据
+#pragma mark - TODO,count == 50 需要修改，只是假设本地数据库固定50个数据作为热门数据
+- (void)updateLocalData:(NSMutableArray *)dataSource
+{
+    NSMutableArray *hotStore = [[NSMutableArray alloc] initWithArray:[SS_DetailOfStoreModel queryDetailModelWithWhere:@{@"key":@"hotStore"} orderBy:nil count:50]];
+    //删除本地SQL数据，再根据网络数据更新本地SQL数据
+    for (id model in hotStore){
+        [SS_DetailOfStoreModel deleteDetailModel:model];
+    }
+    for (id model in dataSource){
+        [SS_DetailOfStoreModel insertDetailModel:model];
+    }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0) return  1;
-    
     return self.dataSource.count;
 }
 
@@ -80,9 +131,7 @@
            // NSLog(@"btn.tag%d",btn.tag);//根据btn.tag来判断数据哪个按钮，tag已经在创建这个btn时已经确定
             SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
             store.title =naviClassesByButtonTag[btn.tag];//根据title来判断属于哪个页面，从而向后台发起对应的请求
-            
             [self.navigationController pushViewController:store animated:YES];
-            
         }];
         return cell;
     }else{//显示门商家信息的cell

@@ -13,6 +13,8 @@
 #import "MJRefresh.h"
 
 
+static BOOL needToUpdate = YES;
+
 @interface SS_StoreViewController ()<MJRefreshBaseViewDelegate>
 {
     NSDictionary *uidOfRequest ;
@@ -42,14 +44,18 @@
                      @"大排档":@"classes/t_hotStore"
                      };
     // Do any additional setup after loading the view from its nib.
+    
     [self loadLocalData];//先加载本地数据
     [self setupRefreshView];
     
    
 }
 -(void)viewDidAppear:(BOOL)animated{//然后加载网络数据
-    
-    [self loadNetworkData];
+    if (needToUpdate == YES) {
+        needToUpdate = NO;
+        NSLog(@"222222222222222");
+        [self loadNetworkData];
+    }
 }
 #pragma mark -网络
 -(void)loadNetworkData{
@@ -57,9 +63,18 @@
     NSString *pathOfRequest = [uidOfRequest valueForKey:self.title];
     if (pathOfRequest !=nil) {
         [SS_BusinessAPITool getAllBusiness:pathOfRequest success:^(id result) {
-            [self loadLocalData];
+            NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
+            self.dataSource = [NSMutableArray arrayWithArray:array];
+            [self.tableView reloadData];
         } failure:^(NSError *error) {
-            NSLog(@"ee:%@",error);
+            [SS_BusinessAPITool getAllBusiness:pathOfRequest success:^(id result) {
+                NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
+                self.dataSource = [NSMutableArray arrayWithArray:array];
+                [self.tableView reloadData];
+                NSLog(@"再次发起请求成功:");
+            } failure:^(NSError *error) {
+            }];
+
         }];
         
     }else{
@@ -69,10 +84,10 @@
 #pragma mark 本地
 -(void)loadLocalData{
 #pragma TODO-- for count == 20
-    self.dataSource =[SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:20];
+    self.dataSource =[SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:6];
     [self.tableView reloadData];
 
-
+      
 }
 
 #pragma  设置上拉以及下拉刷新控件

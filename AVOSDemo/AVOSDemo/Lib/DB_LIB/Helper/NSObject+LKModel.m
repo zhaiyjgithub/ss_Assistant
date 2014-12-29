@@ -39,7 +39,7 @@ static char LKModelBase_Key_Inserting;
 #pragma mark Tabel Structure Function 表结构
 +(NSString *)getTableName
 {
-    return NSStringFromClass(self);
+    return NSStringFromClass(self);//模型名称就是表的名称，不同的模型就由不同的表格
 }
 
 +(NSString *)getPrimaryKey

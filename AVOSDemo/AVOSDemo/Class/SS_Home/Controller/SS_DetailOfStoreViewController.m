@@ -13,6 +13,7 @@
 #import "SS_CommentViewController.h"
 #import "MJRefresh.h"
 #import "controllerCommon.h"
+#import "titleCell.h"
 
 @interface SS_DetailOfStoreViewController ()
 {
@@ -41,58 +42,20 @@
     if([model.phone_dgut isEqualToString:@"-"]) countOfPhone+=1;
 }
 
-#pragma 设置两个tableview的位置
-- (void)viewWillLayoutSubviews
-{
-    //设置顶头的view
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    CGFloat height = (PHONE_CELL_HEIGHT*(4- countOfPhone))+ DETAIL_STORE_CELL_HEIGHT+PHONE_CELL_HEADER_HEIGHT;
-    self.tableView.frame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width,height);
-    self.tableView.tag = DETAIL_STORE_TABLEVIEW_ID;
-    self.tableView.scrollEnabled = NO;
-    
-    self.commentTableView.frame = CGRectMake(bounds.origin.x, bounds.origin.y + height, bounds.size.width, bounds.size.height - height );
-    self.commentTableView.tag = COMMENT_TABLEVIEW_ID;
-    [self.view addSubview:self.commentTableView];
-}
-
-#pragma  使用默认方法，忘记了该方法的原理了--丢!
-- (UITableView *)commentTableView
-{
-    if (!_commentTableView) {
-        UITableView *tableview = [[UITableView alloc] init];
-        tableview.delegate = self;
-        tableview.dataSource = self;
-        
-        _commentTableView = tableview;
-    }
-    return  _commentTableView;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView.tag == DETAIL_STORE_TABLEVIEW_ID) return  2;
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView.tag == DETAIL_STORE_TABLEVIEW_ID) {
-        if (section == 0) {
-            return 1;
-        }else //如果所在商家没有某一间学校的电话，则不显示该学校的cell
-            return (3-countOfPhone);
-    }else
-#pragma TODO
-        return  5;//后面，该长度会被根据评论的长度来更改===datasource.count
-    
-   
+        if (section == 0)   return 1;
+        else if(section == 1)  return (3-countOfPhone);
+        else    return  5;//后面，该长度会被根据评论的长度来更改===datasource.count
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if (tableView.tag == DETAIL_STORE_TABLEVIEW_ID) {
         if (indexPath.section == 0) {
             static NSString * cellID = @"SS_DetailOfStoreCell_id";
             SS_DetailOfStoreCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -110,7 +73,7 @@
                 [self.navigationController pushViewController:commentController animated:YES];
             }];
             return cell;
-        }else {
+        }else if(indexPath.section == 1) {
             static NSString *cellID = @"phoneCell_id";
             phoneCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
             if (!cell) {
@@ -127,41 +90,49 @@
                 cell.schoolPhone.text = [self.dataSource[0] phone_dgpt];
             }
             return cell;
+        }else{
+            if (indexPath.row) {
+                static NSString *cellID = @"SS_CommentCell_id";
+                SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+                if (!cell) {
+                    cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+                }
+                cell.commentModel = self.dataSource[0];
+                _cellHeight = cell.commentCellHeight;//获取cell的真正高度
+                return  cell;
+                
+            }else{
+                static NSString *cellID = @"TitleCell_id";
+                commentTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+                if (!cell) {
+                    cell = [[commentTitleCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:cellID];
+                    
+                    cell.TitleLabel.text = @"评论";
+                }
+                return cell;
+            }
         }
-    }else{
-        static NSString *cellID = @"SS_CommentCell_id";
-        SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (!cell) {
-            cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        }
-        cell.commentModel = self.dataSource[0];
-        _cellHeight = cell.commentCellHeight;//获取cell的真正高度
-        return  cell;
-    }
-
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView.tag == DETAIL_STORE_TABLEVIEW_ID) {
-        if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
             return DETAIL_STORE_CELL_HEIGHT;
+    }else if(indexPath.section == 1)  return  PHONE_CELL_HEIGHT;
+    else {
+        if (indexPath.row) {
+            return _cellHeight;
         }else
-            return  PHONE_CELL_HEIGHT;
-    }else
-        return  _cellHeight;
+            return 20;
+    }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (tableView.tag == DETAIL_STORE_TABLEVIEW_ID) {
-        if (section == 1) {
-            return 10;
-        }
-    }
-    return 0;
+        if (section == 1)   return 10;
+        else if(section == 0)  return 0;
+        else    return 15;
 }
-
-
 
 #pragma  增加长按触发电话功能
 - (void)tableviewCellLongPressed:(UILongPressGestureRecognizer *)gestureRecongnizer
