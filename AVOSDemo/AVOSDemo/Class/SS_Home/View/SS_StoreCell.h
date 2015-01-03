@@ -12,6 +12,7 @@
 @interface SS_StoreCell : UITableViewCell
 
 @property(nonatomic,strong)SS_DetailOfStoreModel * detailOfStoreModel;
+@property (weak, nonatomic) IBOutlet UIImageView *storeImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 

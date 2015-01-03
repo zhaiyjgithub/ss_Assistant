@@ -10,5 +10,4 @@
 
 @implementation SS_SendComment
 
-
 @end

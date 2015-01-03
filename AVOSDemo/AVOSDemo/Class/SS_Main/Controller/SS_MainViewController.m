@@ -11,13 +11,11 @@
 #import "SS_DetailCollectionController.h"
 #import "SS_MineController.h"
 
-//NSDictionary *params = @{@"userName": @"jack",@"userId":@"123456",@"age":@"20"};
 @interface SS_MainViewController ()
 
 @end
 
 @implementation SS_MainViewController
-//NSDictionary *params = @{@"userName": @"jack",@"userId":@"123456",@"age":@"20"};
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -41,7 +41,7 @@ static BOOL needToUpdate = YES;
     [super viewDidLoad];
     
     uidOfRequest = @{
-                     @"大排档":@"classes/t_hotStore"
+                     @"大排档":@"classes/t_Store",
                      };
     // Do any additional setup after loading the view from its nib.
     
@@ -53,7 +53,6 @@ static BOOL needToUpdate = YES;
 -(void)viewDidAppear:(BOOL)animated{//然后加载网络数据
     if (needToUpdate == YES) {
         needToUpdate = NO;
-        NSLog(@"222222222222222");
         [self loadNetworkData];
     }
 }
@@ -174,7 +173,7 @@ static BOOL needToUpdate = YES;
     SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
     //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
     detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
-    detailController.title = [detailController.dataSource[0] Name];//根据数据源的下标获取数据
+    detailController.title = [detailController.dataSource[0] storeName];//根据数据源的下标获取数据
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

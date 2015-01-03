@@ -8,9 +8,10 @@
 
 #import "SS_CommentViewController.h"
 #import "SS_SendComment.h"
+#import "HttpTool.h"
 
 @interface SS_CommentViewController ()
-@property(nonatomic,weak)SS_SendComment *commentTextview;
+
 @end
 
 @implementation SS_CommentViewController
@@ -20,6 +21,8 @@
     // Do any additional setup after loading the view.
     [self setupNavigationBar];
     [self setTextView];
+    _commentModel.commentPoster = @"Zack";
+    _commentModel.commentClassName = _commentClassName;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -39,12 +42,36 @@
 
 - (void)cancel
 {
+    //需要添加action sheet来作为一个提醒放弃已经编写的评论
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)send
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    
+    NSLog(@"_commentClassName:%@",_commentClassName);
+    NSDictionary *commentDic = @{@"poster":@"Zack",
+                                 @"comment":_commentTextview.text,
+                                 @"commentClassName":_commentClassName};
+    
+    NSLog(@"commentDic:%@",commentDic);
+    NSString *path = [NSString stringWithFormat:@"%@/%@",BASEURL,_commentClassName];
+    
+    NSLog(@"post path:%@",path);
+//    
+//    [HttpTool postWithPath:path params:commentDic success:^(id result) {
+//        NSLog(@"post successfully");
+//    } failure:^(NSError *error) {
+//        NSLog(@"post failed");
+//    }];
+    
+    [self.commentTextview resignFirstResponder];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"1" delegate:self cancelButtonTitle:@"2" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+    [actionSheet showInView:self.view];
 }
 
 - (void)setTextView

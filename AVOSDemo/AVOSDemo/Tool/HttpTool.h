@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define BASEURL @"https://leancloud.cn:443/1"
-
+#define IMAGE_BASE_URL   @"https://leancloud.cn:443/1/files/"
 
 
 
@@ -70,11 +70,16 @@ typedef void(^imageSuccessBlock)(CGSize imageSize);
 +(void)downloadFile:(NSString *)fileURL;
 
 /**
- 上传图片
+    使用URLSession上传图片
  */
 +(void)upLoadimage:(UIImage*)image
               path:(NSString*)path
              param:(NSDictionary*)param
            success:(HttpSuccessBlock)success
            failure:(HttpFailureBlock)failure;
+
++ (void)uploadImageWithImageName:(NSString *)baseURL imageName:(NSString *)imageName
+                    newImageName:(NSString *)newImageName;
+
++ (void)downLoadImageWithURL:(NSString *)url Content_Type:(NSString *)type;
 @end

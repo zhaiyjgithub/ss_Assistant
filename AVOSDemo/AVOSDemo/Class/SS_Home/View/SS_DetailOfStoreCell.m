@@ -35,7 +35,7 @@
 - (void)setDetailOfStoreModel:(SS_DetailOfStoreModel *)detailOfStoreModel
 {
     _detailOfStoreModel = detailOfStoreModel;
-    self.name.text = detailOfStoreModel.Name;
+    self.name.text = detailOfStoreModel.storeName;
 #pragma TODO--修改UILabel的文字顶部对齐方式
     self.instruction.text = detailOfStoreModel.instruction;
 }

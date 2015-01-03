@@ -14,6 +14,8 @@
               success:(HttpSuccessBlock)success
               failure:(HttpFailureBlock)failure;
 
-
++(void)getAllBusinessWithCommentModel:(NSString *)uid
+                              success:(HttpSuccessBlock)success
+                              failure:(HttpFailureBlock)failure;
 
 @end

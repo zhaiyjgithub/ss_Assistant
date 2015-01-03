@@ -12,5 +12,6 @@
 @interface SS_DetailOfStoreViewController : SS_BaseViewController<UIGestureRecognizerDelegate>
 
 @property(nonatomic,strong)SS_DetailOfStoreModel *detailOfModel;
+@property(nonatomic,strong)NSMutableArray *commentDataSource;
 
 @end

@@ -14,6 +14,8 @@
 #import "MJRefresh.h"
 #import "controllerCommon.h"
 #import "titleCell.h"
+#import "SS_BusinessAPITool.h"
+
 
 @interface SS_DetailOfStoreViewController ()
 {
@@ -26,6 +28,35 @@
 @implementation SS_DetailOfStoreViewController
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    //加载网络的评论数据,先加载0-15个评论
+    SS_DetailOfStoreModel *model = self.dataSource[0];
+    NSString *commentClassNamePath = [NSString stringWithFormat:@"classes/%@",model.commentClassName];
+    //NSLog(@"评论的路径名称:%@",commentClassNamePath);
+    //发起连接
+    
+    [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
+        if (result) {
+            NSArray * array = result;
+            self.commentDataSource = [NSMutableArray arrayWithArray:array];
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *error) {
+        [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
+            NSLog(@"再次请求成功");
+            if (result) {
+                NSArray * array = result;
+                self.commentDataSource = [NSMutableArray arrayWithArray:array];
+                [self.tableView reloadData];
+            }
+        } failure:^(NSError *error) {
+            NSLog(@"再次请求失败");
+        }];
+    }];
+}
+
+#pragma mark - TODO,加载评论数据,加载的数量后面要修改
 - (void)viewDidLoad
 {
     [super viewDidLoad];//没有先加载父类，就会导致黑屏挂掉
@@ -37,9 +68,9 @@
     [self.tableView addGestureRecognizer:longPress];
     
     SS_DetailOfStoreModel *model = self.dataSource[0];//根据内容选择显示cell的数目
-    if([model.phone_dgpt isEqualToString:@"-"]) countOfPhone+=1;
-    if([model.phone_gdmc isEqualToString:@"-"]) countOfPhone+=1;
-    if([model.phone_dgut isEqualToString:@"-"]) countOfPhone+=1;
+    if([model.phoneDgpt isEqualToString:@"-"]) countOfPhone+=1;
+    if([model.phoneGdmc isEqualToString:@"-"]) countOfPhone+=1;
+    if([model.phoneDgut isEqualToString:@"-"]) countOfPhone+=1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -49,9 +80,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        if (section == 0)   return 1;
-        else if(section == 1)  return (3-countOfPhone);
-        else    return  5;//后面，该长度会被根据评论的长度来更改===datasource.count
+    if (section == 0)   return 1;
+    else if(section == 1)  return (3-countOfPhone);
+    else    return  self.commentDataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,6 +101,9 @@
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];//使用该事件就不会了。
             [cell addBlock:^(id sender) {
                 SS_CommentViewController *commentController = [[SS_CommentViewController alloc] init];
+                //commentController.className = [self className];//传递对应商家的类别名称作为上传的评论类别名称
+                //当前以默认方式传送 t_mingjidapaidang-->.commentClassName
+                commentController.commentClassName = @"t_mingjidapaidang";
                 [self.navigationController pushViewController:commentController animated:YES];
             }];
             return cell;
@@ -81,23 +115,25 @@
             }
             if (indexPath.row == 0) {
                 cell.schoolName.text = @"理工";
-                cell.schoolPhone.text = [self.dataSource[0] phone_dgut];
+                cell.schoolPhone.text = [self.dataSource[0] phoneDgut];
             }else if (indexPath.row == 1){
                 cell.schoolName.text = @"广医";
-                cell.schoolPhone.text = [self.dataSource[0] phone_gdmc];
+                cell.schoolPhone.text = [self.dataSource[0] phoneGdmc];
             }else{
                 cell.schoolName.text = @"东职";
-                cell.schoolPhone.text = [self.dataSource[0] phone_dgpt];
+                cell.schoolPhone.text = [self.dataSource[0] phoneDgpt];
             }
             return cell;
         }else{
             if (indexPath.row) {
+                NSLog(@"indexpath.row:%d",indexPath.row);
+                
                 static NSString *cellID = @"SS_CommentCell_id";
                 SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
                 if (!cell) {
                     cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
                 }
-                cell.commentModel = self.dataSource[0];
+                cell.commentModel = self.commentDataSource[indexPath.row - 1];
                 _cellHeight = cell.commentCellHeight;//获取cell的真正高度
                 return  cell;
                 

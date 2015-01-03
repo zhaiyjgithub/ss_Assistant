@@ -3,6 +3,7 @@
 #import "SS_BusinessAPITool.h"
 #import "SS_BusinessModel.h"
 #import "SS_DetailOfStoreModel.h"
+#import "SS_CommentModel.h"
 
 #define SS_GET_ALL_BUSINESS_API @""   
 @implementation SS_BusinessAPITool
@@ -43,7 +44,27 @@
     } failure:^(NSError *error) {
         failure(error);
     }];
-    
+}
+
++(void)getAllBusinessWithCommentModel:(NSString *)uid
+              success:(HttpSuccessBlock)success
+              failure:(HttpFailureBlock)failure{
+    [HttpTool getWithPath:uid params:nil success:^(id result) {//底层修改为使用uid来发起请求
+        if (!result) {
+            success (nil);
+            return;
+        }
+        NSArray * busArray = result[@"results"];//AVOS的返回确定的key== results;
+        NSMutableArray * arrayM = [NSMutableArray array];
+        for (NSDictionary * dic in busArray) {
+            //修改为当前新的数据模型，后面该函数需要重构一下
+            SS_CommentModel * bM=[[SS_CommentModel alloc]initWithDictionary:dic];
+            [arrayM addObject:bM];
+        }
+        success(arrayM);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
 }
 
 

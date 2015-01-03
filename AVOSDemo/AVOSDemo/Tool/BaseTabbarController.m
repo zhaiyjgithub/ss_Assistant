@@ -116,7 +116,7 @@
         //icon_tabbar_01_h
         NSString * normalImage = [NSString stringWithFormat:@"icon_tabbar_0%d",i+1];
         NSString * highlightImage = [NSString stringWithFormat:@"icon_tabbar_0%d_h",i+1];
-        BaseTabButton *btn = [[BaseTabButton alloc]initWithFrame:CGRectMake(i*_width,7, kDockWidth, kDockHeight)];
+        BaseTabButton *btn = [[BaseTabButton alloc]initWithFrame:CGRectMake(i*_width+25,0, kDockWidth, kDockHeight)];
         btn.imageView.contentMode=UIViewContentModeScaleToFill;
         [btn setImage:[UIImage imageNamed:normalImage]  forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:highlightImage] forState:UIControlStateSelected];
@@ -170,9 +170,6 @@
             _tabView.hidden=NO;
         }];
     }
-    
-    
-    
 }
 
 

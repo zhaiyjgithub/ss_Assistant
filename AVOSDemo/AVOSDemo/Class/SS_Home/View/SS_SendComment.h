@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SS_CommentModel.h"
 
 @interface SS_SendComment : UITextView
 @end

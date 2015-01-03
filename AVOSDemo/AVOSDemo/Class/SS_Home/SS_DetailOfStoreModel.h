@@ -2,13 +2,22 @@
 #import "SS_BaseModel.h"
 
 @interface SS_DetailOfStoreModel : SS_BaseModel
-@property(nonatomic,copy)NSString * Name;
-@property(nonatomic,copy)NSString * phone_host;
-@property(nonatomic,copy)NSString * phone_dgut;
-@property(nonatomic,copy)NSString * phone_gdmc;
-@property(nonatomic,copy)NSString * phone_dgpt;
+//详情相关
+@property(nonatomic,copy)NSString * storeName;
+@property(nonatomic,copy)NSString * phoneHost;
+@property(nonatomic,copy)NSString * phoneDgut;
+@property(nonatomic,copy)NSString * phoneGdmc;
+@property(nonatomic,copy)NSString * phoneDgpt;
 @property(nonatomic,copy)NSString * instruction;
 @property(nonatomic,copy)NSString * key;
+//图片链接相关
+@property(nonatomic,copy)NSString * imageName;
+@property(nonatomic,copy)NSString * imageURL;
+//评论相关
+@property(nonatomic,copy)NSString * commentPoster;
+@property(nonatomic,copy)NSString * commentClassName;
+
+//增加商家评论类别名称、数目
 
 
 - (void)setModelwithModel:(SS_DetailOfStoreModel *)model;

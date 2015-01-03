@@ -7,7 +7,8 @@
 #import "SS_DetailOfStoreModel.h"
 #import "SS_DetailOfStoreViewController.h"
 
-#define HOT_STORE_PATH      @"classes/t_hotStore"
+#define HOT_STORE_PATH  @"classes/t_Store"
+
 
 static BOOL needToUpdate = YES;
 
@@ -48,7 +49,6 @@ static BOOL needToUpdate = YES;
 {
     //后台加载网络数据以及更新数据库数据
     if (needToUpdate == YES) {
-        NSLog(@"need to update");
         needToUpdate = NO;
         [self loadNetData];
     }
@@ -59,7 +59,6 @@ static BOOL needToUpdate = YES;
     //加载数据库数据，
     self.dataSource = [SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:10];
     [self.tableView reloadData];
-
 }
 /*
  2014/14/28 12:15出现get请求一次请求成功，一次失败重复性现象，暂时还没有找到问题所在
@@ -87,9 +86,7 @@ static BOOL needToUpdate = YES;
             }
         } failure:^(NSError *error) {
         }];
-
     }];
-
 }
 #pragma mark - 网络数据更新数据库中热门商家的数据
 #pragma mark - TODO,count == 50 需要修改，只是假设本地数据库固定50个数据作为热门数据
@@ -163,7 +160,7 @@ static BOOL needToUpdate = YES;
         SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
         //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
         detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
-        detailController.title = [self.dataSource[0] Name];//根据数据源的下标获取数据
+        detailController.title = [self.dataSource[0] storeName];//根据数据源的下标获取数据
         [self.navigationController pushViewController:detailController animated:YES];
     }
 }

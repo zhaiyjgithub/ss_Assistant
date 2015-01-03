@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SS_CommentModel.h"
+#import "SS_SendComment.h"
 
-@interface SS_CommentViewController : UIViewController
-
+@interface SS_CommentViewController : UIViewController <UIActionSheetDelegate>
+@property(nonatomic,weak)SS_SendComment *commentTextview;
+@property(nonatomic,strong)SS_CommentModel *commentModel;
+@property(nonatomic,strong)NSString *commentClassName;
 @end

@@ -183,8 +183,85 @@
         [postTask resume];
         
     }
-    
-    
-    
 }
+
+
+//上传图片,暂时支持JPEG/png两种格式
+//也可以通过路径方式上传图片。只需要修改为appendPartWithFileURL,填入文件路径即可。
++ (void)uploadImageWithImageName:(NSString *)baseURL imageName:(NSString *)imageName
+                    newImageName:(NSString *)newImageName
+{
+    NSURLSessionConfiguration *session = [NSURLSessionConfiguration defaultSessionConfiguration];
+    session.timeoutIntervalForRequest = 20;
+    
+    NSDictionary *headerDic = @{@"Content-Type":@"image/png",
+                                       @"X-AVOSCloud-Application-Id":AVOS_APP_ID,
+                                       @"X-AVOSCloud-Application-Key":AVOS_APP_KEY};
+    if ([imageName hasSuffix:@".jpg"]){
+        [headerDic setValue:@"Content-Type" forKey:@"image/jpeg"];
+    }
+    [session setHTTPAdditionalHeaders:headerDic];
+    NSData *imageData = nil;
+    //获取图片数据
+    UIImage *image = [UIImage imageNamed:imageName];
+    if ([imageName hasSuffix:@".jpg"]){
+        imageData = UIImageJPEGRepresentation(image, 1.0);
+    }
+    else{
+        imageData = UIImagePNGRepresentation(image);
+    }
+    
+    NSString *url = [baseURL stringByAppendingString:imageName];
+    
+    NSMutableURLRequest * request = [[AFHTTPRequestSerializer serializer]
+        multipartFormRequestWithMethod:@"POST" URLString:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [formData appendPartWithFileData:imageData name:@"file" fileName:newImageName mimeType:[headerDic objectForKey:@"Content-Type"]];
+        } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc]
+                                    initWithSessionConfiguration:session];
+    
+    NSProgress *progress = nil;
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@",error);
+        }else{
+            NSLog(@"%@-%@",response,responseObject);
+        }
+    }];
+    
+    [uploadTask resume];
+}
+
+//下载图片，下载的图片全部放在cache当中，每次先查找cache再进行网络请求
+//e.g. @"http://ac-72907i3d.qiniudn.com/r4iUAgjhSgBeBAoLKWG1C2Vd8JvrkKdDJCL4wKIu.png"
+//type:Content-Type== image/png
++ (void)downLoadImageWithURL:(NSString *)url Content_Type:(NSString *)type
+{
+
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+
+    NSDictionary *headDic = @{@"Content-Type":type,
+                              @"X-AVOSCloud-Application-Id":AVOS_APP_ID,
+                              @"X-AVOSCloud-Application-Key":AVOS_APP_KEY
+                              };
+    [configuration setHTTPAdditionalHeaders:headDic];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+
+    NSURL *URL = [NSURL URLWithString:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+
+    [downloadTask resume];
+}
+
+
+
 @end

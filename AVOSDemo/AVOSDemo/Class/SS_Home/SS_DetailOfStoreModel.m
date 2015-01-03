@@ -12,11 +12,11 @@
 
 - (void)setModelwithModel:(SS_DetailOfStoreModel *)model
 {
-    self.Name = model.Name;
-    self.phone_host = model.phone_host;
-    self.phone_dgut = model.phone_dgut;
-    self.phone_gdmc = model.phone_gdmc;
-    self.phone_dgpt = model.phone_dgpt;
+    self.storeName = model.storeName;
+    self.phoneHost = model.phoneHost;
+    self.phoneDgut = model.phoneDgut;
+    self.phoneGdmc = model.phoneGdmc;
+    self.phoneDgpt = model.phoneDgpt;
     self.instruction = model.instruction;
     self.key         = model.key;
 }
