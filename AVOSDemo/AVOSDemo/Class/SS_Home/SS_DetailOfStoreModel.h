@@ -2,7 +2,7 @@
 #import "SS_BaseModel.h"
 
 @interface SS_DetailOfStoreModel : SS_BaseModel
-//详情相关
+//详情相关,还需要添加地址
 @property(nonatomic,copy)NSString * storeName;
 @property(nonatomic,copy)NSString * phoneHost;
 @property(nonatomic,copy)NSString * phoneDgut;

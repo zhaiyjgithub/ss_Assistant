@@ -15,6 +15,7 @@
 #import "controllerCommon.h"
 #import "titleCell.h"
 #import "SS_BusinessAPITool.h"
+#import "SS_CommentFrame.h"
 
 
 @interface SS_DetailOfStoreViewController ()
@@ -35,19 +36,34 @@
     NSString *commentClassNamePath = [NSString stringWithFormat:@"classes/%@",model.commentClassName];
     //NSLog(@"评论的路径名称:%@",commentClassNamePath);
     //发起连接
-    
+    //
     [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
         if (result) {
             NSArray * array = result;
-            self.commentDataSource = [NSMutableArray arrayWithArray:array];
+            NSMutableArray * frameArray = [[NSMutableArray array] init];
+            for (id model in array){
+                SS_CommentFrame *frame = [[SS_CommentFrame alloc] init];
+                frame.commmentModel = model;
+                [frameArray addObject:frame];
+            }
+            //从底层的数据后去cell的属性
+            self.commentDataSource = frameArray;//[NSMutableArray arrayWithArray:array];
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
+        
         [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
             NSLog(@"再次请求成功");
             if (result) {
                 NSArray * array = result;
-                self.commentDataSource = [NSMutableArray arrayWithArray:array];
+                NSMutableArray * frameArray = [[NSMutableArray array] init];
+                for (id model in array){
+                    SS_CommentFrame *frame = [[SS_CommentFrame alloc] init];
+                    frame.commmentModel = model;
+                    [frameArray addObject:frame];
+                }
+                //从底层的数据后去cell的属性
+                self.commentDataSource = frameArray;//[NSMutableArray arrayWithArray:array];
                 [self.tableView reloadData];
             }
         } failure:^(NSError *error) {
@@ -126,15 +142,12 @@
             return cell;
         }else{
             if (indexPath.row) {
-                NSLog(@"indexpath.row:%d",indexPath.row);
-                
                 static NSString *cellID = @"SS_CommentCell_id";
                 SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
                 if (!cell) {
                     cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
                 }
-                cell.commentModel = self.commentDataSource[indexPath.row - 1];
-                _cellHeight = cell.commentCellHeight;//获取cell的真正高度
+                cell.commentFrame = self.commentDataSource[indexPath.row - 1];//因为下标==‘0’使用与评论的眉头
                 return  cell;
                 
             }else{
@@ -157,7 +170,9 @@
     }else if(indexPath.section == 1)  return  PHONE_CELL_HEIGHT;
     else {
         if (indexPath.row) {
-            return _cellHeight;
+            //返回cell的高度
+            SS_CommentFrame *cellFrame = self.commentDataSource[indexPath.row - 1];
+            return cellFrame.CellHeight;
         }else
             return 20;
     }
@@ -173,6 +188,7 @@
 #pragma  增加长按触发电话功能
 - (void)tableviewCellLongPressed:(UILongPressGestureRecognizer *)gestureRecongnizer
 {
+    //将使用actionsheet代替当前的长按手势
     if (gestureRecongnizer.state == UIGestureRecognizerStateEnded) {
         CGPoint point = [gestureRecongnizer locationInView:self.tableView];
         NSIndexPath *path = [self.tableView indexPathForRowAtPoint:point];

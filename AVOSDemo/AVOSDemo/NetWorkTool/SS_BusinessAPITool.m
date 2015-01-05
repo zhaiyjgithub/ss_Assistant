@@ -58,7 +58,7 @@
         NSMutableArray * arrayM = [NSMutableArray array];
         for (NSDictionary * dic in busArray) {
             //修改为当前新的数据模型，后面该函数需要重构一下
-            SS_CommentModel * bM=[[SS_CommentModel alloc]initWithDictionary:dic];
+            SS_CommentModel * bM=[[SS_CommentModel alloc] initWithDictionary:dic];
             [arrayM addObject:bM];
         }
         success(arrayM);

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SS_CommentModel.h"
+#import "SS_CommentFrame.h"
 
 @interface SS_CommentCell : UITableViewCell
-@property(nonatomic,strong)SS_CommentModel *commentModel;
+@property(nonatomic,strong)SS_CommentFrame *commentFrame;
 @property(nonatomic,strong)UILabel *commentLabel;
 //@property(nonatomic,strong)UILabel *commnetPoster;
 @property(nonatomic,assign)CGFloat commentCellHeight;

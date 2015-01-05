@@ -43,23 +43,15 @@
     
     [self.contentView addSubview:commmentLabel];
 }
-
-- (void)setCommentModel:(SS_CommentModel *)commentModel
+//在请求时候就建立好数据属性设置，并保存再数据源当中
+- (void)setCommentFrame:(SS_CommentFrame *)commentFrame
 {
-    _commentModel = commentModel;
-    //再这里这是label的位置以及大小信息
-    self.commentLabel.text = commentModel.comment;
-    //不再使用就的方法
-    //CGSize textSize = [commentModel.instruction sizeWithFont:[UIFont systemFontOfSize:13.0] maxSize:CGSizeMake(320, MAXFLOAT)];
-    //使用新方法计算文字大小
-    CGSize textSize = [commentModel.comment sizeWithFont:[UIFont systemFontOfSize:FONTSIZE] maxSize:CGSizeMake(300, MAXFLOAT)];
-
-    //设置label的大小以及cell的高度
-    self.commentLabel.frame = CGRectMake(self.frame.origin.x+COMMENTBOAR_X, self.frame.origin.y +COMMENTBOAR_Y, textSize.width, textSize.height);
-    //获取这个cell的高度
-    self.commentCellHeight = textSize.height+5;
+    _commentFrame = commentFrame;
+    //获取评论Label的高度以及内容
+    self.commentLabel.frame = commentFrame.commentLabelFrame;
+    self.commentLabel.text = commentFrame.commmentModel.comment;
+    //获取对应的cell的高度
+    self.commentCellHeight = commentFrame.CellHeight;
+  
 }
-
-
-
 @end
