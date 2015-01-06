@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 秋权mac. All rights reserved.
 //
 
-#import "phoneCell.h"
+#import "SS_UserOfStore.h"
 
 @implementation phoneCell
 

@@ -8,6 +8,7 @@
 
 #import "SS_StoreCell.h"
 #import "HttpTool.h"
+#import "UIImageView+WebCache.h"
 
 @implementation SS_StoreCell
 
@@ -31,6 +32,7 @@
     
     //根据属性获取图片的rul，然后发起连接！
     //当前使用默认的测试路径 imageContentFils。
+    /*
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *Cachepath = [array objectAtIndex:0];
     NSString *path = [NSString stringWithFormat:@"%@/%@",Cachepath,detailOfStoreModel.imageName];
@@ -50,6 +52,19 @@
         }else
             NSLog(@"reload failed");
     }
+     */
+    //不再使用上面的自定义的网络请求方式，使用SDWebImage框架实现图片请求以及缓存
+    //添加SDWebImage 处理图片的缓存问题
+    
+     SDWebImageManager *manager = [SDWebImageManager sharedManager];
+     [manager downloadImageWithURL:[NSURL URLWithString:detailOfStoreModel.imageURL] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+     //
+     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+         if(image && finished){
+             self.storeImage.image = image;
+         }
+     }];
+    
 }
 
 

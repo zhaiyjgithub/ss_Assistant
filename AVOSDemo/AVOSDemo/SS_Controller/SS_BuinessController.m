@@ -13,7 +13,6 @@
 
 static BOOL needToUpdate = YES;
 
-
 @interface SS_BuinessController ()<SDWebImageManagerDelegate>
 {
     NSArray *naviClassesByButtonTag;
@@ -142,23 +141,6 @@ static BOOL needToUpdate = YES;
         //使用模型来更新数据
          SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];
          cell.detailOfStoreModel = b_model;
-        //添加SDWebImage 处理图片的缓存问题
-        /*
-    
-        SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadImageWithURL:[NSURL URLWithString:@"http://ac-72907i3d.qiniudn.com/H2zWcImCBftM5VC4BRSyjDRpb8K4eQEEkeuCItOm.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            //
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            if (cacheType == SDImageCacheTypeMemory) {
-                NSLog(@"cache type:%d",cacheType);
-
-            }
-            if(image && finished){
-                cell.imageView.image = image;
-                NSLog(@"show image");
-            }
-        }];
-        */
         return  cell;
     }
 }

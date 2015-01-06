@@ -8,6 +8,7 @@
 
 #import "SS_DetailOfStoreCell.h"
 #import "SS_DetailOfStoreModel.h"
+#import "UIImageView+WebCache.h"
 
 @implementation SS_DetailOfStoreCell
 
@@ -38,6 +39,14 @@
     self.name.text = detailOfStoreModel.storeName;
 #pragma TODO--修改UILabel的文字顶部对齐方式
     self.instruction.text = detailOfStoreModel.instruction;
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadImageWithURL:[NSURL URLWithString:detailOfStoreModel.imageURL] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        if(image && finished){
+            self.image.image = image;
+        }
+    }];
 }
 
 

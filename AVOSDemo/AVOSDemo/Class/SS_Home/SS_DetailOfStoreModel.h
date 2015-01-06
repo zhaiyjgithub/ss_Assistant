@@ -20,7 +20,7 @@
 //增加商家评论类别名称、数目
 
 
-- (void)setModelwithModel:(SS_DetailOfStoreModel *)model;
+//- (void)setModelwithModel:(SS_DetailOfStoreModel *)model;
 
 //1,insert
 +(void)insertDetailModel:(SS_DetailOfStoreModel*)detailModel;

@@ -32,8 +32,9 @@
 
 - (void)initTitle
 {
+    self.backgroundColor = [UIColor lightGrayColor];
     UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(self.frame.origin.x+15, self.frame.origin.y+5, 50, 10);
+    label.frame = CGRectMake(self.frame.origin.x+5, self.frame.origin.y+5, 50, 10);
     self.TitleLabel = label;
     
     [self.contentView addSubview:label];

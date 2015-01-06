@@ -8,7 +8,6 @@
 
 #import "SS_DetailOfStoreViewController.h"
 #import "SS_DetailOfStoreCell.h"
-#import "phoneCell.h"
 #import "SS_CommentCell.h"
 #import "SS_CommentViewController.h"
 #import "MJRefresh.h"
@@ -91,7 +90,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -119,70 +118,40 @@
                 SS_CommentViewController *commentController = [[SS_CommentViewController alloc] init];
                 //commentController.className = [self className];//传递对应商家的类别名称作为上传的评论类别名称
                 //当前以默认方式传送 t_mingjidapaidang-->.commentClassName
-                commentController.commentClassName = @"t_mingjidapaidang";
+                commentController.commentClassName = b_model.commentClassName;
                 [self.navigationController pushViewController:commentController animated:YES];
             }];
             return cell;
-        }else if(indexPath.section == 1) {
-            static NSString *cellID = @"phoneCell_id";
-            phoneCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-            if (!cell) {
-                cell = [phoneCell instanceWithXib];
-            }
-            if (indexPath.row == 0) {
-                cell.schoolName.text = @"理工";
-                cell.schoolPhone.text = [self.dataSource[0] phoneDgut];
-            }else if (indexPath.row == 1){
-                cell.schoolName.text = @"广医";
-                cell.schoolPhone.text = [self.dataSource[0] phoneGdmc];
-            }else{
-                cell.schoolName.text = @"东职";
-                cell.schoolPhone.text = [self.dataSource[0] phoneDgpt];
-            }
-            return cell;
         }else{
-            if (indexPath.row) {
-                static NSString *cellID = @"SS_CommentCell_id";
-                SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-                if (!cell) {
-                    cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-                }
-                cell.commentFrame = self.commentDataSource[indexPath.row - 1];//因为下标==‘0’使用与评论的眉头
-                return  cell;
-                
-            }else{
-                static NSString *cellID = @"TitleCell_id";
-                commentTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-                if (!cell) {
-                    cell = [[commentTitleCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:cellID];
-                    
-                    cell.TitleLabel.text = @"评论";
-                }
-                return cell;
+            static NSString *cellID = @"SS_CommentCell_id";
+            SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell) {
+                cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             }
+            cell.commentFrame = self.commentDataSource[indexPath.row];//因为下标==‘0’使用评论的眉头
+            return  cell;
+
         }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-            return DETAIL_STORE_CELL_HEIGHT;
-    }else if(indexPath.section == 1)  return  PHONE_CELL_HEIGHT;
-    else {
-        if (indexPath.row) {
-            //返回cell的高度
-            SS_CommentFrame *cellFrame = self.commentDataSource[indexPath.row - 1];
-            return cellFrame.CellHeight;
-        }else
-            return 20;
+        return DETAIL_STORE_CELL_HEIGHT;
+    }else {
+        SS_CommentFrame *cellFrame = self.commentDataSource[indexPath.row];
+        return cellFrame.CellHeight;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-        if (section == 1)   return 10;
-        else if(section == 0)  return 0;
-        else    return 15;
+    return section == 0 ? 0 : 25;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return section == 0 ? @" " : @"评论";
 }
 
 #pragma  增加长按触发电话功能

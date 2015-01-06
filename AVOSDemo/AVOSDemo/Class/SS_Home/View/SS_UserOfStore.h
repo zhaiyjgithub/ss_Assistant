@@ -9,8 +9,7 @@
 #import "SS_BaseCell.h"
 
 @interface phoneCell : SS_BaseCell
-@property (weak, nonatomic) IBOutlet UILabel *schoolName;
-@property (weak, nonatomic) IBOutlet UILabel *schoolPhone;
+
 
 
 +(instancetype)instanceWithXib;
