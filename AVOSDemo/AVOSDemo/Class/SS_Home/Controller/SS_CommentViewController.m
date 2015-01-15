@@ -43,7 +43,14 @@
 - (void)cancel
 {
     //需要添加action sheet来作为一个提醒放弃已经编写的评论
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.commentTextview resignFirstResponder];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"是否确定取消已编辑内容" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃编辑" otherButtonTitles:nil, nil];
+    
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+    [actionSheet showInView:self.view];
+
+   
 }
 
 - (void)send
@@ -65,31 +72,40 @@
 //    } failure:^(NSError *error) {
 //        NSLog(@"post failed");
 //    }];
+    //关闭键盘，发送使用alterview更加好，但是取消时候会使用actionsheet
     
-    [self.commentTextview resignFirstResponder];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"1" delegate:self cancelButtonTitle:@"2" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    
-    [actionSheet showInView:self.view];
+    //点击该键后我们再弹出一个AlertView
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"评论发送成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
+    [myAlertView show];
 }
 
 - (void)setTextView
 {
     SS_SendComment *view = [[SS_SendComment alloc] init];
     view.frame = self.view.bounds;//设置textview的大小。系统会自动拉下64个点
-    [self.view addSubview:view];
+    view.font = [UIFont systemFontOfSize:16.0];
     self.commentTextview = view;
-
+    [self.view addSubview:view];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textChange) name:UITextViewTextDidChangeNotification object:self.commentTextview];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
 }
 /*
     *如果没有任何输入，就会失能发送按钮
  */
 - (void)textChange
 {
-    self.navigationItem.rightBarButtonItem.enabled = (self.commentTextview.text.length != 0);
+    if(self.commentTextview.text.length != 0){
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
+    }else{
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+    }
+    
 }
 /*
  *移除
@@ -99,4 +115,21 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+        ;
+    }else if (buttonIndex == [actionSheet destructiveButtonIndex]){
+         [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self.commentTextview resignFirstResponder];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 @end

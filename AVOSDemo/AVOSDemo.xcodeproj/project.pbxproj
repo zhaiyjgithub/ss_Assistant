@@ -11,6 +11,8 @@
 		64209E1C1A3882B100A38B38 /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */; };
 		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
 		6434E6981A59752300ECD10B /* SS_CommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6434E6971A59752300ECD10B /* SS_CommentFrame.m */; };
+		644909CC1A64042C00FC18EA /* SS_DetailOfStoreFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 644909CB1A64042C00FC18EA /* SS_DetailOfStoreFrame.m */; };
+		644909CF1A640D3A00FC18EA /* SS_DetailStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 644909CE1A640D3A00FC18EA /* SS_DetailStoreCell.m */; };
 		6459218B1A43157100CD77E9 /* SS_SendComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6459218A1A43157100CD77E9 /* SS_SendComment.m */; };
 		6459218E1A43166300CD77E9 /* SS_CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6459218D1A43166300CD77E9 /* SS_CommentViewController.m */; };
 		648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */; };
@@ -34,9 +36,6 @@
 		649F88801A3D6336000B291C /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88741A3D6336000B291C /* NSObject+LKDBHelper.m */; };
 		649F88811A3D6336000B291C /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88761A3D6336000B291C /* NSObject+LKModel.m */; };
 		649F88831A3D6D6A000B291C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 649F88821A3D6D6A000B291C /* libsqlite3.dylib */; };
-		64A6A4481A485DC800E7DCE0 /* titleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A6A4471A485DC800E7DCE0 /* titleCell.m */; };
-		64B6C8111A3F1207008C1C81 /* SS_UserOfStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B6C8101A3F1207008C1C81 /* SS_UserOfStore.m */; };
-		64B6C8131A3F1237008C1C81 /* SS_UserOfStore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B6C8121A3F1237008C1C81 /* SS_UserOfStore.xib */; };
 		64D0D65B1A5AE611002F8692 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D0D65A1A5AE611002F8692 /* MapKit.framework */; };
 		64D0D65D1A5AE61A002F8692 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D0D65C1A5AE61A002F8692 /* ImageIO.framework */; };
 		64D0D6801A5AE637002F8692 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D0D6601A5AE637002F8692 /* MKAnnotationView+WebCache.m */; };
@@ -126,6 +125,10 @@
 		6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseButton.m; sourceTree = "<group>"; };
 		6434E6961A59752300ECD10B /* SS_CommentFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentFrame.h; sourceTree = "<group>"; };
 		6434E6971A59752300ECD10B /* SS_CommentFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentFrame.m; sourceTree = "<group>"; };
+		644909CA1A64042C00FC18EA /* SS_DetailOfStoreFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailOfStoreFrame.h; sourceTree = "<group>"; };
+		644909CB1A64042C00FC18EA /* SS_DetailOfStoreFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailOfStoreFrame.m; sourceTree = "<group>"; };
+		644909CD1A640D3A00FC18EA /* SS_DetailStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_DetailStoreCell.h; sourceTree = "<group>"; };
+		644909CE1A640D3A00FC18EA /* SS_DetailStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_DetailStoreCell.m; sourceTree = "<group>"; };
 		645921891A43157100CD77E9 /* SS_SendComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_SendComment.h; sourceTree = "<group>"; };
 		6459218A1A43157100CD77E9 /* SS_SendComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_SendComment.m; sourceTree = "<group>"; };
 		6459218C1A43166300CD77E9 /* SS_CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentViewController.h; sourceTree = "<group>"; };
@@ -171,11 +174,6 @@
 		649F88751A3D6336000B291C /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		649F88761A3D6336000B291C /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
 		649F88821A3D6D6A000B291C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		64A6A4461A485DC800E7DCE0 /* titleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = titleCell.h; sourceTree = "<group>"; };
-		64A6A4471A485DC800E7DCE0 /* titleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = titleCell.m; sourceTree = "<group>"; };
-		64B6C80F1A3F1207008C1C81 /* SS_UserOfStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_UserOfStore.h; sourceTree = "<group>"; };
-		64B6C8101A3F1207008C1C81 /* SS_UserOfStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_UserOfStore.m; sourceTree = "<group>"; };
-		64B6C8121A3F1237008C1C81 /* SS_UserOfStore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SS_UserOfStore.xib; sourceTree = "<group>"; };
 		64D0D65A1A5AE611002F8692 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		64D0D65C1A5AE61A002F8692 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		64D0D65F1A5AE637002F8692 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -342,6 +340,8 @@
 				640DFAB81A5691D10060EE10 /* SS_CommentModel.m */,
 				6434E6961A59752300ECD10B /* SS_CommentFrame.h */,
 				6434E6971A59752300ECD10B /* SS_CommentFrame.m */,
+				644909CA1A64042C00FC18EA /* SS_DetailOfStoreFrame.h */,
+				644909CB1A64042C00FC18EA /* SS_DetailOfStoreFrame.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -751,15 +751,12 @@
 				648F7D791A3498CF007412EF /* SS_DetailOfStoreCell.h */,
 				648F7D7A1A3498CF007412EF /* SS_DetailOfStoreCell.m */,
 				648F7D771A349874007412EF /* SS_DetailOfStoreCell.xib */,
-				64B6C80F1A3F1207008C1C81 /* SS_UserOfStore.h */,
-				64B6C8101A3F1207008C1C81 /* SS_UserOfStore.m */,
-				64B6C8121A3F1237008C1C81 /* SS_UserOfStore.xib */,
 				645921891A43157100CD77E9 /* SS_SendComment.h */,
 				6459218A1A43157100CD77E9 /* SS_SendComment.m */,
 				649A6C8C1A46BDE9004B78F8 /* SS_CommentCell.h */,
 				649A6C8D1A46BDE9004B78F8 /* SS_CommentCell.m */,
-				64A6A4461A485DC800E7DCE0 /* titleCell.h */,
-				64A6A4471A485DC800E7DCE0 /* titleCell.m */,
+				644909CD1A640D3A00FC18EA /* SS_DetailStoreCell.h */,
+				644909CE1A640D3A00FC18EA /* SS_DetailStoreCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -941,7 +938,6 @@
 				648F7D781A349874007412EF /* SS_DetailOfStoreCell.xib in Resources */,
 				649389181A2E18180089AC21 /* SS_StoreCell.xib in Resources */,
 				6BA03C101A238B3900B50019 /* Main.storyboard in Resources */,
-				64B6C8131A3F1237008C1C81 /* SS_UserOfStore.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,6 +966,7 @@
 				64F0248F1A46A8D000AABA0E /* MJRefreshBaseView.m in Sources */,
 				6BA5A37B1A249D0B00A0BDF5 /* UIViewExt.m in Sources */,
 				649F887E1A3D6336000B291C /* LKDBHelper.m in Sources */,
+				644909CC1A64042C00FC18EA /* SS_DetailOfStoreFrame.m in Sources */,
 				64D0D6811A5AE637002F8692 /* NSData+ImageContentType.m in Sources */,
 				6B278F8D1A2434B900AC5A6E /* MJMethod.m in Sources */,
 				64D0D68F1A5AE637002F8692 /* UIView+WebCacheOperation.m in Sources */,
@@ -983,7 +980,6 @@
 				64D0D68E1A5AE637002F8692 /* UIImageView+WebCache.m in Sources */,
 				6B278FAD1A2438E900AC5A6E /* SS_BuinessController.m in Sources */,
 				6BA03C0D1A238B3900B50019 /* AppDelegate.m in Sources */,
-				64B6C8111A3F1207008C1C81 /* SS_UserOfStore.m in Sources */,
 				64F024911A46A8D000AABA0E /* MJRefreshFooterView.m in Sources */,
 				6BA03C561A238E7900B50019 /* AFURLConnectionOperation.m in Sources */,
 				6B278F8B1A2434B900AC5A6E /* MJIvar.m in Sources */,
@@ -999,7 +995,6 @@
 				6B278F8F1A2434B900AC5A6E /* MJTypeEncoding.m in Sources */,
 				649389171A2E18180089AC21 /* SS_StoreCell.m in Sources */,
 				64D0D6881A5AE637002F8692 /* SDWebImagePrefetcher.m in Sources */,
-				64A6A4481A485DC800E7DCE0 /* titleCell.m in Sources */,
 				649F88791A3D6336000B291C /* FMDatabaseAdditions.m in Sources */,
 				649F88771A3D6336000B291C /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				6BA5A37A1A249D0B00A0BDF5 /* BaseTabbarController.m in Sources */,
@@ -1029,6 +1024,7 @@
 				640DFAB91A5691D10060EE10 /* SS_CommentModel.m in Sources */,
 				6BA03C551A238E7900B50019 /* AFSecurityPolicy.m in Sources */,
 				64D0D68A1A5AE637002F8692 /* UIImage+GIF.m in Sources */,
+				644909CF1A640D3A00FC18EA /* SS_DetailStoreCell.m in Sources */,
 				6493890C1A2E0C300089AC21 /* SS_NavigationCell.m in Sources */,
 				6BA5A36F1A249BE700A0BDF5 /* SS_MainViewController.m in Sources */,
 				6BA03C581A238E7900B50019 /* AFURLResponseSerialization.m in Sources */,

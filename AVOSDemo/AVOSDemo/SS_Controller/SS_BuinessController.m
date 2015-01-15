@@ -7,6 +7,7 @@
 #import "SS_DetailOfStoreModel.h"
 #import "SS_DetailOfStoreViewController.h"
 #import "UIImageView+WebCache.h"
+#import "SS_DetailOfStoreFrame.h"
 
 #define HOT_STORE_PATH  @"classes/t_Store"
 
@@ -56,36 +57,37 @@ static BOOL needToUpdate = YES;
 #pragma mark - 根据后面需求，按照查询约束来插入以及查询数据
 - (void)loadLocalData
 {
-    //加载数据库数据，
-    self.dataSource = [SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:10];
+    //加载本地数据库的数据
+    NSMutableArray *storeModel = [[NSMutableArray alloc] init ];
+    storeModel = [SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:20];
+    for (id model in storeModel){
+        SS_DetailOfStoreFrame *frameModel = [[SS_DetailOfStoreFrame alloc] init];
+        frameModel.detailStoreModel = model;
+        [self.dataSource addObject:frameModel];
+    }
+    [self.dataSource addObjectsFromArray:storeModel];
     [self.tableView reloadData];
 }
-/*
- 2014/14/28 12:15出现get请求一次请求成功，一次失败重复性现象，暂时还没有找到问题所在
- 为了避免影响到其他，就是用失败一次后重复请求。
- */
 - (void)loadNetData
 {
     //请求服务器的最新数据，注意请求的数据的个数要与数据库里面的个数保持一致
     [SS_BusinessAPITool getAllBusiness:HOT_STORE_PATH success:^(id result) {
         if (result) {
-            NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
-            self.dataSource = [NSMutableArray arrayWithArray:array];
+            NSArray * array = result;
+            NSMutableArray * frameArray = [[NSMutableArray array] init];
+            for (id model in array){
+                SS_DetailOfStoreFrame *frame = [[SS_DetailOfStoreFrame alloc] init];
+                frame.detailStoreModel = model;
+                [frameArray addObject:frame];
+                
+            }
+            self.dataSource = frameArray;
             [self updateLocalData:self.dataSource];
             [self.tableView reloadData];
             
         }
     } failure:^(NSError *error) {
-        [SS_BusinessAPITool getAllBusiness:HOT_STORE_PATH success:^(id result) {
-            if (result) {
-                NSLog(@"重新获取数据成功");
-                NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
-                self.dataSource = [NSMutableArray arrayWithArray:array];
-                [self updateLocalData:self.dataSource];
-                [self.tableView reloadData];
-            }
-        } failure:^(NSError *error) {
-        }];
+        NSLog(@"error:%@",error);
     }];
 }
 #pragma mark - 网络数据更新数据库中热门商家的数据
@@ -93,12 +95,12 @@ static BOOL needToUpdate = YES;
 - (void)updateLocalData:(NSMutableArray *)dataSource
 {
     NSMutableArray *hotStore = [[NSMutableArray alloc] initWithArray:[SS_DetailOfStoreModel queryDetailModelWithWhere:@{@"key":@"hotStore"} orderBy:nil count:50]];
-    //删除本地SQL数据，再根据网络数据更新本地SQL数据
+    //删除本地SQL数据，再根据网络数据更新本地SQL数据.但是数据存入的数据模型已经发生改变
     for (id model in hotStore){
         [SS_DetailOfStoreModel deleteDetailModel:model];
     }
     for (id model in dataSource){
-        [SS_DetailOfStoreModel insertDetailModel:model];
+        [SS_DetailOfStoreModel insertDetailModel:[model detailStoreModel]];
     }
 }
 
@@ -139,8 +141,8 @@ static BOOL needToUpdate = YES;
             cell = [SS_StoreCell instanceWithXib];//使用Xib建立的cell，使用方法都是不同的。
         }
         //使用模型来更新数据
-         SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];
-         cell.detailOfStoreModel = b_model;
+         SS_DetailOfStoreFrame * b_frame = self.dataSource[indexPath.row];
+         cell.detailOfStoreFrame = b_frame;
         return  cell;
     }
 }
@@ -159,7 +161,7 @@ static BOOL needToUpdate = YES;
         SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
         //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
         detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
-        detailController.title = [self.dataSource[0] storeName];//根据数据源的下标获取数据
+        detailController.title = [self.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
         [self.navigationController pushViewController:detailController animated:YES];
     }
 }

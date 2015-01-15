@@ -47,7 +47,6 @@
 - (UIButton *)addbtn:(NSString *)title icon:(NSString *)icon index:(int)index
 {
     SS_BaseButton *btn = [[SS_BaseButton alloc] initWithType:BaseButtonTypeCenter];
-    //[btn seti]
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

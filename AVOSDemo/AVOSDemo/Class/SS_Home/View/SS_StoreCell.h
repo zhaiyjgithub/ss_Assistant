@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SS_DetailOfStoreModel.h"
+//#import "SS_DetailOfStoreModel.h"
+#import "SS_DetailOfStoreFrame.h"
 
 @interface SS_StoreCell : UITableViewCell
 
-@property(nonatomic,strong)SS_DetailOfStoreModel * detailOfStoreModel;
+@property(nonatomic,strong)SS_DetailOfStoreFrame * detailOfStoreFrame;
 @property (weak, nonatomic) IBOutlet UIImageView *storeImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;

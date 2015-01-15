@@ -9,7 +9,7 @@
 #import "SS_BaseViewController.h"
 #import "SS_DetailOfStoreModel.h"
 
-@interface SS_DetailOfStoreViewController : SS_BaseViewController<UIGestureRecognizerDelegate>
+@interface SS_DetailOfStoreViewController : SS_BaseViewController<UIGestureRecognizerDelegate,UIActionSheetDelegate>
 
 @property(nonatomic,strong)SS_DetailOfStoreModel *detailOfModel;
 @property(nonatomic,strong)NSMutableArray *commentDataSource;

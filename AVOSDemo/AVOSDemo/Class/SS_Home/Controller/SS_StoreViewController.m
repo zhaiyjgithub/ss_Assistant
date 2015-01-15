@@ -11,6 +11,7 @@
 #import "SS_DetailOfStoreViewController.h"
 #import "SS_BusinessAPITool.h"
 #import "MJRefresh.h"
+#import "SS_DetailOfStoreFrame.h"
 
 
 static BOOL needToUpdate = YES;
@@ -45,7 +46,7 @@ static BOOL needToUpdate = YES;
                      };
     // Do any additional setup after loading the view from its nib.
     
-    [self loadLocalData];//先加载本地数据
+  //  [self loadLocalData];//先加载本地数据
     [self setupRefreshView];
     
    
@@ -58,22 +59,23 @@ static BOOL needToUpdate = YES;
 }
 #pragma mark -网络
 -(void)loadNetworkData{
-
     NSString *pathOfRequest = [uidOfRequest valueForKey:self.title];
     if (pathOfRequest !=nil) {
         [SS_BusinessAPITool getAllBusiness:pathOfRequest success:^(id result) {
-            NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
-            self.dataSource = [NSMutableArray arrayWithArray:array];
+            
+            NSArray * array = result;
+            NSMutableArray * frameArray = [[NSMutableArray array] init];
+            for (id model in array){
+                SS_DetailOfStoreFrame *frame = [[SS_DetailOfStoreFrame alloc] init];
+                frame.detailStoreModel = model;
+                [frameArray addObject:frame];
+                
+            }
+            self.dataSource = frameArray;
             [self.tableView reloadData];
+            
         } failure:^(NSError *error) {
-            [SS_BusinessAPITool getAllBusiness:pathOfRequest success:^(id result) {
-                NSArray * array =result;  // 获取底层传递过来的数组，并更新数据
-                self.dataSource = [NSMutableArray arrayWithArray:array];
-                [self.tableView reloadData];
-                NSLog(@"再次发起请求成功:");
-            } failure:^(NSError *error) {
-            }];
-
+            NSLog(@"error:%@",error);
         }];
         
     }else{
@@ -157,8 +159,11 @@ static BOOL needToUpdate = YES;
         cell = [SS_StoreCell instanceWithXib];
     }
     //使用模型来更新数据
-     SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];
-     cell.detailOfStoreModel = b_model;
+    // SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];
+    // cell.detailOfStoreModel = b_model;
+    //数据不再是上面的模型了
+    SS_DetailOfStoreFrame * b_frame =self.dataSource[indexPath.row];
+    cell.detailOfStoreFrame = b_frame;
     return  cell;
 }
 
@@ -173,7 +178,7 @@ static BOOL needToUpdate = YES;
     SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
     //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
     detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
-    detailController.title = [detailController.dataSource[0] storeName];//根据数据源的下标获取数据
+    detailController.title = [detailController.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

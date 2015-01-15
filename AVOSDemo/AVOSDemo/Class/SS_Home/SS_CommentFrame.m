@@ -20,7 +20,7 @@
 {
     _commmentModel = commmentModel;/////???
   
-    CGSize textSize = [commmentModel.comment sizeWithFont:[UIFont systemFontOfSize:FONTSIZE] maxSize:CGSizeMake(300, MAXFLOAT)];
+    CGSize textSize = [commmentModel.comment sizeWithFont:[UIFont systemFontOfSize:FONTSIZE] maxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT)];
     _commentLabelFrame = CGRectMake(COMMENT_LABEL_BOARDER_X, COMMENT_LABEL_BOARDER_Y, textSize.width, textSize.height);
     _CellHeight = (textSize.height + COMMENT_LABEL_BOARDER_Y*2);
 }
