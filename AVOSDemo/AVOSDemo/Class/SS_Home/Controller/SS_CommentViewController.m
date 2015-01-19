@@ -44,7 +44,7 @@
 {
     //需要添加action sheet来作为一个提醒放弃已经编写的评论
     [self.commentTextview resignFirstResponder];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"是否确定取消已编辑内容" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃编辑" otherButtonTitles:nil, nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"是否放弃已编辑内容" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃编辑" otherButtonTitles:nil, nil];
     
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTabbarController.h"
-@interface SS_MainViewController : BaseTabbarController
-
+@interface SS_MainViewController : UITabBarController
+//取出原有的tabbar图标显示方式，直接使用默认风格
 @end

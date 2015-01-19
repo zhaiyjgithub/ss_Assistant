@@ -10,6 +10,7 @@
 
 @interface SS_CommentModel : SS_BaseModel
 @property(nonatomic,copy)NSString *commentPoster;
+@property(nonatomic,copy)NSString *createdAt;
 @property(nonatomic,copy)NSString *comment;
 @property(nonatomic,copy)NSString *commentClassName;
 @end

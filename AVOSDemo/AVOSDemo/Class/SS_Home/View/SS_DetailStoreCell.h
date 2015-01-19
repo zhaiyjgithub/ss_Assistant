@@ -26,7 +26,7 @@ typedef void(^ButtonBlock)(id sender);
 @property(nonatomic,weak)UIButton *shareBtn;
 @property(nonatomic,weak)UIButton *phoneBtn;
 
-@property(nonatomic,assign,readonly)CGFloat detailStoreCellHeight;
+@property(nonatomic,assign)CGFloat detailStoreCellHeight;
 
 - (UIButton *)addBtnWithTitle:(NSString *)title image:(NSString *)image bImage:(NSString *)bImage index:(int)index;
 - (void)addBlock:(ButtonBlock)commentBlock phoneBlock:(ButtonBlock)phoneBlock;

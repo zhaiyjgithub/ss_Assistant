@@ -10,18 +10,6 @@
 
 @implementation SS_DetailOfStoreModel
 
-/*
-- (void)setModelwithModel:(SS_DetailOfStoreModel *)model
-{
-    self.storeName = model.storeName;
-    self.phoneHost = model.phoneHost;
-    self.phoneDgut = model.phoneDgut;
-    self.phoneGdmc = model.phoneGdmc;
-    self.phoneDgpt = model.phoneDgpt;
-    self.instruction = model.instruction;
-    self.key         = model.key;
-}
-*/
 //1,insert
 +(void)insertDetailModel:(SS_DetailOfStoreModel*)detailModel{
     //A.查询->如果无此数据-插入 B.有数据，更新或者不作为

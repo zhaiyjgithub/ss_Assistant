@@ -15,9 +15,7 @@
 static BOOL needToUpdate = YES;
 
 @interface SS_BuinessController ()<SDWebImageManagerDelegate>
-{
-    NSArray *naviClassesByButtonTag;
-}
+@property(nonatomic,strong)NSArray *naviClassesByButtonTag;
 @end
 
 @implementation SS_BuinessController
@@ -26,10 +24,10 @@ static BOOL needToUpdate = YES;
 {
     self = [super init];
     if (self) {
-        naviClassesByButtonTag = @[@"大排档",@"出行包车",@"休闲娱乐",@"餐饮美食",
-                               @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
-                               @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
-                               ];
+        _naviClassesByButtonTag = @[@"大排档",@"出行包车",@"休闲娱乐",@"餐饮美食",
+                                  @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
+                                  @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
+                                   ];
     }
     return self;
 }
@@ -129,7 +127,7 @@ static BOOL needToUpdate = YES;
             UIButton *btn = (UIButton *)sender;
            // NSLog(@"btn.tag%d",btn.tag);//根据btn.tag来判断数据哪个按钮，tag已经在创建这个btn时已经确定
             SS_StoreViewController *store = [[SS_StoreViewController alloc] init];
-            store.title =naviClassesByButtonTag[btn.tag];//根据title来判断属于哪个页面，从而向后台发起对应的请求
+            store.title =_naviClassesByButtonTag[btn.tag];//根据title来判断属于哪个页面，从而向后台发起对应的请求
             [self.navigationController pushViewController:store animated:YES];
         }];
         return cell;

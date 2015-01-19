@@ -21,6 +21,8 @@
     // Do any additional setup after loading the view.
     
     [self.view addSubview:self.tableView];
+    
+    self.tableView.tableFooterView=[[UIView alloc]init];
 }
 
 
@@ -30,7 +32,8 @@
         //  CGRect tableViewFrame = self.view.bounds;
         
         UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        //当前使用原生的分割线，不适用图片的方式加载分割线
+       // tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tintColor=[UIColor orangeColor];

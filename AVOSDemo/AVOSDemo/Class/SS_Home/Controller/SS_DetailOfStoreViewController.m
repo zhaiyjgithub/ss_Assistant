@@ -47,24 +47,7 @@
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
-        
-        [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
-            NSLog(@"再次请求成功");
-            if (result) {
-                NSArray * array = result;
-                NSMutableArray * frameArray = [[NSMutableArray array] init];
-                for (id model in array){
-                    SS_CommentFrame *frame = [[SS_CommentFrame alloc] init];
-                    frame.commmentModel = model;
-                    [frameArray addObject:frame];
-                }
-                //从底层的数据后去cell的属性
-                self.commentDataSource = frameArray;//[NSMutableArray arrayWithArray:array];
-                [self.tableView reloadData];
-            }
-        } failure:^(NSError *error) {
-            NSLog(@"再次请求失败");
-        }];
+        NSLog(@"error:%@",error);
     }];
 }
 
@@ -97,29 +80,28 @@
 {
         if (indexPath.section == 0) {
             static NSString * cellID = @"SS_DetailStoreCell_id";
-           // SS_DetailOfStoreCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-            
-            SS_DetailStoreCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-            
+                SS_DetailStoreCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
             if (!cell) {
-                //cell = [SS_DetailOfStoreCell instanceWithXib];
                 cell = [[SS_DetailStoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             }
-            //SS_DetailOfStoreModel * b_model = self.dataSource[0];
             SS_DetailOfStoreFrame *b_frame = self.dataSource[0];
-           // cell.detailOfStoreModel = b_frame.detailStoreModel;
             cell.detailStoreFrame = b_frame;
-            // NSLog(@"虚拟评论内容:%@");
             //cell.userInteractionEnabled = NO;//该方法会把这个cell以及cell内的所有控件的事件都会被关闭
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];//使用该事件就不会了。
             [cell addBlock:^(id sender) {
                 SS_CommentViewController *commentController = [[SS_CommentViewController alloc] init];
-                //commentController.className = [self className];//传递对应商家的类别名称作为上传的评论类别名称
-                //当前以默认方式传送 t_mingjidapaidang-->.commentClassName
                 commentController.commentClassName = b_frame.detailStoreModel.commentClassName;
                 [self.navigationController pushViewController:commentController animated:YES];
             } phoneBlock:^(id sender) {
-                UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"理工" otherButtonTitles:@"广医",@"东职", nil];
+                NSString * phoneDGUT = @"理工  ";
+                NSString * phoneGDMC = @"广医  ";
+                NSString * phoneDGPT = @"东职  ";
+                
+                phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.detailStoreModel.phoneDgut];
+                phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.detailStoreModel.phoneGdmc];
+                phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.detailStoreModel.phoneDgpt];
+                
+                UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneDGUT otherButtonTitles:phoneGDMC,phoneDGPT, nil];
                 phoneActionSheet.actionSheetStyle = UIActionSheetStyleDefault;
                 [phoneActionSheet showInView:self.view];
             }];
@@ -130,16 +112,18 @@
             if (!cell) {
                 cell = [[SS_CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             }
-            cell.commentFrame = self.commentDataSource[indexPath.row];//因为下标==‘0’使用评论的眉头
+            cell.commentFrame = self.commentDataSource[indexPath.row];
+            
             return  cell;
-
         }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return DETAIL_STORE_CELL_HEIGHT;
+        //return DETAIL_STORE_CELL_HEIGHT;
+        SS_DetailOfStoreFrame *cellFrame = self.dataSource[0];
+        return cellFrame.imageAndLabelHeight + 80 ;
     }else {
         SS_CommentFrame *cellFrame = self.commentDataSource[indexPath.row];
         return cellFrame.CellHeight;

@@ -16,5 +16,8 @@
 #define  COMMENTBOAR_X  15
 #define  COMMENTBOAR_Y  5
 
+#define COMMENT_POSTER_WIDTH    75
+#define COMMENT_POSTER_HEIGHT   13
+
 
 #endif

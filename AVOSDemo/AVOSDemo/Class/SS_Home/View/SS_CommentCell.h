@@ -12,7 +12,8 @@
 @interface SS_CommentCell : UITableViewCell
 @property(nonatomic,strong)SS_CommentFrame *commentFrame;
 @property(nonatomic,strong)UILabel *commentLabel;
-//@property(nonatomic,strong)UILabel *commnetPoster;
+@property(nonatomic,strong)UILabel *commentPoster;
+@property(nonatomic,strong)UILabel *commentTime;
 @property(nonatomic,assign)CGFloat commentCellHeight;
 
 

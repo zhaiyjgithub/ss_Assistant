@@ -8,15 +8,31 @@
 
 #import "SS_DetailStoreCell.h"
 #import "UIImageView+WebCache.h"
+#import "cellCommon.h"
+#import "UIImage+MJ.h"
 
 @implementation SS_DetailStoreCell
 
+/*
+    *暂时使用imageview对toolbar以及cell实现封装。当前只使用原生的显示效果~
+ */
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setupCell];
+        
+        //一个cell中包含了多个part，父类part以及子类的part都添加一个imageview或者子类继承于imageview，而且图片使用resizeImage之后，就会避免匹配拉伸产生的问题。
+        //1.
+//        
+//        UIImageView * bgImageView = [[UIImageView alloc]initWithFrame:self.bounds];
+//        bgImageView.image = [UIImage resizedImageWithName:@""];
+//        self.backgroundView = bgImageView;
+//        
+        
+        //2.
+//        self.selectedBackgroundView = ...
     }
     return self;
 }
@@ -52,6 +68,8 @@
     UIImageView *divider1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"timeline_card_bottom_line_highlighted_os7"]];
     divider1.frame = CGRectMake(10, self.collectBtn.frame.origin.y-1, self.frame.size.width-10, 1);
     [self.contentView addSubview:divider1];
+    
+    self.detailStoreCellHeight = self.detailStoreFrame.imageAndLabelHeight + 80 ;
 }
 
 - (void)setupCell
@@ -60,15 +78,14 @@
     _storeImage = imageView;
     [self.contentView addSubview:imageView];
     
-    
     //名称
-    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 200, self.frame.size.width, 25)];
+    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 210, self.frame.size.width, 15)];
     name.font = [UIFont systemFontOfSize:20.0];
     _storeName = name;
     [self.contentView addSubview:name];
     
     //电话
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 70, 200, 60, 70)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 70, 210, 60, 70)];
     [btn setImage:[UIImage imageNamed:@"about_phone_icon"] forState:UIControlStateNormal];
     [btn setBackgroundImage:[UIImage imageNamed:@"timeline_card_middlebottom_highlighted_os7"] forState:UIControlStateHighlighted];
     [btn addTarget:self action:@selector(clickPhone:) forControlEvents:UIControlEventTouchUpInside];
@@ -83,11 +100,13 @@
     UILabel *instruction = [[UILabel alloc] init];
     instruction.font = [UIFont systemFontOfSize:13.0];
     [instruction setTextColor:[UIColor grayColor]];
+    instruction.numberOfLines = 0;
     self.storeInstruction = instruction;
     [self.contentView addSubview:instruction];
     //地址
     UILabel *adderss = [[UILabel alloc] init];
     adderss.font = [UIFont systemFontOfSize:13.0];
+    adderss.numberOfLines = 0;
     self.storeAddress = adderss;
     [self.contentView addSubview:adderss];
 }
@@ -106,7 +125,7 @@
     int i = index%3;
     int with = self.frame.size.width/3;
     
-    btn.frame = CGRectMake(i*with, _detailStoreFrame.imageAndLabelHeight+5, with, 50);
+    btn.frame = CGRectMake(i*with, _detailStoreFrame.imageAndLabelHeight+20, with, 50);
     [self.contentView addSubview:btn];
     
     return btn;
@@ -114,7 +133,6 @@
 
 - (void)clickComment:(id)sender
 {
-    NSLog(@"comment btn");
     if (self.commentBlock){
         self.commentBlock(sender);
     }

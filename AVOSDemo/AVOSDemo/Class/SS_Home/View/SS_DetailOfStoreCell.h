@@ -18,7 +18,7 @@ typedef void(^setCommentIconBlock) (id sender);
 @property (weak, nonatomic) IBOutlet UILabel *instruction;
 @property (weak, nonatomic) IBOutlet UIButton *comment;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
-@property(nonatomic,assign)NSInteger cellHeight;
+@property(nonatomic,assign)CGFloat  cellHeight;
 
 - (void)addBlock:(setCommentIconBlock)block;
 + (instancetype)instanceWithXib;
