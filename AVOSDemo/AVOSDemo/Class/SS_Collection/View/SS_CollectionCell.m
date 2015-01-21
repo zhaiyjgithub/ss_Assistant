@@ -103,7 +103,6 @@
 
 - (void)clickPhoneButton:(id)sender
 {
-    NSLog(@"make a call");
     if (self.phoneButtonBlock) {
         self.phoneButtonBlock(sender);
     }

@@ -57,7 +57,7 @@
 {
     //[self.navigationController popViewControllerAnimated:YES];
     
-    NSLog(@"_commentClassName:%@",_commentClassName);
+   // NSLog(@"_commentClassName:%@",_commentClassName);
     NSDictionary *commentDic = @{@"poster":@"Zack",
                                  @"comment":_commentTextview.text,
                                  @"commentClassName":_commentClassName};

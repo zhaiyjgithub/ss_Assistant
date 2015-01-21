@@ -88,6 +88,7 @@
             cell.detailStoreFrame = b_frame;
             //cell.userInteractionEnabled = NO;//该方法会把这个cell以及cell内的所有控件的事件都会被关闭
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];//使用该事件就不会了。
+            
             [cell addBlock:^(id sender) {
                 SS_CommentViewController *commentController = [[SS_CommentViewController alloc] init];
                 commentController.commentClassName = b_frame.detailStoreModel.commentClassName;
@@ -104,7 +105,35 @@
                 UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneDGUT otherButtonTitles:phoneGDMC,phoneDGPT, nil];
                 phoneActionSheet.actionSheetStyle = UIActionSheetStyleDefault;
                 [phoneActionSheet showInView:self.view];
+            } collectionBlock:^(id sender) {
+                //插入数据库
+                SS_CollectionModelinDB * inDBModel = [[SS_CollectionModelinDB alloc] init];
+                [self setIndBModelFromDetailStoreModel:inDBModel detailStoreModel:b_frame.detailStoreModel];
+                
+                
+                if ([[SS_CollectionModelinDB getUsingLKDBHelper] isExistsWithTableName:[SS_CollectionModelinDB getTableName] where:@{@"storeName":inDBModel.storeName}]) {
+                    NSLog(@"exist");
+                    UIAlertView *collectOPAlertView = [[UIAlertView alloc] initWithTitle:@"已经收藏" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
+                    [collectOPAlertView show];
+                }else{
+                    NSLog(@"not exist");
+                    [SS_CollectionModelinDB insertCollectionModel:inDBModel];
+                    UIAlertView *collectOPAlertView = [[UIAlertView alloc] initWithTitle:@"收藏成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
+                    [collectOPAlertView show];
+                }
+                
+                NSMutableArray *array = [[NSMutableArray alloc] init];
+                array = [SS_CollectionModelinDB queryCollectionModelWihtWhere:@{@"key":@"hotStore"} orderBy:nil count:10];
+                for (id model in array)
+                    NSLog(@"storeKey:%@",[(SS_CollectionModelinDB *)model storeName]);
+               
+            } shareBlock:^(id sender) {
+                NSLog(@"click share btn");
             }];
+            
+            
             return cell;
         }else{
             static NSString *cellID = @"SS_CommentCell_id";
@@ -154,6 +183,16 @@
 }
 */
 
+- (void)setIndBModelFromDetailStoreModel:(SS_CollectionModelinDB *)inDBModel detailStoreModel:(SS_DetailOfStoreModel *)detailStoreModel
+{
+    inDBModel.storeName   = detailStoreModel.storeName;
+    inDBModel.phoneHost   = detailStoreModel.phoneHost;
+    inDBModel.phoneDgut   = detailStoreModel.phoneDgut;
+    inDBModel.phoneGdmc   = detailStoreModel.phoneGdmc;
+    inDBModel.phoneDgpt   = detailStoreModel.phoneDgpt;
+    inDBModel.instruction = detailStoreModel.instruction;
+    inDBModel.key         = detailStoreModel.key;
+}
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //从数据源中获取商家的电话数据，然后拨号

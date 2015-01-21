@@ -15,11 +15,14 @@ typedef void(^ButtonBlock)(id sender);
 @property(nonatomic,strong)SS_DetailOfStoreFrame *detailStoreFrame;
 @property(nonatomic,strong)ButtonBlock commentBlock;
 @property(nonatomic,strong)ButtonBlock phoneBlock;
-@property(nonatomic,strong)UIImageView *storeImage;
-@property(nonatomic,strong)UILabel *storeName;
-@property(nonatomic,strong)UILabel  *storeInstruction;
-@property(nonatomic,strong)UILabel *storeAddress;
-//@property(nonatomic,strong)UIImageView *iconStoreAddress;//地址图标
+@property(nonatomic,strong)ButtonBlock collectionBlock;
+@property(nonatomic,strong)ButtonBlock shareBlock;
+@property(nonatomic,weak)UIImageView *storeImage;
+@property(nonatomic,weak)UILabel *storeName;
+@property(nonatomic,weak)UILabel  *storeInstruction;
+@property(nonatomic,weak)UILabel *storeAddress;
+@property(nonatomic,weak)UIImageView *storeInstructionIcon;
+@property(nonatomic,weak)UIImageView *storeAddressIcon;//地址图标
 
 @property(nonatomic,weak)UIButton *collectBtn;
 @property(nonatomic,weak)UIButton *commentBtn;
@@ -29,5 +32,6 @@ typedef void(^ButtonBlock)(id sender);
 @property(nonatomic,assign)CGFloat detailStoreCellHeight;
 
 - (UIButton *)addBtnWithTitle:(NSString *)title image:(NSString *)image bImage:(NSString *)bImage index:(int)index;
-- (void)addBlock:(ButtonBlock)commentBlock phoneBlock:(ButtonBlock)phoneBlock;
+- (void)addBlock:(ButtonBlock)commentBlock phoneBlock:(ButtonBlock)phoneBlock
+ collectionBlock:(ButtonBlock)collectionBlock shareBlock:(ButtonBlock)shareBlock;
 @end

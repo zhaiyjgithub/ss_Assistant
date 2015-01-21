@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		640DFAB91A5691D10060EE10 /* SS_CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 640DFAB81A5691D10060EE10 /* SS_CommentModel.m */; };
+		640E131A1A6FF19900A8DAE6 /* SS_CollectionModelinDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 640E13191A6FF19900A8DAE6 /* SS_CollectionModelinDB.m */; };
 		64209E1C1A3882B100A38B38 /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */; };
 		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
 		6434E6981A59752300ECD10B /* SS_CommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6434E6971A59752300ECD10B /* SS_CommentFrame.m */; };
@@ -124,6 +125,8 @@
 /* Begin PBXFileReference section */
 		640DFAB71A5691D10060EE10 /* SS_CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentModel.h; sourceTree = "<group>"; };
 		640DFAB81A5691D10060EE10 /* SS_CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentModel.m; sourceTree = "<group>"; };
+		640E13181A6FF19900A8DAE6 /* SS_CollectionModelinDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CollectionModelinDB.h; sourceTree = "<group>"; };
+		640E13191A6FF19900A8DAE6 /* SS_CollectionModelinDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CollectionModelinDB.m; sourceTree = "<group>"; };
 		64209E1A1A3882B100A38B38 /* SS_BusinessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BusinessModel.h; sourceTree = "<group>"; };
 		64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BusinessModel.m; sourceTree = "<group>"; };
 		6421F64E1A2F664D009FC0BF /* SS_BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_BaseButton.h; sourceTree = "<group>"; };
@@ -493,6 +496,8 @@
 			children = (
 				64D6AB321A6BA9FC006E8355 /* SS_CollectionFrame.h */,
 				64D6AB331A6BA9FC006E8355 /* SS_CollectionFrame.m */,
+				640E13181A6FF19900A8DAE6 /* SS_CollectionModelinDB.h */,
+				640E13191A6FF19900A8DAE6 /* SS_CollectionModelinDB.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1040,6 +1045,7 @@
 				64D0D6831A5AE637002F8692 /* SDWebImageCompat.m in Sources */,
 				6BA03C3B1A238B8200B50019 /* NSDate+JJ.m in Sources */,
 				6B278F921A2434B900AC5A6E /* NSObject+MJMember.m in Sources */,
+				640E131A1A6FF19900A8DAE6 /* SS_CollectionModelinDB.m in Sources */,
 				649F887B1A3D6336000B291C /* FMDatabaseQueue.m in Sources */,
 				649F88811A3D6336000B291C /* NSObject+LKModel.m in Sources */,
 				6434E6981A59752300ECD10B /* SS_CommentFrame.m in Sources */,
