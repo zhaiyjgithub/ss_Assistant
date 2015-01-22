@@ -11,16 +11,17 @@
 
 @implementation SS_CollectionFrame
 
-- (void)setDetailStoreModel:(SS_DetailOfStoreModel *)detailStoreModel
+- (void)setInDBModel:(SS_CollectionModelinDB *)inDBModel
 {
-    _detailStoreModel = detailStoreModel;
+    _inDBModel = inDBModel;
     
-    CGSize instructionSize = [detailStoreModel.instruction sizeWithFont:[UIFont systemFontOfSize:13.0] maxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 80, MAXFLOAT)];
+    CGSize instructionSize = [inDBModel.instruction sizeWithFont:[UIFont systemFontOfSize:13.0] maxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 80, MAXFLOAT)];
     _instructionFrame = CGRectMake(25, 40, instructionSize.width, instructionSize.height);
-    //暂时使用instruction的数据作为地址
-    CGSize addressSize = [detailStoreModel.instruction sizeWithFont:[UIFont systemFontOfSize:13.0] maxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 80, MAXFLOAT)];
-    _addressFrame = CGRectMake(25, _instructionFrame.origin.y + _instructionFrame.size.height+10, addressSize.width, addressSize.height);
-    _cellHeight = 55 + _instructionFrame.size.height + _addressFrame.size.height;
+    
+    CGSize addressSize = [inDBModel.instruction sizeWithFont:[UIFont systemFontOfSize:13.0] maxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 80, MAXFLOAT)];
+    _addressFrame = CGRectMake(25, _instructionFrame.origin.y + _instructionFrame.size.height + 10, addressSize.width, addressSize.height);
+    
+    _cellHeight = 55 + _instructionFrame.size.height + _addressFrame.size.height ;
 }
 
 @end

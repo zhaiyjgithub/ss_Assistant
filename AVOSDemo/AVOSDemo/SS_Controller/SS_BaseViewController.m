@@ -33,7 +33,7 @@
         
         UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         //当前使用原生的分割线，不适用图片的方式加载分割线
-       // tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        //tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tintColor=[UIColor orangeColor];

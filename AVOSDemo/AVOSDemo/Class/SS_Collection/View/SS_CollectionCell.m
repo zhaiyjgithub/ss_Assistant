@@ -15,11 +15,11 @@
 {
     _storeFrame = storeFrame;
     //商家名称
-    _storeNameLabel.text = storeFrame.detailStoreModel.storeName;
+    _storeNameLabel.text = storeFrame.inDBModel.storeName;
     
     //简介
     _storeInstructionLabel.frame = storeFrame.instructionFrame;
-    _storeInstructionLabel.text = storeFrame.detailStoreModel.instruction;
+    _storeInstructionLabel.text = storeFrame.inDBModel.instruction;
     _storeAddesssLabel.frame = storeFrame.addressFrame;
     _storeAddesssLabel.text = @"待定！！！";
     

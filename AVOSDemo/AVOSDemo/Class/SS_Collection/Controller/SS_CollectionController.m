@@ -34,11 +34,12 @@
 - (void)loadLocalData
 {
     //加载本地数据库的数据
-    NSMutableArray *storeModel = [[NSMutableArray alloc] init ];
-    storeModel = [SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:20];
-    for (id model in storeModel){
+  
+    NSMutableArray * collectionModel = [[NSMutableArray alloc] init];
+    collectionModel = [SS_CollectionModelinDB queryCollectionModelWithWhere:@"key" property:@"hotStore"];
+    for (id model in collectionModel){
         SS_CollectionFrame *frameModel = [[SS_CollectionFrame alloc] init];
-        frameModel.detailStoreModel = (SS_DetailOfStoreModel *)model;
+        frameModel.inDBModel = model;
         [self.dataSource addObject:frameModel];
     }
     [self.tableView reloadData];
@@ -91,9 +92,9 @@
         NSString * phoneGDMC = @"广医  ";
         NSString * phoneDGPT = @"东职  ";
         
-        phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.detailStoreModel.phoneDgut];
-        phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.detailStoreModel.phoneGdmc];
-        phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.detailStoreModel.phoneDgpt];
+        phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.inDBModel.phoneDgut];
+        phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.inDBModel.phoneGdmc];
+        phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.inDBModel.phoneDgpt];
         
         UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneDGUT otherButtonTitles:phoneGDMC,phoneDGPT, nil];
         phoneActionSheet.actionSheetStyle = UIActionSheetStyleDefault;
@@ -134,8 +135,14 @@
         //触发数据库删除数据
     }
 }
+
+-(NSString*)tableView:(UITableView*)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexpath
+{
+    return @"删除";
+}
  
 //通过手势对应的imageview的ID来实现参数传递
+//后面将会根据不同的key来分发数据到数据源当中
 - (void)clickHeadView:(UITapGestureRecognizer *)guster
 {
     int section = guster.view.tag;

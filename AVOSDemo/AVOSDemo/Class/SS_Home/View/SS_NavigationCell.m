@@ -8,6 +8,7 @@
 
 #import "SS_NavigationCell.h"
 #import "SS_BaseButton.h"
+#import "UIImage+MJ.h"
 
 @implementation SS_NavigationCell
 
@@ -15,6 +16,11 @@
 {
     if(self =[super initWithStyle:style reuseIdentifier:reuseIdentifier]){
         [self addAllButton];
+//        
+//        UIImageView *imageView = [[UIImageView alloc] init];
+//        imageView.image = [UIImage resizedImageWithName:@"timeline_card_top_background_line"];
+//         
+//        [self setBackgroundView:imageView];
     }
     return self;
 }
@@ -80,4 +86,6 @@
 {
     return  [[[NSBundle mainBundle] loadNibNamed:@"SS_NavigationCell" owner:nil options:nil] lastObject];
 }
+
+
 @end

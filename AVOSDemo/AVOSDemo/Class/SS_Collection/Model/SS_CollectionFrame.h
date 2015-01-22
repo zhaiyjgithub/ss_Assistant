@@ -7,10 +7,10 @@
 //
 
 #import "SS_BaseModel.h"
-#import "SS_DetailOfStoreModel.h"
+#import "SS_CollectionModelinDB.h"
 
 @interface SS_CollectionFrame : SS_BaseModel
-@property(nonatomic,strong)SS_DetailOfStoreModel *detailStoreModel;
+@property(nonatomic,strong)SS_CollectionModelinDB *inDBModel;
 @property(nonatomic,assign,readonly)CGFloat cellHeight;
 @property(nonatomic,assign,readonly)CGRect  instructionFrame;
 @property(nonatomic,assign,readonly)CGRect  addressFrame;

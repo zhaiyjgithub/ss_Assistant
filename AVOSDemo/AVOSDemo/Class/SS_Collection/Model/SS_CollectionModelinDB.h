@@ -24,6 +24,7 @@
                                           orderBy:(NSString *)order
                                             count:(NSUInteger)count;
 + (NSMutableArray *)queryCollectionModelWihtComplexSQL:(NSString *)SQL;
++ (NSMutableArray *)queryCollectionModelWithWhere:(id)key property:(id)property;
 + (void)deleteCollectionModel:(id)key property:(id)property;
 + (void)deleteCollectionModel:(SS_CollectionModelinDB *)model;
 

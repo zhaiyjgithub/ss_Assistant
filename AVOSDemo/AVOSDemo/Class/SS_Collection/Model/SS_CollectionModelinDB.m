@@ -34,11 +34,17 @@
 {
     return [[SS_CollectionModelinDB getUsingLKDBHelper] searchWithSQL:SQL toClass:[SS_CollectionModelinDB class]];
 }
+//可以进一步封装，通过传入多个参数来实现多条件查询
++ (NSMutableArray *)queryCollectionModelWithWhere:(id)key property:(id)property
+{
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM %@ where %@ = '%@'",[self getTableName],key,property];
+    return  [self queryCollectionModelWihtComplexSQL:sql];
+}
 
 + (void)deleteCollectionModel:(id)key property:(id)property
 {
     [[SS_CollectionModelinDB getUsingLKDBHelper] executeDB:^(FMDatabase *db) {
-        NSString *sql = [NSString stringWithFormat:@"DELETE FROM SS_DetailOfStoreModel where %@ = '%@'",key,property];
+        NSString *sql = [NSString stringWithFormat:@"DELETE FROM SS_CollectionModelinDB where %@ = '%@'",key,property];
         [db executeUpdate:sql];
     }];
 }

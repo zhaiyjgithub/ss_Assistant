@@ -69,6 +69,7 @@
     }
 }
 -(void)viewDidLoad{
+    [super viewDidLoad];
     
     _slideBg=[[UIImageView alloc] init];
     _slideBg.backgroundColor=[UIColor whiteColor];

@@ -8,6 +8,7 @@
 #import "SS_DetailOfStoreViewController.h"
 #import "UIImageView+WebCache.h"
 #import "SS_DetailOfStoreFrame.h"
+#import "SS_BuinessTitleHeadView.h"
 
 #define HOT_STORE_PATH  @"classes/t_Store"
 
@@ -114,6 +115,11 @@ static BOOL needToUpdate = YES;
     return 2;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+   return  section == 0 ? 0 : 40;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if(indexPath.section == 0){
@@ -146,10 +152,7 @@ static BOOL needToUpdate = YES;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    //return indexPath.section == 0 ? 210 : 80;
-    if (indexPath.section == 0) return 210;
-    
-    return 80;
+    return indexPath.section == 0 ? 210 : 80;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,6 +165,13 @@ static BOOL needToUpdate = YES;
         detailController.title = [self.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
         [self.navigationController pushViewController:detailController animated:YES];
     }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    SS_BuinessTitleHeadView * titleView = [[SS_BuinessTitleHeadView alloc] init];
+    
+    return titleView;
 }
 
 @end

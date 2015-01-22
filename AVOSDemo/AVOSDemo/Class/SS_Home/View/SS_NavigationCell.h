@@ -12,6 +12,7 @@ typedef void(^setIconBlock) (id sender);
 @interface SS_NavigationCell : SS_BaseCell
 
 @property(nonatomic,copy)setIconBlock iconBlock;
+@property(nonatomic,weak)UIImageView *cellBackGroundImageView;
 
 - (UIButton *)addbtn:(NSString *)title icon:(NSString *)icon index:(int)index;
 - (void)setDapaidang:(UIButton *)sender;

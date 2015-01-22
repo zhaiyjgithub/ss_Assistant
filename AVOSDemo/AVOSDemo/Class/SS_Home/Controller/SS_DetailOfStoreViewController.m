@@ -110,30 +110,19 @@
                 SS_CollectionModelinDB * inDBModel = [[SS_CollectionModelinDB alloc] init];
                 [self setIndBModelFromDetailStoreModel:inDBModel detailStoreModel:b_frame.detailStoreModel];
                 
-                
                 if ([[SS_CollectionModelinDB getUsingLKDBHelper] isExistsWithTableName:[SS_CollectionModelinDB getTableName] where:@{@"storeName":inDBModel.storeName}]) {
-                    NSLog(@"exist");
                     UIAlertView *collectOPAlertView = [[UIAlertView alloc] initWithTitle:@"已经收藏" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
                     [collectOPAlertView show];
                 }else{
-                    NSLog(@"not exist");
                     [SS_CollectionModelinDB insertCollectionModel:inDBModel];
                     UIAlertView *collectOPAlertView = [[UIAlertView alloc] initWithTitle:@"收藏成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
                     [collectOPAlertView show];
                 }
-                
-                NSMutableArray *array = [[NSMutableArray alloc] init];
-                array = [SS_CollectionModelinDB queryCollectionModelWihtWhere:@{@"key":@"hotStore"} orderBy:nil count:10];
-                for (id model in array)
-                    NSLog(@"storeKey:%@",[(SS_CollectionModelinDB *)model storeName]);
-               
             } shareBlock:^(id sender) {
                 NSLog(@"click share btn");
             }];
-            
-            
             return cell;
         }else{
             static NSString *cellID = @"SS_CommentCell_id";

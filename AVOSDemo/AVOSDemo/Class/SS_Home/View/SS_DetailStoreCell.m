@@ -59,7 +59,7 @@
     _storeInstruction.frame = detailStoreFrame.instructionFrame;
     _storeInstruction.text = detailStoreFrame.detailStoreModel.instruction;
     _storeAddress.frame = detailStoreFrame.addressFrame;
-    _storeInstructionIcon.frame = CGRectMake(10, _storeInstruction.frame.origin.y, 15, 15);
+    _storeInstructionIcon.frame = CGRectMake(10, _storeInstruction.frame.origin.y + 2, 15, 15);
     _storeInstructionIcon.image = [UIImage imageNamed:@"instruction"];
     //暂时使用简介的内容
     _storeAddress.text = detailStoreFrame.detailStoreModel.instruction;
