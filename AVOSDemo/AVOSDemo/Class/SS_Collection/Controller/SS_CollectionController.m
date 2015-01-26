@@ -27,14 +27,16 @@
                                 @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
                                 @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
                                 ];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
     [self loadLocalData];
 }
 
 - (void)loadLocalData
 {
     //加载本地数据库的数据
-  
     NSMutableArray * collectionModel = [[NSMutableArray alloc] init];
     collectionModel = [SS_CollectionModelinDB queryCollectionModelWithWhere:@"key" property:@"hotStore"];
     for (id model in collectionModel){
@@ -129,10 +131,14 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //先读取当前的数据，然后根据事件操作数据。
+    //之前出现的问题就是没有理解好，进入事件后再读取数据源的数据已经太迟了。
+    SS_CollectionFrame  * collectionFrame = self.dataSource[indexPath.row];
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.dataSource removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-        //触发数据库删除数据
+        [SS_CollectionModelinDB deleteCollectionModel:@"storeName" property:collectionFrame.inDBModel.storeName];
     }
 }
 
@@ -145,7 +151,7 @@
 //后面将会根据不同的key来分发数据到数据源当中
 - (void)clickHeadView:(UITapGestureRecognizer *)guster
 {
-    int section = guster.view.tag;
+    int section = (int)guster.view.tag;
     
     int result = [self.status[@(section)] intValue];
     if (result == 0) {
@@ -153,7 +159,6 @@
     }else{
         [self.status setObject:@0 forKey:@(section)];
     }
-
     [self.tableView reloadData];
 }
 
