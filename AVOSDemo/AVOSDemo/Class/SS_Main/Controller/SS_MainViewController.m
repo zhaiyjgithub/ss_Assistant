@@ -10,6 +10,7 @@
 #import "SS_BuinessController.h"
 #import "SS_CollectionController.h"
 #import "SS_MineController.h"
+#import "SS_OAuthController.h"
 
 @interface SS_MainViewController ()
 
@@ -28,29 +29,10 @@
 
 - (void)viewDidLoad //重写UITabView，添加三个导航控制器
 {
-    /*
-    SS_BuinessController *business = [[SS_BuinessController alloc] init];
-    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:business];
-    nav1.delegate = self;
-    [self addChildViewController:nav1];
-    
-    SS_CollectionController *phone = [[SS_CollectionController alloc] init];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:phone];
-    nav2.delegate = self;
-    [self addChildViewController:nav2];
-    
-    SS_MineController *mine = [[SS_MineController alloc] init];
-    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mine];
-    nav3.delegate = self;
-    [self addChildViewController:nav3];
-    
-    self.viewControllers = @[nav1, nav2, nav3];
-    */
     
     [self setupAllChildViewControllers];
     
     [super viewDidLoad];
-
 }
 
 - (void)setupAllChildViewControllers
@@ -63,6 +45,9 @@
     
     SS_MineController * mine = [[SS_MineController alloc] init];
     [self setupChildViewController:mine title:@"个人" imageName:@"icon_tabbar_03" selectImageName:@"icon_tabbar_03_h"];
+    
+    SS_OAuthController * oath = [[SS_OAuthController alloc] init];
+    [self setupChildViewController:oath title:@"授权" imageName:@"icon_tabbar_03" selectImageName:@"icon_tabbar_03_h"];
 }
 
 - (void)setupChildViewController:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectImageName:(NSString *)selectImageName
@@ -74,5 +59,7 @@
     
     [self addChildViewController:nav];
 }
+
+
 
 @end
