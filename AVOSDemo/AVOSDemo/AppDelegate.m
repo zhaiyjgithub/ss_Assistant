@@ -8,12 +8,20 @@
 
 #import "AppDelegate.h"
 #import "SS_MainViewController.h"
+#import "WBaccountTool.h"
+#import "SS_OAuthController.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[SS_MainViewController alloc] init];
+    if ([WBaccountTool account]) {
+        self.window.rootViewController = [[SS_MainViewController alloc] init];
+
+    }else{
+        self.window.rootViewController = [[SS_OAuthController alloc] init];
+    }
     [self.window makeKeyAndVisible];
     
     return YES;

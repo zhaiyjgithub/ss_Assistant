@@ -42,6 +42,7 @@
 		649F88801A3D6336000B291C /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88741A3D6336000B291C /* NSObject+LKDBHelper.m */; };
 		649F88811A3D6336000B291C /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F88761A3D6336000B291C /* NSObject+LKModel.m */; };
 		649F88831A3D6D6A000B291C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 649F88821A3D6D6A000B291C /* libsqlite3.dylib */; };
+		64B298021A793B03001D998A /* UserImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B298001A793B03001D998A /* UserImageCell.m */; };
 		64D0D65B1A5AE611002F8692 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D0D65A1A5AE611002F8692 /* MapKit.framework */; };
 		64D0D65D1A5AE61A002F8692 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D0D65C1A5AE61A002F8692 /* ImageIO.framework */; };
 		64D0D6801A5AE637002F8692 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D0D6601A5AE637002F8692 /* MKAnnotationView+WebCache.m */; };
@@ -197,6 +198,8 @@
 		649F88751A3D6336000B291C /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		649F88761A3D6336000B291C /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
 		649F88821A3D6D6A000B291C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		64B297FF1A793B03001D998A /* UserImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserImageCell.h; sourceTree = "<group>"; };
+		64B298001A793B03001D998A /* UserImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserImageCell.m; sourceTree = "<group>"; };
 		64D0D65A1A5AE611002F8692 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		64D0D65C1A5AE61A002F8692 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		64D0D65F1A5AE637002F8692 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -910,6 +913,8 @@
 		6BA5A3651A249B1C00A0BDF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64B297FF1A793B03001D998A /* UserImageCell.h */,
+				64B298001A793B03001D998A /* UserImageCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1126,6 +1131,7 @@
 				6BA5A36F1A249BE700A0BDF5 /* SS_MainViewController.m in Sources */,
 				64F2C0A71A714F9100378092 /* SS_BuinessHeadView.m in Sources */,
 				6BA03C581A238E7900B50019 /* AFURLResponseSerialization.m in Sources */,
+				64B298021A793B03001D998A /* UserImageCell.m in Sources */,
 				6B278FAA1A2438AF00AC5A6E /* SS_BaseViewController.m in Sources */,
 				649F88801A3D6336000B291C /* NSObject+LKDBHelper.m in Sources */,
 				6459218B1A43157100CD77E9 /* SS_SendComment.m in Sources */,

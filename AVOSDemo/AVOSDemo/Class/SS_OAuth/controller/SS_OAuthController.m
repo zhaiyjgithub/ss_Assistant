@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "SS_AccountModel.h"
 #import "WBaccountTool.h"
+#import "SS_MainViewController.h"
 
 @interface SS_OAuthController ()<UIWebViewDelegate>
 
@@ -23,7 +24,7 @@
  //Do any additional setup after loading the view.
 
     UIWebView * webView = [[UIWebView alloc] init];
-    webView.frame = self.view.bounds;
+    webView.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y + 20, self.view.bounds.size.width, self.view.bounds.size.height - 20);
     webView.delegate = self;
     [self.view addSubview:webView];
 
@@ -71,12 +72,8 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 
     [manager POST:BASE_TOKEN_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"respondObject:%@",responseObject);
         SS_AccountModel * accountModel = [[SS_AccountModel alloc] init];
         [accountModel initWithRespondObject:responseObject];
-        NSLog(@"access_token:%@",accountModel.access_token);
-        NSLog(@"expires_in:%@",accountModel.expires_in);
-        
         [self getUserInfo:accountModel];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
@@ -101,20 +98,17 @@
     managerSession.responseSerializer = [AFJSONResponseSerializer serializer];
     managerSession.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [managerSession GET:@"https://api.weibo.com/2/users/show.json?" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"JSON:%@",responseObject[@"description"]);
         userInfoModel.name = responseObject[@"name"];
         userInfoModel.profile_image_url = responseObject[@"profile_image_url"];
         userInfoModel.idescription = responseObject[@"description"];
         userInfoModel.gender       = responseObject[@"gender"];
         userInfoModel.location     = responseObject[@"location"];
-        NSLog(@"userInfo:%@",userInfoModel.location);
-        NSLog(@"path:%@",WB_ACCOUNT_FILE_PATH);
-        [NSKeyedArchiver archiveRootObject:userInfoModel toFile:WB_ACCOUNT_FILE_PATH];
-        SS_AccountModel *dict2 = [[SS_AccountModel alloc] init];
-        dict2 = [NSKeyedUnarchiver unarchiveObjectWithFile:WB_ACCOUNT_FILE_PATH];
-        NSLog(@"dict:%@",dict2.gender);
-
         
+        //归档用户信息，后面还需要头像的图片数据实现归档
+        [NSKeyedArchiver archiveRootObject:userInfoModel toFile:WB_ACCOUNT_FILE_PATH];
+        
+        //跳转到主界面
+        self.view.window.rootViewController = [[SS_MainViewController alloc] init];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"error:%@",error);
     }];

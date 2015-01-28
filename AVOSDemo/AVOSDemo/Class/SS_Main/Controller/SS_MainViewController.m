@@ -10,7 +10,7 @@
 #import "SS_BuinessController.h"
 #import "SS_CollectionController.h"
 #import "SS_MineController.h"
-#import "SS_OAuthController.h"
+//#import "SS_OAuthController.h"
 
 @interface SS_MainViewController ()
 
@@ -45,9 +45,6 @@
     
     SS_MineController * mine = [[SS_MineController alloc] init];
     [self setupChildViewController:mine title:@"个人" imageName:@"icon_tabbar_03" selectImageName:@"icon_tabbar_03_h"];
-    
-    SS_OAuthController * oath = [[SS_OAuthController alloc] init];
-    [self setupChildViewController:oath title:@"授权" imageName:@"icon_tabbar_03" selectImageName:@"icon_tabbar_03_h"];
 }
 
 - (void)setupChildViewController:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectImageName:(NSString *)selectImageName

@@ -21,7 +21,6 @@
 + (SS_AccountModel *)account
 {
     SS_AccountModel * account = [NSKeyedUnarchiver unarchiveObjectWithFile:WB_ACCOUNT_FILE_PATH];
-    NSLog(@"account:%@",account.name);
-    return account;
+    return account == nil ? nil : account;
 }
 @end
