@@ -12,6 +12,7 @@
 		64209E1C1A3882B100A38B38 /* SS_BusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64209E1B1A3882B100A38B38 /* SS_BusinessModel.m */; };
 		6421F6501A2F664D009FC0BF /* SS_BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */; };
 		6434E6981A59752300ECD10B /* SS_CommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6434E6971A59752300ECD10B /* SS_CommentFrame.m */; };
+		6435888A1A7BE4D10002F532 /* userInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 643588891A7BE4D10002F532 /* userInfoCell.m */; };
 		643852AC1A6BFAD9008C472B /* SS_titleHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643852AB1A6BFAD9008C472B /* SS_titleHeadView.m */; };
 		643D46261A6A8765006F93CD /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 643D46251A6A8765006F93CD /* UIImage+MJ.m */; };
 		644909CC1A64042C00FC18EA /* SS_DetailOfStoreFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 644909CB1A64042C00FC18EA /* SS_DetailOfStoreFrame.m */; };
@@ -139,6 +140,8 @@
 		6421F64F1A2F664D009FC0BF /* SS_BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_BaseButton.m; sourceTree = "<group>"; };
 		6434E6961A59752300ECD10B /* SS_CommentFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_CommentFrame.h; sourceTree = "<group>"; };
 		6434E6971A59752300ECD10B /* SS_CommentFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_CommentFrame.m; sourceTree = "<group>"; };
+		643588881A7BE4D10002F532 /* userInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userInfoCell.h; sourceTree = "<group>"; };
+		643588891A7BE4D10002F532 /* userInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userInfoCell.m; sourceTree = "<group>"; };
 		643852AA1A6BFAD9008C472B /* SS_titleHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_titleHeadView.h; sourceTree = "<group>"; };
 		643852AB1A6BFAD9008C472B /* SS_titleHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_titleHeadView.m; sourceTree = "<group>"; };
 		643D46241A6A8765006F93CD /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
@@ -915,6 +918,8 @@
 			children = (
 				64B297FF1A793B03001D998A /* UserImageCell.h */,
 				64B298001A793B03001D998A /* UserImageCell.m */,
+				643588881A7BE4D10002F532 /* userInfoCell.h */,
+				643588891A7BE4D10002F532 /* userInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1049,6 +1054,7 @@
 			files = (
 				649389121A2E176D0089AC21 /* SS_StoreViewController.m in Sources */,
 				648F7D831A349F94007412EF /* SS_DetailOfStoreModel.m in Sources */,
+				6435888A1A7BE4D10002F532 /* userInfoCell.m in Sources */,
 				6B278FB21A24405700AC5A6E /* UIImageView+AFNetworking.m in Sources */,
 				6BA03C591A238E7900B50019 /* AFURLSessionManager.m in Sources */,
 				6B278F8A1A2434B900AC5A6E /* MJArgument.m in Sources */,

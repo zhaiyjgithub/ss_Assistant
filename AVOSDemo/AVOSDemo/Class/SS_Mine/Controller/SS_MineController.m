@@ -9,6 +9,7 @@
 #import "SS_MineController.h"
 #import "AFNetworking.h"
 #import "UserImageCell.h"
+#import "userInfoCell.h"
 
 @interface SS_MineController ()
 
@@ -19,12 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;//头像，简介，性别与地区！
+    return 2;//头像，简介，性别与地区！
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -34,16 +34,30 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return indexPath.section == 0 ? 215 : 60;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return section == 0 ? 0 : 15;
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cellID = @"userImage_id";
-    UserImageCell * cell = (UserImageCell *)[ tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell = [[UserImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    if (indexPath.section == 0) {
+        static NSString * cellID = @"userImage_id";
+        UserImageCell * cell = (UserImageCell *)[ tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[UserImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        return cell;
+    }else{
+        static NSString * cellID = @"userInfoCell_id";
+        userInfoCell * cell = (userInfoCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[userInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        return cell;
     }
-    return cell;
     
 }
 
