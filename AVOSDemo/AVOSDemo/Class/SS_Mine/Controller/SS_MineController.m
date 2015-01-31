@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "UserImageCell.h"
 #import "userInfoCell.h"
+#import "WBaccountTool.h"
 
 @interface SS_MineController ()
 
@@ -29,7 +30,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return section == 0 ? 1 : 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,6 +50,17 @@
         if (!cell) {
             cell = [[UserImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
+        
+        return cell;
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+        static NSString * cellID = @"userInfoCell_id";
+        userInfoCell * cell = (userInfoCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[userInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        cell.cellImage.image =[UIImage imageNamed:@"userInfolocation"];
+        cell.cellLabel.text = [WBaccountTool account].location;
+        
         return cell;
     }else{
         static NSString * cellID = @"userInfoCell_id";
@@ -56,6 +68,9 @@
         if (!cell) {
             cell = [[userInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
+        cell.cellImage.image =[UIImage imageNamed:@"school_os7"];
+        cell.cellLabel.text = @"东莞理工学院";
+        
         return cell;
     }
     

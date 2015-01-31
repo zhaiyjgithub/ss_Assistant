@@ -36,12 +36,15 @@
 
 - (void)loadLocalData
 {
+    //先清除当前数据源中的数据再加载新的数据.修复datasource残留问题。
+    [self.dataSource removeAllObjects];
     //加载本地数据库的数据
     NSMutableArray * collectionModel = [[NSMutableArray alloc] init];
     collectionModel = [SS_CollectionModelinDB queryCollectionModelWithWhere:@"key" property:@"hotStore"];
     for (id model in collectionModel){
         SS_CollectionFrame *frameModel = [[SS_CollectionFrame alloc] init];
         frameModel.inDBModel = model;
+       // NSLog(@"storeName:%@",[model storeName]);
         [self.dataSource addObject:frameModel];
     }
     [self.tableView reloadData];
@@ -49,7 +52,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return self.dataSource.count;
     int result = [self.status[@(section)] intValue];
     if (result == 0) {
         return 0;

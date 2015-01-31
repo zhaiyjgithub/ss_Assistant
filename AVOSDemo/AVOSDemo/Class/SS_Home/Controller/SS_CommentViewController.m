@@ -9,6 +9,7 @@
 #import "SS_CommentViewController.h"
 #import "SS_SendComment.h"
 #import "HttpTool.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface SS_CommentViewController ()
 
@@ -75,9 +76,11 @@
     //关闭键盘，发送使用alterview更加好，但是取消时候会使用actionsheet
     
     //点击该键后我们再弹出一个AlertView
-    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"评论发送成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
-    [myAlertView show];
+//    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"评论发送成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
+//    [myAlertView show];
+    //不再使用alertview .
+    [MBProgressHUD showSuccess:@"发送成功"];
 }
 
 - (void)setTextView

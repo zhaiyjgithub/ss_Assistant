@@ -7,7 +7,6 @@
 //
 
 #import "SS_DetailOfStoreViewController.h"
-//#import "SS_DetailOfStoreCell.h"
 #import "SS_CommentCell.h"
 #import "SS_CommentViewController.h"
 #import "MJRefresh.h"
@@ -16,9 +15,11 @@
 #import "SS_CommentFrame.h"
 #import "SS_DetailOfStoreFrame.h"
 #import "SS_DetailStoreCell.h"
+#import "SS_ShareViewController.h"
 
 
 @interface SS_DetailOfStoreViewController ()
+@property(nonatomic,weak)UIImageView * storeImageView;
 @end
 
 @implementation SS_DetailOfStoreViewController
@@ -86,6 +87,7 @@
             }
             SS_DetailOfStoreFrame *b_frame = self.dataSource[0];
             cell.detailStoreFrame = b_frame;
+            self.storeImageView = cell.storeImage;
             //cell.userInteractionEnabled = NO;//该方法会把这个cell以及cell内的所有控件的事件都会被关闭
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];//使用该事件就不会了。
             
@@ -122,6 +124,11 @@
                 }
             } shareBlock:^(id sender) {
                 NSLog(@"click share btn");
+                //进入发送界面
+                SS_ShareViewController * shareViewController = [[SS_ShareViewController alloc] init];
+                shareViewController.imageToUpLoad = self.storeImageView;
+                [self.navigationController pushViewController:shareViewController animated:YES];
+                
             }];
             return cell;
         }else{
@@ -155,7 +162,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return section == 0 ? @" " : @"评论";
+    return section == 0 ? nil : @"评论";
 }
 /*
 #pragma  增加长按触发电话功能

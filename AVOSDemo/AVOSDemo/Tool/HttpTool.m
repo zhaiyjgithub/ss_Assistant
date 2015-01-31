@@ -8,8 +8,6 @@
 
 #import "HttpTool.h"
 #import "AFNetworking.h"
-
-
 #import "NSDate+JJ.h"
 #import "NSString+JJ.h"
 
