@@ -36,12 +36,10 @@ static BOOL needToUpdate = YES;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self loadLocalData];//修改为先加载本地数据，然后加载服务器数据
-
     //自定义返回按钮
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
-    backBtn.title = @"返回";
+    backBtn.title = @"";
     self.navigationItem.backBarButtonItem = backBtn;
 }
 

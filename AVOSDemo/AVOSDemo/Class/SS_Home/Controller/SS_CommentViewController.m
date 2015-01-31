@@ -11,6 +11,10 @@
 #import "HttpTool.h"
 #import "MBProgressHUD+MJ.h"
 
+// 5.获得RGB颜色
+#define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+
+
 @interface SS_CommentViewController ()
 
 @end
@@ -80,6 +84,8 @@
 //    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
 //    [myAlertView show];
     //不再使用alertview .
+    
+    [self.navigationController popViewControllerAnimated:YES];
     [MBProgressHUD showSuccess:@"发送成功"];
 }
 
@@ -94,19 +100,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textChange) name:UITextViewTextDidChangeNotification object:self.commentTextview];
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+    self.navigationItem.rightBarButtonItem.tintColor = kColor(0xeb, 0xeb, 0xeb);
 }
 /*
     *如果没有任何输入，就会失能发送按钮
  */
+
+
 - (void)textChange
 {
     if(self.commentTextview.text.length != 0){
         self.navigationItem.rightBarButtonItem.enabled = YES;
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     }else{
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+        self.navigationItem.rightBarButtonItem.tintColor = kColor(0xeb, 0xeb, 0xeb);
     }
     
 }

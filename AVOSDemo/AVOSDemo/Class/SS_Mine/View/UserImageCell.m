@@ -51,9 +51,6 @@
     //创建圆角头像
     headImageView.layer.cornerRadius = headImageView.frame.size.width/2;
     headImageView.clipsToBounds = YES;
-    
-    
-    NSLog(@"profile_url:%@",[WBaccountTool account].profile_image_url);
     NSURL * url = [NSURL URLWithString:[WBaccountTool account].profile_image_url];
 //    NSData * imageData = [NSData dataWithContentsOfURL:url];
     UIImage * image = [self readImageDataFromFile];
@@ -87,7 +84,6 @@
     //设置性别
     UIImageView * genderImageView = [[UIImageView alloc] init];
     genderImageView.frame = CGRectMake(SCREEN_WIDTH/2 - GENDERIMAGE_WITH/2, nickNameLabel.frame.origin.y + nickNameSize.height + 5, GENDERIMAGE_WITH , GENDERIMAGE_WITH);
-    NSLog(@"gender:%@",[WBaccountTool account].gender);
     if ([[WBaccountTool account].gender isEqualToString:@"m"]) {
         genderImageView.image = [UIImage imageNamed:@"male"];
     }else{

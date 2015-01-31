@@ -123,7 +123,6 @@
                     [collectOPAlertView show];
                 }
             } shareBlock:^(id sender) {
-                NSLog(@"click share btn");
                 //进入发送界面
                 SS_ShareViewController * shareViewController = [[SS_ShareViewController alloc] init];
                 shareViewController.imageToUpLoad = self.storeImageView;

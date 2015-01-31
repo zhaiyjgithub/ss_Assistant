@@ -28,7 +28,7 @@
 - (void)setImageview
 {
     //self.image = [UIImage resizedImageWithName:@"timeline_card_top_background_line"];
-    [self setBackgroundColor:kColor(230, 230, 230)];
+    [self setBackgroundColor:kColor(0xeb, 0xeb, 0xeb)];
     SS_BuinessHeadView *headView = [[SS_BuinessHeadView alloc] init];
     headView.titleLabel.font = [UIFont systemFontOfSize:13.0];
     [headView setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];

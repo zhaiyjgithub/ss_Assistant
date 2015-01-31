@@ -11,6 +11,10 @@
 #import "AFNetworking.h"
 #import "WBaccountTool.h"
 
+// 5.获得RGB颜色
+#define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+
+
 #define SEND_WEIBO_URL  @"https://api.weibo.com/2/statuses/update.json"
 #define SEND_WEIBO_WITH_IMAGE_URL   @"https://upload.api.weibo.com/2/statuses/upload.json"
 
@@ -94,7 +98,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextViewTextDidChangeNotification object:self.shareTextView];
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+    self.navigationItem.rightBarButtonItem.tintColor = kColor(0xeb, 0xeb, 0xeb);
 }
 
 /*
@@ -105,12 +109,12 @@
     if(self.shareTextView.text.length != 0){
         self.shareTextView.textColor = [UIColor blackColor];
         self.navigationItem.rightBarButtonItem.enabled = YES;
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     }else{
         self.shareTextView.textColor = [UIColor lightGrayColor];
         self.shareTextView.text = nil;
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+        self.navigationItem.rightBarButtonItem.tintColor = kColor(0xeb, 0xeb, 0xeb);
     }
 }
 
