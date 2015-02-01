@@ -4,6 +4,7 @@
 @interface SS_DetailOfStoreModel : SS_BaseModel
 //详情相关,还需要添加地址
 @property(nonatomic,copy)NSString * storeName;
+@property(nonatomic,copy)NSString * storeAddress;
 @property(nonatomic,copy)NSString * phoneHost;
 @property(nonatomic,copy)NSString * phoneDgut;
 @property(nonatomic,copy)NSString * phoneGdmc;
@@ -13,8 +14,8 @@
 //图片链接相关
 @property(nonatomic,copy)NSString * imageName;
 @property(nonatomic,copy)NSString * imageURL;
-//评论相关
-@property(nonatomic,copy)NSString * commentPoster;
+//评论相关,不再需要使用commentPoster,只保留该商家对应的评论类别
+//@property(nonatomic,copy)NSString * commentPoster;
 @property(nonatomic,copy)NSString * commentClassName;
 
 //增加商家评论类别名称、数目

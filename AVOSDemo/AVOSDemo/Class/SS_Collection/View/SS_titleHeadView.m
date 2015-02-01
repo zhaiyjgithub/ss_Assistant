@@ -34,7 +34,6 @@
     [headView setTitleColor:kColor(11, 100, 190) forState:UIControlStateNormal];
     //headView.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     headView.enabled = NO;
-    //[headView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.headerViewButton = headView;
     [self addSubview:headView];
 }

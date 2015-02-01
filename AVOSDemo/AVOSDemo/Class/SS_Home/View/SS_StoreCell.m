@@ -29,6 +29,7 @@
     _detailOfStoreFrame = detailOfStoreFrame;
     self.nameLabel.text = detailOfStoreFrame.detailStoreModel.storeName;
     self.phoneLabel.text = detailOfStoreFrame.detailStoreModel.phoneHost;
+    self.instructionLabel.text = detailOfStoreFrame.detailStoreModel.instruction;
 
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [manager downloadImageWithURL:[NSURL URLWithString:detailOfStoreFrame.detailStoreModel.imageURL] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {

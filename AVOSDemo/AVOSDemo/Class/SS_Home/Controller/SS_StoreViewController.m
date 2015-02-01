@@ -13,9 +13,6 @@
 #import "MJRefresh.h"
 #import "SS_DetailOfStoreFrame.h"
 
-
-static BOOL needToUpdate = YES;
-
 @interface SS_StoreViewController ()<MJRefreshBaseViewDelegate>
 {
     NSDictionary *uidOfRequest ;
@@ -44,18 +41,9 @@ static BOOL needToUpdate = YES;
     uidOfRequest = @{
                      @"大排档":@"classes/t_Store",
                      };
-    // Do any additional setup after loading the view from its nib.
-    
-  //  [self loadLocalData];//先加载本地数据
     [self setupRefreshView];
-    
-   
-}
--(void)viewDidAppear:(BOOL)animated{//然后加载网络数据
-    if (needToUpdate == YES) {
-        needToUpdate = NO;
-        [self loadNetworkData];
-    }
+    //加载网络数据，使用了图片缓存
+    [self loadNetworkData];
 }
 #pragma mark -网络
 -(void)loadNetworkData{
@@ -81,14 +69,6 @@ static BOOL needToUpdate = YES;
     }else{
         NSLog(@"失败!:%@",self.title);
     }
-}
-#pragma mark 本地
--(void)loadLocalData{
-#pragma TODO-- for count == 20
-    self.dataSource =[SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:6];
-    [self.tableView reloadData];
-
-      
 }
 
 #pragma  设置上拉以及下拉刷新控件
@@ -130,13 +110,13 @@ static BOOL needToUpdate = YES;
 #pragma  加载数据
 - (void)loadMoreData
 {
-    NSLog(@"load more data");
+   // NSLog(@"load more data");
     [self.footer endRefreshing];
 }
 #pragma 记载数据
 - (void)loadNewData
 {
-    NSLog(@"load new data");
+  //  NSLog(@"load new data");
     [self.header endRefreshing];
 }
 
@@ -158,10 +138,6 @@ static BOOL needToUpdate = YES;
     if (!cell) {
         cell = [SS_StoreCell instanceWithXib];
     }
-    //使用模型来更新数据
-    // SS_DetailOfStoreModel * b_model = self.dataSource[indexPath.row];
-    // cell.detailOfStoreModel = b_model;
-    //数据不再是上面的模型了
     SS_DetailOfStoreFrame * b_frame =self.dataSource[indexPath.row];
     cell.detailOfStoreFrame = b_frame;
     return  cell;
@@ -179,7 +155,10 @@ static BOOL needToUpdate = YES;
     //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
     detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
     detailController.title = [detailController.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
+    //传递该商家所属的分类
     [self.navigationController pushViewController:detailController animated:YES];
+    
+    
 }
 
 

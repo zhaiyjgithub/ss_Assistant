@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sW-Ih-AtL">
-                        <rect key="frame" x="140" y="5" width="180" height="31"/>
+                        <rect key="frame" x="140" y="5" width="180" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -32,9 +32,17 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCY-iD-Tbt">
+                        <rect key="frame" x="140" y="33" width="150" height="16"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="instructionLabel" destination="CCY-iD-Tbt" id="8j3-iP-LI8"/>
                 <outlet property="nameLabel" destination="3sW-Ih-AtL" id="RMI-hB-lcQ"/>
                 <outlet property="phoneLabel" destination="Zft-Oq-JRv" id="idk-hm-qe6"/>
                 <outlet property="storeImage" destination="usL-7O-4v8" id="22c-pU-pp7"/>

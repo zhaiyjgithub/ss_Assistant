@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *storeImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
 
 + (instancetype)instanceWithXib;
 @end

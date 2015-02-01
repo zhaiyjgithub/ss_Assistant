@@ -9,60 +9,72 @@
 #import "UIImageView+WebCache.h"
 #import "SS_DetailOfStoreFrame.h"
 #import "SS_BuinessTitleHeadView.h"
+#import "Reachability.h"
+#import "MBProgressHUD+MJ.h"
 
 #define HOT_STORE_PATH  @"classes/t_Store"
 
 
-static BOOL needToUpdate = YES;
-
 @interface SS_BuinessController ()<SDWebImageManagerDelegate>
 @property(nonatomic,strong)NSArray *naviClassesByButtonTag;
+
+//网络状态相关
+@property(nonatomic)Reachability * hostReachability;
+@property(nonatomic)Reachability * internetReachability;
+@property(nonatomic)Reachability * wifiReachability;
 @end
 
 @implementation SS_BuinessController
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        _naviClassesByButtonTag = @[@"大排档",@"出行包车",@"休闲娱乐",@"餐饮美食",
-                                  @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
-                                  @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
-                                   ];
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _naviClassesByButtonTag = @[@"大排档",@"出行包车",@"休闲娱乐",@"餐饮美食",
+                                @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
+                                @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
+                                ];
+
     [self loadLocalData];//修改为先加载本地数据，然后加载服务器数据
     //自定义返回按钮
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
     backBtn.title = @"";
     self.navigationItem.backBarButtonItem = backBtn;
+    
+    //增加网络检测
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    NSString * remoteHostName = @"www.baidu.com";
+    self.hostReachability = [Reachability reachabilityWithHostName:remoteHostName];
+    [self.hostReachability startNotifier];
+    [self updateInternetfaceWithReachability:self.hostReachability];
+    
+    self.internetReachability = [Reachability reachabilityForInternetConnection];
+    [self.internetReachability startNotifier];
+    [self updateInternetfaceWithReachability:self.internetReachability];
+    
+    self.wifiReachability = [Reachability reachabilityForLocalWiFi];
+    [self.wifiReachability startNotifier];
+    [self updateInternetfaceWithReachability:self.wifiReachability];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:YES];
     //后台加载网络数据以及更新数据库数据
-    if (needToUpdate == YES) {
-        needToUpdate = NO;
-        [self loadNetData];
-    }
+    [self loadNetData];
 }
 #pragma mark - 根据后面需求，按照查询约束来插入以及查询数据
 - (void)loadLocalData
 {
     //加载本地数据库的数据
-    NSMutableArray *storeModel = [[NSMutableArray alloc] init ];
+    NSMutableArray *storeModel = [[NSMutableArray alloc] init];
     storeModel = [SS_DetailOfStoreModel queryDetailModelWithWhere:nil orderBy:nil count:20];
     for (id model in storeModel){
         SS_DetailOfStoreFrame *frameModel = [[SS_DetailOfStoreFrame alloc] init];
         frameModel.detailStoreModel = model;
+        NSLog(@"key:%@",[model key]);
         [self.dataSource addObject:frameModel];
     }
-    [self.dataSource addObjectsFromArray:storeModel];
     [self.tableView reloadData];
 }
 - (void)loadNetData
@@ -92,6 +104,7 @@ static BOOL needToUpdate = YES;
 - (void)updateLocalData:(NSMutableArray *)dataSource
 {
     NSMutableArray *hotStore = [[NSMutableArray alloc] initWithArray:[SS_DetailOfStoreModel queryDetailModelWithWhere:@{@"key":@"hotStore"} orderBy:nil count:50]];
+    NSLog(@"hotStore.count:%d",hotStore.count);
     //删除本地SQL数据，再根据网络数据更新本地SQL数据.但是数据存入的数据模型已经发生改变
     for (id model in hotStore){
         [SS_DetailOfStoreModel deleteDetailModel:model];
@@ -170,6 +183,63 @@ static BOOL needToUpdate = YES;
     SS_BuinessTitleHeadView * titleView = [[SS_BuinessTitleHeadView alloc] init];
     
     return titleView;
+}
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability * curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateInternetfaceWithReachability:curReach];
+}
+
+- (void)updateInternetfaceWithReachability:(Reachability *)reachability
+{
+    NetworkStatus netStatus = [reachability currentReachabilityStatus];
+    BOOL connectionRequired = [reachability connectionRequired];
+
+    if (reachability == self.hostReachability) {
+        if (connectionRequired) {
+          //  NSLog(@"Cellular data network is available.\nInternet traffic will be routed through it after a connection is established.");
+        }else{
+           // NSLog(@"ellular data network is active.\nInternet traffic will be routed through it.");
+        }
+    }else if (reachability == self.internetReachability){
+        [self processGeneralNetwork:netStatus connectionRequired:connectionRequired];
+    }else if(reachability == self.wifiReachability){
+        [self processGeneralNetwork:netStatus connectionRequired:connectionRequired];
+    }
+}
+
+- (void)processGeneralNetwork:(NetworkStatus)netStatus connectionRequired:(BOOL)connectionRequired
+{
+    switch (netStatus) {
+        case NotReachable:
+           // NSLog(@"Access Not Available");
+            [self showAlertToUser];
+            connectionRequired = NO;
+            break;
+        case ReachableViaWWAN:
+           // NSLog(@"www....");
+            break;
+        case ReachableViaWiFi:
+           // NSLog(@"WIFI");
+            break;
+        default:
+            break;
+    }
+}
+
+//记得释放通知
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+}
+
+- (void)showAlertToUser
+{
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"无法连接到互联网" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
+        [myAlertView show];
 }
 
 @end

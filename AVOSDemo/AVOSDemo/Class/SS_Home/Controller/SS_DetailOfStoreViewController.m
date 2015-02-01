@@ -31,7 +31,7 @@
     SS_DetailOfStoreFrame *Storeframe = self.dataSource[0];
     SS_DetailOfStoreModel *model = Storeframe.detailStoreModel;
     NSString *commentClassNamePath = [NSString stringWithFormat:@"classes/%@",model.commentClassName];
-    //NSLog(@"评论的路径名称:%@",commentClassNamePath);
+   // NSLog(@"评论的路径名称:%@",commentClassNamePath);
     //发起连接
     //
     [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
@@ -110,6 +110,7 @@
             } collectionBlock:^(id sender) {
                 //插入数据库
                 SS_CollectionModelinDB * inDBModel = [[SS_CollectionModelinDB alloc] init];
+                
                 [self setIndBModelFromDetailStoreModel:inDBModel detailStoreModel:b_frame.detailStoreModel];
                 
                 if ([[SS_CollectionModelinDB getUsingLKDBHelper] isExistsWithTableName:[SS_CollectionModelinDB getTableName] where:@{@"storeName":inDBModel.storeName}]) {
