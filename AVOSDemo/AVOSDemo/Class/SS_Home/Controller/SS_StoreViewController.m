@@ -39,7 +39,20 @@
     [super viewDidLoad];
     
     uidOfRequest = @{
-                     @"大排档":@"classes/t_Store",
+                     @"宵夜外卖":@"classes/xiaoyewaimai",
+                     @"出行包车":@"classes/chuxingbaoche",
+                     @"休闲娱乐":@"classes/xiuxianyule",
+                     @"餐饮美食":@"classes/canyinmeishi",
+                     
+                     @"快递物流":@"classes/kuaidiwuliu",
+                     @"服装相关":@"classes/fuzhuangxiangguan",
+                     @"学校部门":@"classes/xuexiaobumen",
+                     @"驾车学车":@"classes/jiaxiaoxueche",
+                     
+                     @"横幅海报":@"classes/hengfuhaibao",
+                     @"蛋糕定制":@"classes/dangaodingzhi",
+                     @"周边住宿":@"classes/zhoubianzhusu",
+                     @"其他"    :@"classes/qita",
                      };
     [self setupRefreshView];
     //加载网络数据，使用了图片缓存

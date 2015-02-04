@@ -16,7 +16,9 @@
 @property(nonatomic,copy)NSString * phoneGdmc;
 @property(nonatomic,copy)NSString * phoneDgpt;
 @property(nonatomic,copy)NSString * instruction;
+@property(nonatomic,copy)NSString * address;
 @property(nonatomic,copy)NSString * key;
+@property(nonatomic,copy)NSString * keyToDB;
 
 //数据库接口API
 + (void)insertCollectionModel:(SS_CollectionModelinDB *)inDBModel;

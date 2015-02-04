@@ -62,10 +62,10 @@
     _storeInstructionIcon.frame = CGRectMake(10, _storeInstruction.frame.origin.y + 2, 15, 15);
     _storeInstructionIcon.image = [UIImage imageNamed:@"instruction"];
     //暂时使用简介的内容
-    _storeAddress.text = detailStoreFrame.detailStoreModel.instruction;
+    _storeAddress.text = detailStoreFrame.detailStoreModel.storeAddress;
     _storeAddressIcon.frame = CGRectMake(10, _storeAddress.frame.origin.y, 15, 15);
     _storeAddressIcon.image = [UIImage imageNamed:@"maps-1"];
-
+    
     //按钮
     self.collectBtn = [self addBtnWithTitle:@"收藏" image:@"timeline_icon_unlike_os7" bImage:@"timeline_card_leftbottom_highlighted_os7" index:0];
     [self.collectBtn addTarget:self action:@selector(clickCollection:) forControlEvents:UIControlEventTouchUpInside];
@@ -122,6 +122,7 @@
     //地址
     UILabel *adderss = [[UILabel alloc] init];
     adderss.font = [UIFont systemFontOfSize:15.0];
+    [adderss setTextColor:[UIColor grayColor]];
     adderss.numberOfLines = 0;
     self.storeAddress = adderss;
     [self.contentView addSubview:adderss];

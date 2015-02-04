@@ -32,7 +32,7 @@ static int lastSection;
                                 @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
                                 @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
                                 ];
-    _keyForStore = @[@"dapaidang",@"chuxingbaoche",@"xiuxianyule",@"canyinmeishi",
+    _keyForStore = @[@"xiaoyewaimai",@"chuxingbaoche",@"xiuxianyule",@"canyinmeishi",
                      @"kuaidiwuliu",@"fuzhuangxiangguan",@"xuexiaobumen",@"jiachexueche",
                      @"hengfuhaibao",@"dangaodingzhi",@"zhoubianzhusu",@"qita"];
 }
@@ -52,7 +52,7 @@ static int lastSection;
     for (int i=0;i<12;i++){
         NSMutableArray * classStore = [[NSMutableArray alloc] init];//每一个分类，其中包含了该分类的不同商家
         NSMutableArray * collectionModel = [[NSMutableArray alloc] init];
-        collectionModel = [SS_CollectionModelinDB queryCollectionModelWithWhere:@"key" property:_keyForStore[i]];
+        collectionModel = [SS_CollectionModelinDB queryCollectionModelWithWhere:@"keyToDB" property:_keyForStore[i]];
         for (id model in collectionModel){
             SS_CollectionFrame *frameModel = [[SS_CollectionFrame alloc] init];
             frameModel.inDBModel = model;

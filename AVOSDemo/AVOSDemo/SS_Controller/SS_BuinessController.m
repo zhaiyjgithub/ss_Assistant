@@ -12,7 +12,7 @@
 #import "Reachability.h"
 #import "MBProgressHUD+MJ.h"
 
-#define HOT_STORE_PATH  @"classes/t_Store"
+#define HOT_STORE_PATH  @"classes/hotstore"//分类名称统一小写
 
 
 @interface SS_BuinessController ()<SDWebImageManagerDelegate>
@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _naviClassesByButtonTag = @[@"大排档",@"出行包车",@"休闲娱乐",@"餐饮美食",
+    _naviClassesByButtonTag = @[@"宵夜外卖",@"出行包车",@"休闲娱乐",@"餐饮美食",
                                 @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
                                 @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
                                 ];
@@ -72,7 +72,6 @@
     for (id model in storeModel){
         SS_DetailOfStoreFrame *frameModel = [[SS_DetailOfStoreFrame alloc] init];
         frameModel.detailStoreModel = model;
-        NSLog(@"key:%@",[model key]);
         [self.dataSource addObject:frameModel];
     }
     [self.tableView reloadData];
@@ -101,6 +100,7 @@
 }
 #pragma mark - 网络数据更新数据库中热门商家的数据
 #pragma mark - TODO,count == 50 需要修改，只是假设本地数据库固定50个数据作为热门数据
+#define LOCAL_STORE
 - (void)updateLocalData:(NSMutableArray *)dataSource
 {
     NSMutableArray *hotStore = [[NSMutableArray alloc] initWithArray:[SS_DetailOfStoreModel queryDetailModelWithWhere:@{@"key":@"hotStore"} orderBy:nil count:50]];

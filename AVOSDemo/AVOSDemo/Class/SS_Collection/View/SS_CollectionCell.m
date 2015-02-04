@@ -16,17 +16,15 @@
     _storeFrame = storeFrame;
     //商家名称
     _storeNameLabel.text = storeFrame.inDBModel.storeName;
-    
     //简介
     _storeInstructionLabel.frame = storeFrame.instructionFrame;
     _storeInstructionLabel.text = storeFrame.inDBModel.instruction;
     _storeAddesssLabel.frame = storeFrame.addressFrame;
-    _storeAddesssLabel.text = @"待定！！！";
+    _storeAddesssLabel.text = storeFrame.inDBModel.address;
     
     _addressDot.frame = CGRectMake(10, _storeAddesssLabel.frame.origin.y +
                                    3, 10, 10);
     _addressDot.image = [UIImage resizedImageWithName:@"new_dot_os7"];
-    
 }
 
 

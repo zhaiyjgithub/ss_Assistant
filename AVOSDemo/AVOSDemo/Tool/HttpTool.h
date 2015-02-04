@@ -82,4 +82,6 @@ typedef void(^imageSuccessBlock)(CGSize imageSize);
                     newImageName:(NSString *)newImageName;
 
 + (void)downLoadImageWithURL:(NSString *)url Content_Type:(NSString *)type;
+
++ (void)requestWithPath:(NSString *)path params:(NSDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure method:(NSString *)method;
 @end

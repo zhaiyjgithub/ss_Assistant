@@ -9,7 +9,7 @@
 #import "SS_DetailOfStoreFrame.h"
 #import "NSString+JJ.h"
 
-#define SYSTEM_WITH  [UIScreen mainScreen].bounds.size.width - 70
+#define SYSTEM_WITH  [UIScreen mainScreen].bounds.size.width - 100
 
 @implementation SS_DetailOfStoreFrame
 
@@ -20,7 +20,7 @@
     CGSize instructionSize = [detailStoreModel.instruction sizeWithFont:[UIFont systemFontOfSize:15.0] maxSize:CGSizeMake(SYSTEM_WITH, MAXFLOAT)];
     _instructionFrame = CGRectMake(25, 235, instructionSize.width, instructionSize.height);
     
-    CGSize addressSize = [detailStoreModel.instruction sizeWithFont:[UIFont systemFontOfSize:15.0] maxSize:CGSizeMake(SYSTEM_WITH, MAXFLOAT)];
+    CGSize addressSize = [detailStoreModel.storeAddress sizeWithFont:[UIFont systemFontOfSize:15.0] maxSize:CGSizeMake(SYSTEM_WITH, MAXFLOAT)];
     _addressFrame = CGRectMake(25, _instructionFrame.origin.y  + instructionSize.height + 10, addressSize.width, addressSize.height);
     
     _imageAndLabelHeight = (235 + _instructionFrame.size.height + 10 + _addressFrame.size.height +10);

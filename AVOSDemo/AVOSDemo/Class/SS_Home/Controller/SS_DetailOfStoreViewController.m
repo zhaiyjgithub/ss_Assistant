@@ -92,10 +92,12 @@
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];//使用该事件就不会了。
             
             [cell addBlock:^(id sender) {
+                //进入评论界面
                 SS_CommentViewController *commentController = [[SS_CommentViewController alloc] init];
                 commentController.commentClassName = b_frame.detailStoreModel.commentClassName;
                 [self.navigationController pushViewController:commentController animated:YES];
             } phoneBlock:^(id sender) {
+                //还需要根据获得数据判断是否包含对应的学校号码
                 NSString * phoneDGUT = @"理工  ";
                 NSString * phoneGDMC = @"广医  ";
                 NSString * phoneDGPT = @"东职  ";
@@ -124,7 +126,7 @@
                     [collectOPAlertView show];
                 }
             } shareBlock:^(id sender) {
-                //进入发送界面
+                //进入微博分享界面
                 SS_ShareViewController * shareViewController = [[SS_ShareViewController alloc] init];
                 shareViewController.imageToUpLoad = self.storeImageView;
                 [self.navigationController pushViewController:shareViewController animated:YES];
@@ -132,6 +134,7 @@
             }];
             return cell;
         }else{
+            //显示评论
             static NSString *cellID = @"SS_CommentCell_id";
             SS_CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
             if (!cell) {
@@ -187,7 +190,9 @@
     inDBModel.phoneGdmc   = detailStoreModel.phoneGdmc;
     inDBModel.phoneDgpt   = detailStoreModel.phoneDgpt;
     inDBModel.instruction = detailStoreModel.instruction;
+    inDBModel.address     = detailStoreModel.storeAddress;
     inDBModel.key         = detailStoreModel.key;
+    inDBModel.keyToDB     = detailStoreModel.keyToDB;
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

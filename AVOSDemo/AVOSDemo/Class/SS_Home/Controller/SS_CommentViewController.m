@@ -10,6 +10,7 @@
 #import "SS_SendComment.h"
 #import "HttpTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "WBaccountTool.h"
 
 // 5.获得RGB颜色
 #define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
@@ -26,8 +27,7 @@
     // Do any additional setup after loading the view.
     [self setupNavigationBar];
     [self setTextView];
-    _commentModel.commentPoster = @"Zack";
-    _commentModel.commentClassName = _commentClassName;
+    //从当前归档中获取用户的信息即可
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,36 +57,28 @@
 
    
 }
-
 - (void)send
 {
     //[self.navigationController popViewControllerAnimated:YES];
     
-   // NSLog(@"_commentClassName:%@",_commentClassName);
-    NSDictionary *commentDic = @{@"poster":@"Zack",
+    NSLog(@"_commentClassName:%@",_commentClassName);
+    NSString * commentPoster = [WBaccountTool account].name;
+    NSDictionary *commentDic = @{@"poster":commentPoster,
                                  @"comment":_commentTextview.text,
                                  @"commentClassName":_commentClassName};
     
     NSLog(@"commentDic:%@",commentDic);
-    NSString *path = [NSString stringWithFormat:@"%@/%@",BASEURL,_commentClassName];
+    NSString *path = [NSString stringWithFormat:@"classes/%@",_commentClassName];
     
     NSLog(@"post path:%@",path);
-//    
-//    [HttpTool postWithPath:path params:commentDic success:^(id result) {
-//        NSLog(@"post successfully");
-//    } failure:^(NSError *error) {
-//        NSLog(@"post failed");
-//    }];
-    //关闭键盘，发送使用alterview更加好，但是取消时候会使用actionsheet
     
-    //点击该键后我们再弹出一个AlertView
-//    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"评论发送成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
-//    [myAlertView show];
-    //不再使用alertview .
-    
+    [HttpTool postWithPath:path params:commentDic success:^(id result) {
+        NSLog(@"successfully");
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error);
+    }];
     [self.navigationController popViewControllerAnimated:YES];
-    [MBProgressHUD showSuccess:@"发送成功"];
 }
 
 - (void)setTextView

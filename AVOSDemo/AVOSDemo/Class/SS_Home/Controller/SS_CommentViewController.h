@@ -12,6 +12,5 @@
 
 @interface SS_CommentViewController : UIViewController <UIActionSheetDelegate,UIAlertViewDelegate>
 @property(nonatomic,weak)SS_SendComment *commentTextview;
-@property(nonatomic,strong)SS_CommentModel *commentModel;
 @property(nonatomic,strong)NSString *commentClassName;
 @end

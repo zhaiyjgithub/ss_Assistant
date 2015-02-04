@@ -10,12 +10,11 @@
 @property(nonatomic,copy)NSString * phoneGdmc;
 @property(nonatomic,copy)NSString * phoneDgpt;
 @property(nonatomic,copy)NSString * instruction;
-@property(nonatomic,copy)NSString * key;
+@property(nonatomic,copy)NSString * key;  //用于本地热门商家查询以及本地储存
+@property(nonatomic,copy)NSString * keyToDB;//用于常规分类商家的本地储存
 //图片链接相关
 @property(nonatomic,copy)NSString * imageName;
 @property(nonatomic,copy)NSString * imageURL;
-//评论相关,不再需要使用commentPoster,只保留该商家对应的评论类别
-//@property(nonatomic,copy)NSString * commentPoster;
 @property(nonatomic,copy)NSString * commentClassName;
 
 //增加商家评论类别名称、数目
