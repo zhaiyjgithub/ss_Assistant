@@ -12,6 +12,8 @@
 #import "SS_HeadView.h"
 #import "SS_titleHeadView.h"
 #import "ImageViewTransform.h"
+#import "HttpTool.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface SS_CollectionController ()
 @property(nonatomic,strong)NSMutableDictionary *status;
@@ -28,13 +30,16 @@ static int lastSection;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.status = [[NSMutableDictionary alloc] init];
-    _naviClassesByButtonTag = @[@"大排档",@"出行包车",@"休闲娱乐",@"餐饮美食",
+    _naviClassesByButtonTag = @[@"宵夜外卖",@"出行包车",@"休闲娱乐",@"餐饮美食",
                                 @"快递物流",@"服装相关",@"学校部门",@"驾校学车",
                                 @"横幅海报",@"蛋糕订制",@"周边住宿",@"其他"
                                 ];
     _keyForStore = @[@"xiaoyewaimai",@"chuxingbaoche",@"xiuxianyule",@"canyinmeishi",
                      @"kuaidiwuliu",@"fuzhuangxiangguan",@"xuexiaobumen",@"jiachexueche",
                      @"hengfuhaibao",@"dangaodingzhi",@"zhoubianzhusu",@"qita"];
+    
+    
+ 
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,11 +129,21 @@ static int lastSection;
         NSString * phoneGDMC = @"广医  ";
         NSString * phoneDGPT = @"东职  ";
         
-        phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.inDBModel.phoneDgut];
-        phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.inDBModel.phoneGdmc];
-        phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.inDBModel.phoneDgpt];
+        if (![b_frame.inDBModel.phoneDgut isEqualToString:@"*"]) {
+            phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.inDBModel.phoneDgut];
+        }else
+            phoneDGUT = nil;
+        if (![b_frame.inDBModel.phoneGdmc isEqualToString:@"*"]) {
+            phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.inDBModel.phoneGdmc];
+        }else
+            phoneGDMC = nil;
+        if (![b_frame.inDBModel.phoneDgpt isEqualToString:@"*"]) {
+            phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.inDBModel.phoneDgpt];
+        }else
+            phoneDGPT = nil;
+        NSString * phoneHost = b_frame.inDBModel.phoneHost;
         
-        UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneDGUT otherButtonTitles:phoneGDMC,phoneDGPT, nil];
+        UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneHost  otherButtonTitles:phoneDGUT,phoneGDMC,phoneDGPT, nil];
         phoneActionSheet.actionSheetStyle = UIActionSheetStyleDefault;
         [phoneActionSheet showInView:self.view];
     }];

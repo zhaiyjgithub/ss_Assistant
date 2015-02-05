@@ -60,7 +60,7 @@
 - (void)send
 {
     //[self.navigationController popViewControllerAnimated:YES];
-    
+    [self.commentTextview resignFirstResponder];
     NSLog(@"_commentClassName:%@",_commentClassName);
     NSString * commentPoster = [WBaccountTool account].name;
     NSDictionary *commentDic = @{@"poster":commentPoster,
@@ -76,7 +76,7 @@
         NSLog(@"successfully");
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {
-        NSLog(@"error:%@",error);
+       // NSLog(@"error:%@",error);
     }];
     [self.navigationController popViewControllerAnimated:YES];
 }

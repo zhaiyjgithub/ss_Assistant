@@ -101,12 +101,22 @@
                 NSString * phoneDGUT = @"理工  ";
                 NSString * phoneGDMC = @"广医  ";
                 NSString * phoneDGPT = @"东职  ";
+                if (![b_frame.detailStoreModel.phoneDgut isEqualToString:@"*"]) {
+                    phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.detailStoreModel.phoneDgut];
+                }else
+                    phoneDGUT = nil;
+                if (![b_frame.detailStoreModel.phoneGdmc isEqualToString:@"*"]) {
+                    phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.detailStoreModel.phoneGdmc];
+                }else
+                    phoneGDMC = nil;
+                if (![b_frame.detailStoreModel.phoneDgpt isEqualToString:@"*"]) {
+                    phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.detailStoreModel.phoneDgpt];
+                }else
+                    phoneDGPT = nil;
                 
-                phoneDGUT = [phoneDGUT stringByAppendingString:b_frame.detailStoreModel.phoneDgut];
-                phoneGDMC = [phoneGDMC stringByAppendingString:b_frame.detailStoreModel.phoneGdmc];
-                phoneDGPT = [phoneDGPT stringByAppendingString:b_frame.detailStoreModel.phoneDgpt];
+                NSString * phoneHost = b_frame.detailStoreModel.phoneHost;
                 
-                UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneDGUT otherButtonTitles:phoneGDMC,phoneDGPT, nil];
+                UIActionSheet *phoneActionSheet = [[UIActionSheet alloc] initWithTitle:@"马上联系商家" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:phoneHost otherButtonTitles:phoneDGUT,phoneGDMC,phoneDGPT, nil];
                 phoneActionSheet.actionSheetStyle = UIActionSheetStyleDefault;
                 [phoneActionSheet showInView:self.view];
             } collectionBlock:^(id sender) {
