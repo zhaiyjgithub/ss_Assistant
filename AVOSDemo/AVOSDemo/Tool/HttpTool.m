@@ -126,7 +126,8 @@
     
     AFHTTPSessionManager * httpManager = [[AFHTTPSessionManager alloc]initWithBaseURL:[NSURL URLWithString:BASEURL] sessionConfiguration:sessionConfiguration];
     httpManager.responseSerializer =[AFJSONResponseSerializer serializer];
-    
+    httpManager.requestSerializer = [AFJSONRequestSerializer serializer];//当时没有添加上传的
+    //出现了无法post的bug。但是新浪微博也是可以偶然成功
     
     
     //3.发送请求
@@ -167,7 +168,6 @@
         }];
         
         [postTask resume];
-        
     }
     else if ([method isEqualToString:@"HEAD"]){
         

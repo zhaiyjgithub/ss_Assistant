@@ -63,11 +63,10 @@
     [self.commentTextview resignFirstResponder];
     NSLog(@"_commentClassName:%@",_commentClassName);
     NSString * commentPoster = [WBaccountTool account].name;
-    NSDictionary *commentDic = @{@"poster":commentPoster,
+    NSDictionary *commentDic = @{@"commentPoster":commentPoster,
                                  @"comment":_commentTextview.text,
                                  @"commentClassName":_commentClassName};
     
-    NSLog(@"commentDic:%@",commentDic);
     NSString *path = [NSString stringWithFormat:@"classes/%@",_commentClassName];
     
     NSLog(@"post path:%@",path);
@@ -77,6 +76,7 @@
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {
        // NSLog(@"error:%@",error);
+        [MBProgressHUD showError:@"发送失败"];
     }];
     [self.navigationController popViewControllerAnimated:YES];
 }

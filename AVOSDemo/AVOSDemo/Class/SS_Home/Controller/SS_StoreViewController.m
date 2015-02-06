@@ -54,6 +54,11 @@
                      @"周边住宿":@"classes/zhoubianzhusu",
                      @"其他"    :@"classes/qita",
                      };
+    //自定义返回按钮
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
+    backBtn.title = @"";
+    self.navigationItem.backBarButtonItem = backBtn;
+    
     [self setupRefreshView];
     //加载网络数据，使用了图片缓存
     [self loadNetworkData];
@@ -170,8 +175,6 @@
     detailController.title = [detailController.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
     //传递该商家所属的分类
     [self.navigationController pushViewController:detailController animated:YES];
-    
-    
 }
 
 

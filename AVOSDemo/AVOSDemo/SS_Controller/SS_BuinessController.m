@@ -39,6 +39,19 @@
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
     backBtn.title = @"";
     self.navigationItem.backBarButtonItem = backBtn;
+//    
+//    [HttpTool postWithPath:@"classes/mingjidapaidang" params:@{@"number":@"123"} success:^(id result) {
+//        NSLog(@"successfully");
+//        [MBProgressHUD showSuccess:@"发送成功"];
+//    } failure:^(NSError *error) {
+//        // NSLog(@"error:%@",error);
+//        [MBProgressHUD showError:@"发送失败"];
+//    }];
+    [HttpTool requestWithPath:@"classes/mingji" params:@{@"name":@"zack"} success:^(id result) {
+        NSLog(@"ok");
+    } failure:^(NSError *error) {
+        NSLog(@"failed");
+    } method:@"POST"];
     
     //增加网络检测
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
