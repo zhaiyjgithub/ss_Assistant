@@ -33,7 +33,6 @@
     NSString *commentClassNamePath = [NSString stringWithFormat:@"classes/%@",model.commentClassName];
    // NSLog(@"评论的路径名称:%@",commentClassNamePath);
     //发起连接
-    //
     [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
         if (result) {
             NSArray * array = result;
@@ -48,7 +47,23 @@
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
-        NSLog(@"error:%@",error);
+       // NSLog(@"error:%@",error);
+        [SS_BusinessAPITool getAllBusinessWithCommentModel:commentClassNamePath success:^(id result) {
+            if (result) {
+                NSArray * array = result;
+                NSMutableArray * frameArray = [[NSMutableArray array] init];
+                for (id model in array){
+                    SS_CommentFrame *frame = [[SS_CommentFrame alloc] init];
+                    frame.commmentModel = model;
+                    [frameArray addObject:frame];
+                }
+                //从底层的数据后去cell的属性
+                self.commentDataSource = frameArray;//[NSMutableArray arrayWithArray:array];
+                [self.tableView reloadData];
+            }
+        } failure:^(NSError *error) {
+            // NSLog(@"error:%@",error);
+        }];
     }];
 }
 

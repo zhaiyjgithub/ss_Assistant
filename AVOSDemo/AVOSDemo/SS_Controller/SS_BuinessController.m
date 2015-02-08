@@ -39,19 +39,6 @@
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] init];
     backBtn.title = @"";
     self.navigationItem.backBarButtonItem = backBtn;
-//    
-//    [HttpTool postWithPath:@"classes/mingjidapaidang" params:@{@"number":@"123"} success:^(id result) {
-//        NSLog(@"successfully");
-//        [MBProgressHUD showSuccess:@"发送成功"];
-//    } failure:^(NSError *error) {
-//        // NSLog(@"error:%@",error);
-//        [MBProgressHUD showError:@"发送失败"];
-//    }];
-    [HttpTool requestWithPath:@"classes/mingji" params:@{@"name":@"zack"} success:^(id result) {
-        NSLog(@"ok");
-    } failure:^(NSError *error) {
-        NSLog(@"failed");
-    } method:@"POST"];
     
     //增加网络检测
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -117,7 +104,6 @@
 - (void)updateLocalData:(NSMutableArray *)dataSource
 {
     NSMutableArray *hotStore = [[NSMutableArray alloc] initWithArray:[SS_DetailOfStoreModel queryDetailModelWithWhere:@{@"key":@"hotStore"} orderBy:nil count:50]];
-    NSLog(@"hotStore.count:%d",hotStore.count);
     //删除本地SQL数据，再根据网络数据更新本地SQL数据.但是数据存入的数据模型已经发生改变
     for (id model in hotStore){
         [SS_DetailOfStoreModel deleteDetailModel:model];
@@ -186,7 +172,7 @@
         SS_DetailOfStoreViewController *detailController = [[SS_DetailOfStoreViewController alloc] init];
         //将使用model，首先数据模型与字典之间的转换。而不适用直接的方式赋值
         detailController.dataSource[0] = self.dataSource[indexPath.row];//获取某一间商店的数据
-        detailController.title = [self.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
+        detailController.title = [detailController.dataSource[0] detailStoreModel].storeName;//根据数据源的下标获取数据
         [self.navigationController pushViewController:detailController animated:YES];
     }
 }
@@ -225,20 +211,30 @@
 
 - (void)processGeneralNetwork:(NetworkStatus)netStatus connectionRequired:(BOOL)connectionRequired
 {
+    static BOOL lastNetStatus = YES;
+    BOOL currentNetStatus = YES;
+    
     switch (netStatus) {
         case NotReachable:
-           // NSLog(@"Access Not Available");
-            [self showAlertToUser];
-            connectionRequired = NO;
+            currentNetStatus = NO;
             break;
         case ReachableViaWWAN:
-           // NSLog(@"www....");
+            currentNetStatus = YES;
             break;
         case ReachableViaWiFi:
-           // NSLog(@"WIFI");
+            currentNetStatus =YES;
             break;
         default:
             break;
+    }
+    if (lastNetStatus != currentNetStatus) {
+        lastNetStatus = currentNetStatus;
+        if (currentNetStatus == NO) {
+            //NSLog(@"can not access to network");
+            [self showAlertToUser];
+        }else if (currentNetStatus == YES){
+           // NSLog(@"network is working");
+        }
     }
 }
 
@@ -250,8 +246,7 @@
 
 - (void)showAlertToUser
 {
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"无法连接到互联网" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        //这是弹出的一个与当前View无关的，所以显示不用showIn，直接show
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"无法连接到互联网" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [myAlertView show];
 }
 
