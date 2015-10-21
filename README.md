@@ -4,7 +4,7 @@
 this is a assistan for **Songshanhu** senior school.It looks like **meituan** app.
 
 
-####what the technologies are used in this project
+####the technologies are used in this project
 
 * **AFNetworking**,that is no doubt that it is a very useful lib about network.
 * **AVOS**,but it was renamed as  **leanCloud**.Because i dont`t know how to write server progarmm so i use it instead.It has a lot of tutorial and source code demo about many platform about how to use it in its homepage.Just goto learn it now!
